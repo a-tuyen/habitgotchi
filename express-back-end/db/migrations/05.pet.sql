@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS pet_shop CASCADE; 
+
+CREATE TABLE pet_shop (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    required_challenge_count INTEGER NOT NULL,
+    img VARCHAR(255) NOT NULL, 
+    coins INTEGER NOT NULL
+  
+);
+
+DROP TABLE IF EXISTS my_pets CASCADE; 
+
+CREATE TABLE my_pets (
+    id SERIAL PRIMARY KEY NOT NULL,
+    isActive BOOLEAN NOT NULL ,
+    pet_id   INTEGER REFERENCES pet_shop(id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+
