@@ -4,38 +4,14 @@ const App = Express();
 const BodyParser = require("body-parser");
 const PORT = 8080;
 const fs = require("fs");
-const chalk = require("chalk");
-const pg = require("pg");
-
-// PG connection setup
-let result;
-var conString = process.env.POSTGRES_URL;
-//Can be found in the Details page
-var client = new pg.Client(conString);
-client.connect(function (err) {
-	if (err) {
-		return console.error("could not connect to postgres", err);
-	}
-});
-// Express Configuration
+const db = require("./lib/databasequeries.js");
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(BodyParser.json());
 App.use(Express.static("public"));
-const gettasksWithCategory = function () {
-	return client
-		.query(`SELECT img  FROM pet_shop where id = 1`)
-		.then((res) => {
-			console.log(res.rows[0]);
-			return res.rows[0];
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-};
 
 // Sample GET route
 App.get("/api/data", (req, res) => {
-	gettasksWithCategory().then((result) => {
+	db.gettasksWithCategory().then((result) => {
 		console.log(result["img"]);
 		res.json({ message: result["img"] });
 	});
