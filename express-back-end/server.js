@@ -23,8 +23,9 @@ App.use(BodyParser.json());
 App.use(Express.static("public"));
 const gettasksWithCategory = function () {
 	return client
-		.query(`SELECT name  FROM USERS where id = 1`)
+		.query(`SELECT img  FROM pet_shop where id = 1`)
 		.then((res) => {
+			console.log(res.rows[0]);
 			return res.rows[0];
 		})
 		.catch((err) => {
@@ -35,8 +36,8 @@ const gettasksWithCategory = function () {
 // Sample GET route
 App.get("/api/data", (req, res) => {
 	gettasksWithCategory().then((result) => {
-		console.log(result);
-		res.json({ message: result["name"] });
+		console.log(result["img"]);
+		res.json({ message: result["img"] });
 	});
 });
 
