@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./App.css";
+import "./styles/App.css";
+import Nav from "./Nav";
 
 class App extends Component {
 	constructor(props) {
@@ -26,6 +27,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<Nav />
 				<img src={this.state.message} alt="digital-pet" />
 				<button onClick={this.fetchData}>Fetch Data</button>
 			</div>

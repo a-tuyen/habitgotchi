@@ -1,0 +1,12 @@
+.nav-bar {
+	display: flex;
+	justify-content: center;
+	flex-grow: 1;
+	height: 72px;
+}
+
+.nav-bar--container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
