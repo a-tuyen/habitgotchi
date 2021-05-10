@@ -13,7 +13,15 @@ export default function DigitalPet(props) {
 		// 	<CardMedia style={{ height: "150px" }} image={props.Activepet.img} />
 		// 	<Typography>{props.Activepet.name}</Typography>
 		// </Card>
-    
+    <Grid item xs={6} sm={4}>
+      <Typography variant="h2">
+        {props.name}
+      </Typography>
+      <img src={props.img}/>
+      <Typography variant="subtitle1">
+        {props.description}
+      </Typography>
+    </Grid>
 	);
 }
 

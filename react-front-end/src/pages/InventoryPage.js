@@ -12,22 +12,25 @@ export default function InventoryPage(props) {
   }
 
   return (
-    // <>
-    //   <Nav/>
-    //   <Typography variant="h1">My Inventory</Typography>
-    // </>
-    <Grid container direction="column" >
-      <Grid item>
-        <Nav/>
+    <>
+      <Nav/>
+      <Typography variant="h1">My Inventory</Typography>
+      <Grid container direction="column" spacing={2}>
+        {/* Map through each inventory item, not sure how to do it quite yet */}
       </Grid>
-      <Grid item>
-        <Typography variant="h1">My Inventory</Typography>
-      </Grid>
-      <Grid item container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          {}
-        </Grid>
-      </Grid>
-    </Grid>
+    </>
+    // <Grid container direction="column" >
+    //   <Grid item>
+    //     <Nav/>
+    //   </Grid>
+    //   <Grid item>
+    //     <Typography variant="h1">My Inventory</Typography>
+    //   </Grid>
+    //   <Grid item container spacing={2}>
+    //     <Grid item xs={12} sm={6}>
+    //       {}
+    //     </Grid>
+    //   </Grid>
+    // </Grid>
   )
 }
