@@ -9,7 +9,7 @@ export default function App(props) {
 	return (
 		<div className="App">
 			{/* <DashboardPage Activepet={state.ActivePet} Status={state.Status} /> */}
-      <InventoryPage myPetInventory={state.MyPetInventory} />
+			<InventoryPage myPetInventory={state.MyPetInventory} />
 		</div>
 	);
 }
