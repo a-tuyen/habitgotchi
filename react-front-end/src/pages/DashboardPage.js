@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-
 import Nav from "../components/Nav";
 import DigitalPet from "../components/DigitalPet";
 import Status from "../components/status";
