@@ -12,7 +12,11 @@ App.use(Express.static("public"));
 // Sample GET route
 App.get("/api/digitalpet", (req, res) => {
 	db.getActivePet().then((result) => {
-		console.log(result);
+		res.json({ message: result });
+	});
+});
+App.get("/api/statdata", (req, res) => {
+	db.getdailyStatus().then((result) => {
 		res.json({ message: result });
 	});
 });
