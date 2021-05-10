@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import MonetizationOnRoundedIcon from '@material-ui/icons/MonetizationOnRounded';
 
-export default function DigitalPet(props) {
+export default function PetShopListItem(props) {
 	console.log(props);
 	return (
 		// <Card>

@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import { CardMedia } from "@material-ui/core";
 
-export default function DigitalPet(props) {
+export default function PetInventoryListItem(props) {
 	// const { name, img, description } = props;
 	return (
 		// <Card>
