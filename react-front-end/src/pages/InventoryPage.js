@@ -1,41 +1,39 @@
-import React from 'react';
+import React from "react";
 // import { makeStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
-import Grid from '@material-ui/core/Grid';
-import PetInventoryListItem from '../components/PetInventoryListItem';
-import Nav from '../components/Nav';
+import Grid from "@material-ui/core/Grid";
+import PetInventoryListItem from "../components/PetInventoryListItem";
+import Nav from "../components/Nav";
 
 export default function InventoryPage(props) {
-  console.log(props);
-  // const getPetInventory = petInventoryObj => {
-  //   return <PetInventoryListItem {...petInventoryObj} />;
-  // }
+	console.log(props);
+	// const getPetInventory = petInventoryObj => {
+	//   return <PetInventoryListItem {...petInventoryObj} />;
+	// }
 
-  return (
-    <>
-      <Nav/>
-      <Typography variant="h1">My Inventory</Typography>
-      <Grid container direction="column" spacing={2}>
-        {/* Map through each inventory item, not sure how to do it quite yet */}
-        <PetInventoryListItem 
-          name = {props.myPetInventory[0].name}
-        />
-      </Grid>
-    </>
-    // <Grid container direction="column" >
-    //   <Grid item>
-    //     <Nav/>
-    //   </Grid>
-    //   <Grid item>
-    //     <Typography variant="h1">My Inventory</Typography>
-    //   </Grid>
-    //   <Grid item container spacing={2}>
-    //     <Grid item xs={12} sm={6}>
-    //       {}
-    //     </Grid>
-    //   </Grid>
-    // </Grid>
-  )
+	return (
+		<>
+			<Nav />
+			<Typography variant="h1">My Inventory</Typography>
+			<Grid container direction="column" spacing={2}>
+				{/* Map through each inventory item, not sure how to do it quite yet */}
+				<PetInventoryListItem name={props.myPetInventory[0]} />
+			</Grid>
+		</>
+		// <Grid container direction="column" >
+		//   <Grid item>
+		//     <Nav/>
+		//   </Grid>
+		//   <Grid item>
+		//     <Typography variant="h1">My Inventory</Typography>
+		//   </Grid>
+		//   <Grid item container spacing={2}>
+		//     <Grid item xs={12} sm={6}>
+		//       {}
+		//     </Grid>
+		//   </Grid>
+		// </Grid>
+	);
 }
 
 // 0: {id: 1, name: "Mango", description: "A little empty-headed but will always be loyal to you", required_challenge_count: 0, img: "https://github.com/a-tuyen/habitgotchi/blob/master/docs/pets/051-cat.png?raw=true", …}
