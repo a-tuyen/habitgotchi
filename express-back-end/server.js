@@ -31,6 +31,11 @@ App.get("/api/petshop", (req, res) => {
 		res.json({ message: result });
 	});
 });
+App.get("/api/balancecoins", (req, res) => {
+	db.getbalanceCoins().then((result) => {
+		res.json({ message: result });
+	});
+});
 
 App.listen(PORT, () => {
 	// eslint-disable-next-line no-console

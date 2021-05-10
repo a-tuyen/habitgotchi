@@ -30,7 +30,6 @@ const getdailyStatus = function () {
 			[1, "2021-05-15"]
 		)
 		.then((result) => {
-			console.log(result.rows);
 			return result.rows[0];
 		})
 		.catch((err) => {
@@ -46,7 +45,6 @@ const getPetInventory = function () {
 			[1]
 		)
 		.then((result) => {
-			console.log(result.rows);
 			return result.rows;
 		})
 		.catch((err) => {
@@ -59,7 +57,6 @@ const getAllfrompetShop = function () {
 	return db
 		.query(`SELECT * FROM pet_shop WHERE purchased = $1`, [false])
 		.then((result) => {
-			console.log(result.rows);
 			return result.rows;
 		})
 		.catch((err) => {
@@ -67,3 +64,16 @@ const getAllfrompetShop = function () {
 		});
 };
 exports.getAllfrompetShop = getAllfrompetShop;
+
+const getbalanceCoins = function () {
+	return db
+		.query(`SELECT SUM(*) FROM COINS WHERE user_id = $1`, [1])
+		.then((result) => {
+			return result.rows;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+
+exports.getbalanceCoins = getbalanceCoins;
