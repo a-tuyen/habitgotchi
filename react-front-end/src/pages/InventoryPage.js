@@ -4,14 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import MyPetlist from "../components/myPetlist";
 import Nav from "../components/Nav";
-
 export default function InventoryPage(props) {
-	console.log(props.myPetInventory[0]);
-
-	// const getPetInventory = petInventoryObj => {
-	//   return <PetInventoryListItem {...petInventoryObj} />;
-	// }
-
 	return (
 		<div>
 			<Nav />
