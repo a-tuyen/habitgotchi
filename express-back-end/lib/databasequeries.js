@@ -38,3 +38,10 @@ const getdailyStatus = function () {
 		});
 };
 exports.getdailyStatus = getdailyStatus;
+
+const getPetInventory = function () {
+  return db
+    .query(
+      `SELECT * FROM pet_shop WHERE u`
+    )
+}
