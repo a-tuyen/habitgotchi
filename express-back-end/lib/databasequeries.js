@@ -8,9 +8,12 @@ db.connect(function (err) {
 		return console.error("could not connect to postgres", err);
 	}
 });
-const gettasksWithCategory = function () {
+const getActivePet = function () {
 	return db
-		.query(`SELECT img  FROM pet_shop where id = 1`)
+		.query(
+			`SELECT name, img  FROM my_pets  JOIN pet_shop ON pet_id = pet_shop.id where isActive = $1 and user_id =$2`,
+			[true, 1]
+		)
 		.then((res) => {
 			console.log(res.rows[0]);
 			return res.rows[0];
@@ -19,4 +22,4 @@ const gettasksWithCategory = function () {
 			console.log(err);
 		});
 };
-exports.gettasksWithCategory = gettasksWithCategory;
+exports.getActivePet = getActivePet;

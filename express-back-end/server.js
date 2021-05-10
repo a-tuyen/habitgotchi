@@ -10,10 +10,10 @@ App.use(BodyParser.json());
 App.use(Express.static("public"));
 
 // Sample GET route
-App.get("/api/data", (req, res) => {
-	db.gettasksWithCategory().then((result) => {
-		console.log(result["img"]);
-		res.json({ message: result["img"] });
+App.get("/api/digitalpet", (req, res) => {
+	db.getActivePet().then((result) => {
+		console.log(result);
+		res.json({ message: result });
 	});
 });
 
