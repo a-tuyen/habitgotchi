@@ -15,7 +15,6 @@ const getActivePet = function () {
 			[true, 1]
 		)
 		.then((res) => {
-			console.log(res.rows[0]);
 			return res.rows[0];
 		})
 		.catch((err) => {
@@ -23,3 +22,19 @@ const getActivePet = function () {
 		});
 };
 exports.getActivePet = getActivePet;
+
+const getdailyStatus = function () {
+	return db
+		.query(
+			`SELECT calories, sleep, steps, water FROM user_data_readings where user_id =$1 and created_date = $2`,
+			[1, "2021-05-15"]
+		)
+		.then((result) => {
+			console.log(result.rows);
+			return result.rows[0];
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+exports.getdailyStatus = getdailyStatus;

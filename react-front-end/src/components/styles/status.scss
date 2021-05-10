@@ -1,0 +1,13 @@
+.stat-bar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: auto;
+	margin: auto;
+	background-color: aquamarine;
+	color: red;
+}
+.stat-bar--icon {
+	font-size: 300px;
+}
