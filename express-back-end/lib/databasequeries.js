@@ -54,3 +54,16 @@ const getPetInventory = function () {
 		});
 };
 exports.getPetInventory = getPetInventory;
+
+const getAllfrompetShop = function () {
+	return db
+		.query(`SELECT * FROM pet_shop WHERE purchased = $1`, [false])
+		.then((result) => {
+			console.log(result.rows);
+			return result.rows;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+exports.getAllfrompetShop = getAllfrompetShop;

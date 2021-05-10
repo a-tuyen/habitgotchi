@@ -26,6 +26,12 @@ App.get("/api/mypetinventory", (req, res) => {
 	});
 });
 
+App.get("/api/petshop", (req, res) => {
+	db.getAllfrompetShop().then((result) => {
+		res.json({ message: result });
+	});
+});
+
 App.listen(PORT, () => {
 	// eslint-disable-next-line no-console
 	console.log(
