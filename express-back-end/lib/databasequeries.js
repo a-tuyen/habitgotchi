@@ -42,6 +42,15 @@ exports.getdailyStatus = getdailyStatus;
 const getPetInventory = function () {
   return db
     .query(
-      `SELECT * FROM pet_shop WHERE u`
+      `SELECT * FROM pet_shop JOIN my_pets on pet_id = pet_shop.id WHERE user_id = $1`,
+      [1]
     )
-}
+    .then((result) => {
+      console.log(result.rows);
+      return result.rows;
+    })
+    .catch((err) => {
+			console.log(err);
+		});
+};
+exports.getPetInventory = getPetInventory;

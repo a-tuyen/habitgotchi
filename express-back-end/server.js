@@ -20,6 +20,11 @@ App.get("/api/statdata", (req, res) => {
 		res.json({ message: result });
 	});
 });
+App.get("/api/mypetinventory", (req, res) => {
+	db.getPetInventory().then((result) => {
+		res.json({ message: result });
+	});
+});
 
 App.listen(PORT, () => {
 	// eslint-disable-next-line no-console
