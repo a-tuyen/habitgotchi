@@ -1,0 +1,25 @@
+@import"./variables.scss";
+
+$heading-font: "Quicksand", sans-serif;
+$body-font: "Roboto", sans-serif;
+
+// Font Weights
+$light: 300;
+$normal: 400;
+$semibold: 500;
+$bold: 700;
+
+// Mixin for Typography Styling
+@mixin typography-styles($font, $size, $weight) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+h1 {
+  @include typography-styles($heading-font, 36, $bold)
+}
+
+body, p {
+  @include typography-styles($body, 12, $normal)
+}
