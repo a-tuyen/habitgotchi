@@ -5,9 +5,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DashboardPage from "../pages/DashboardPage";
 import InventoryPage from "../pages/InventoryPage";
 import PetShopPage from "../pages/PetShopPage";
+import DailyChallengesPage from "../pages/DailyChallengesPage";
+import UserChallengesPage from "../pages/UserChallengesPage";
+
 import { ThemeProvider } from "@material-ui/styles";
 export default function App(props) {
 	const { state } = useApplicationData();
+	console.log('STATE!!', state)
+
 	return (
 		<div className="App">
 			<Router>
@@ -30,6 +35,16 @@ export default function App(props) {
 							<PetShopPage PetInventory={state.PetShop}></PetShopPage>
 						</ThemeProvider>
 					</Route>
+					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
+						<ThemeProvider>
+							<DailyChallengesPage dailyChallenges={state.DailyChallenges[0]}></DailyChallengesPage>
+						</ThemeProvider>
+					</Route>
+					{/* <Route exact path="/userchallenges" component={UserChallengesPage}>
+						<ThemeProvider>
+							<UserChallengesPage userChallenges={state.UserChallenges} />
+						</ThemeProvider>
+					</Route> */}
 				</Switch>
 			</Router>
 		</div>
