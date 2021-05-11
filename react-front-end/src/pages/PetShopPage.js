@@ -6,11 +6,13 @@ import Petshoplist from "../components/Petshoplist";
 import Nav from "../components/Nav";
 
 export default function PetShopPage(props) {
+	console.log(props);
+
 	return (
 		<Fragment>
 			<Nav />
 			<Typography variant="h1">Pet Shop</Typography>
-			{parseInt(props.coins)} Coins
+			{props.coins} Coins
 			<Typography variant="subtitle2">
 				<Petshoplist PetInventory={props.PetInventory} />
 			</Typography>

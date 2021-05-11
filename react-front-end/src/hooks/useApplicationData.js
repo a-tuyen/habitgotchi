@@ -8,7 +8,7 @@ export default function useApplicationData() {
 		Status: {},
 		MyPetInventory: [],
 		PetShop: [],
-		balanceCoins: {},
+		balanceCoins: 0,
 	});
 	//  uses API to load data from API
 
@@ -31,9 +31,22 @@ export default function useApplicationData() {
 				Status: all[1].data.message,
 				MyPetInventory: all[2].data.message,
 				PetShop: all[3].data.message,
-				balanceCoins: all[4].data.message,
+				balanceCoins: parseInt(all[4].data.message.sum),
 			}));
 		});
 	}, []);
-	return { state };
+
+	function buydigtalpet(itemcoins, id) {
+		console.log(itemcoins);
+		console.log(id);
+		if (itemcoins < parseInt(state.balanceCoins)) {
+			const balanceCoins = state.balanceCoins - itemcoins;
+			const PetShop = { ...state.PetShop[id], purchased: true };
+
+			return axios
+				.put(`/api/Shop/${id}`, { PetShop })
+				.then(setState((prev) => ({ ...prev, PetShop, balanceCoins })));
+		}
+	}
+	return { state, buydigtalpet };
 }

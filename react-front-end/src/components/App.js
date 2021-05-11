@@ -5,35 +5,30 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DashboardPage from "../pages/DashboardPage";
 import InventoryPage from "../pages/InventoryPage";
 import PetShopPage from "../pages/PetShopPage";
-import { ThemeProvider } from "@material-ui/styles";
-export default function App(props) {
-	const { state } = useApplicationData();
+import MyContext from "./MyContext";
+
+export default function App() {
+	const { state, buydigtalpet } = useApplicationData();
+
 	console.log(state.balanceCoins);
 	return (
 		<div className="App">
 			<Router>
 				<Switch>
 					<Route exact path="/" component={DashboardPage}>
-						<ThemeProvider>
-							<DashboardPage
-								Activepet={state.ActivePet}
-								Status={state.Status}
-							/>
-						</ThemeProvider>
+						<DashboardPage Activepet={state.ActivePet} Status={state.Status} />
 					</Route>
 					<Route exact path="/mypetinventory" component={InventoryPage}>
-						<ThemeProvider>
-							<InventoryPage myPetInventory={state.MyPetInventory} />
-						</ThemeProvider>
+						<InventoryPage myPetInventory={state.MyPetInventory} />
 					</Route>
-					<Route exact path="/petshop" component={PetShopPage}>
-						<ThemeProvider>
+					<MyContext.Provider value={buydigtalpet}>
+						<Route exact path="/petshop" component={PetShopPage}>
 							<PetShopPage
 								PetInventory={state.PetShop}
-								coins={state.balanceCoins.sum}
+								coins={state.balanceCoins}
 							></PetShopPage>
-						</ThemeProvider>
-					</Route>
+						</Route>
+					</MyContext.Provider>
 				</Switch>
 			</Router>
 		</div>

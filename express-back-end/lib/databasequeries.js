@@ -55,7 +55,7 @@ exports.getPetInventory = getPetInventory;
 
 const getAllfrompetShop = function () {
 	return db
-		.query(`SELECT * FROM pet_shop WHERE purchased = $1`, [false])
+		.query(`SELECT * FROM pet_shop `)
 		.then((result) => {
 			return result.rows;
 		})
