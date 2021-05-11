@@ -1,50 +1,63 @@
+// Libraries
 import React, { Component } from "react";
-import "./styles/App.css";
-import useApplicationData from "../hooks/useApplicationData";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// Style sheet
+import "./styles/App.css";
+
+// Helpers
+import useApplicationData from "../hooks/useApplicationData";
+
+//Pages
 import DashboardPage from "../pages/DashboardPage";
 import InventoryPage from "../pages/InventoryPage";
 import PetShopPage from "../pages/PetShopPage";
 import DailyChallengesPage from "../pages/DailyChallengesPage";
 import UserChallengesPage from "../pages/UserChallengesPage";
 
-import { ThemeProvider } from "@material-ui/styles";
+// Questionnaire
+import QuestionSteps from "../pages/QuestionSteps";
+import QuestionWater from "../pages/QuestionWater";
+import QuestionActiveMin from "../pages/QuestionActiveMin";
+import ChallengeContext from "./challengecontext";
+
 export default function App(props) {
 	const { state } = useApplicationData();
-	console.log('STATE!!', state)
+	// console.log('STATE!!', state)
 
 	return (
 		<div className="App">
 			<Router>
 				<Switch>
 					<Route exact path="/" component={DashboardPage}>
-						<ThemeProvider>
 							<DashboardPage
 								Activepet={state.ActivePet}
 								Status={state.Status}
 							/>
-						</ThemeProvider>
 					</Route>
 					<Route exact path="/mypetinventory" component={InventoryPage}>
-						<ThemeProvider>
 							<InventoryPage myPetInventory={state.MyPetInventory} />
-						</ThemeProvider>
 					</Route>
 					<Route exact path="/petshop" component={PetShopPage}>
-						<ThemeProvider>
 							<PetShopPage PetInventory={state.PetShop}></PetShopPage>
-						</ThemeProvider>
 					</Route>
+					<ChallengeContext.Provider value={state}>
 					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
-						<ThemeProvider>
-							<DailyChallengesPage dailyChallenges={state.DailyChallenges[0]}></DailyChallengesPage>
-						</ThemeProvider>
+							<DailyChallengesPage></DailyChallengesPage>
 					</Route>
+					</ChallengeContext.Provider>
 					{/* <Route exact path="/userchallenges" component={UserChallengesPage}>
-						<ThemeProvider>
 							<UserChallengesPage userChallenges={state.UserChallenges} />
-						</ThemeProvider>
 					</Route> */}
+										<Route exact path="/questionsteps" component={QuestionSteps}>
+							<QuestionSteps />
+					</Route>
+					<Route exact path="/questionwater" component={QuestionWater}>
+							<QuestionWater />
+					</Route>
+					<Route exact path="/questionactive" component={QuestionActiveMin}>
+							<QuestionActiveMin />
+					</Route>
 				</Switch>
 			</Router>
 		</div>
