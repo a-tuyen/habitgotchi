@@ -8,7 +8,7 @@ import PetShopPage from "../pages/PetShopPage";
 import MyContext from "./MyContext";
 
 export default function App() {
-	const { state, buydigtalpet } = useApplicationData();
+	const { state, buydigitalpet } = useApplicationData();
 
 	console.log(state.balanceCoins);
 	return (
@@ -21,7 +21,7 @@ export default function App() {
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 						<InventoryPage myPetInventory={state.MyPetInventory} />
 					</Route>
-					<MyContext.Provider value={buydigtalpet}>
+					<MyContext.Provider value={buydigitalpet}>
 						<Route exact path="/petshop" component={PetShopPage}>
 							<PetShopPage
 								PetInventory={state.PetShop}

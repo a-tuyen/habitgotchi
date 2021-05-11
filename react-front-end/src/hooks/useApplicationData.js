@@ -36,17 +36,18 @@ export default function useApplicationData() {
 		});
 	}, []);
 
-	function buydigtalpet(itemcoins, id) {
-		console.log(itemcoins);
-		console.log(id);
+	function buydigitalpet(itemcoins, id) {
 		if (itemcoins < parseInt(state.balanceCoins)) {
 			const balanceCoins = state.balanceCoins - itemcoins;
-			const PetShop = { ...state.PetShop[id], purchased: true };
-
-			return axios
-				.put(`/api/Shop/${id}`, { PetShop })
-				.then(setState((prev) => ({ ...prev, PetShop, balanceCoins })));
+			console.log(balanceCoins);
+			const PetShop = { ...state.PetShop[id - 1], purchased: true };
+			console.log("Petshop", PetShop);
+			console.log("id", id);
+			axios.put(`/api/Shop`, { balanceCoins, PetShop, id }).then((response) => {
+				console.log("Response", response);
+				setState((prev) => ({ ...prev, PetShop, balanceCoins }));
+			});
 		}
 	}
-	return { state, buydigtalpet };
+	return { state, buydigitalpet };
 }

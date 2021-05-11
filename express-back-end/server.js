@@ -37,6 +37,14 @@ App.get("/api/balancecoins", (req, res) => {
 	});
 });
 
+App.put("/api/Shop", (req, res) => {
+	console.log(req.body.id);
+	console.log(req.body.balanceCoins);
+	console.log("Petshop", req.body.PetShop);
+
+	res.json({ message: "Success" });
+});
+
 App.listen(PORT, () => {
 	// eslint-disable-next-line no-console
 	console.log(
