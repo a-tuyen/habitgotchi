@@ -10,6 +10,7 @@ export default function PetShopPage(props) {
 		<Fragment>
 			<Nav />
 			<Typography variant="h1">Pet Shop</Typography>
+			{parseInt(props.coins)} Coins
 			<Typography variant="subtitle2">
 				<Petshoplist PetInventory={props.PetInventory} />
 			</Typography>

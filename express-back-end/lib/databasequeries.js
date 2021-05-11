@@ -67,9 +67,10 @@ exports.getAllfrompetShop = getAllfrompetShop;
 
 const getbalanceCoins = function () {
 	return db
-		.query(`SELECT SUM(*) FROM COINS WHERE user_id = $1`, [1])
+		.query(`SELECT SUM(transaction) FROM COINS WHERE user_id = $1`, [1])
 		.then((result) => {
-			return result.rows;
+			console.log(result.rows[0]);
+			return result.rows[0];
 		})
 		.catch((err) => {
 			console.log(err);

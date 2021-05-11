@@ -8,6 +8,7 @@ import PetShopPage from "../pages/PetShopPage";
 import { ThemeProvider } from "@material-ui/styles";
 export default function App(props) {
 	const { state } = useApplicationData();
+	console.log(state.balanceCoins);
 	return (
 		<div className="App">
 			<Router>
@@ -27,7 +28,10 @@ export default function App(props) {
 					</Route>
 					<Route exact path="/petshop" component={PetShopPage}>
 						<ThemeProvider>
-							<PetShopPage PetInventory={state.PetShop}></PetShopPage>
+							<PetShopPage
+								PetInventory={state.PetShop}
+								coins={state.balanceCoins.sum}
+							></PetShopPage>
 						</ThemeProvider>
 					</Route>
 				</Switch>
