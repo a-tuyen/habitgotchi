@@ -22,8 +22,6 @@ import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
 
-
-
 export default function App() {
 	const { state, buydigitalpet } = useApplicationData();
 
@@ -32,42 +30,40 @@ export default function App() {
 		<Fragment>
 			<Router>
 				<Switch>
-        <Route exact path="/" component={DashboardPage}>
-							<DashboardPage
-								Activepet={state.ActivePet}
-								Status={state.Status}
-							/>
-					</Route>
-					<Route exact path="/mypetinventory" component={InventoryPage}>
-							<InventoryPage myPetInventory={state.MyPetInventory} />
-					</Route>
-					<Route exact path="/userchallenges" component={UserChallengesPage}>
-							<UserChallengesPage userChallenges={state.UserChallenges} />
-					</Route>
-					<Route exact path="/questionsteps" component={QuestionSteps}>
-							<QuestionSteps />
-					</Route>
-					<Route exact path="/questionwater" component={QuestionWater}>
-							<QuestionWater />
-					</Route>
-					<Route exact path="/questionactive" component={QuestionActiveMin}>
-							<QuestionActiveMin />
+					<Route exact path="/" component={DashboardPage}>
 						<DashboardPage Activepet={state.ActivePet} Status={state.Status} />
 					</Route>
-					<ChallengeContext.Provider value={state}>
-					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
-							<DailyChallengesPage></DailyChallengesPage>
+					<Route exact path="/mypetinventory" component={InventoryPage}>
+						<InventoryPage myPetInventory={state.MyPetInventory} />
 					</Route>
-					</ChallengeContext.Provider>
-					<BuyContext.Provider value={buydigitalpet}>
-						<Route exact path="/petshop" component={PetShopPage}>
+					<Route exact path="/userchallenges" component={UserChallengesPage}>
+						<UserChallengesPage userChallenges={state.UserChallenges} />
+					</Route>
+					<Route exact path="/questionsteps" component={QuestionSteps}>
+						<QuestionSteps />
+					</Route>
+					<Route exact path="/questionwater" component={QuestionWater}>
+						<QuestionWater />
+					</Route>
+					<Route exact path="/questionactive" component={QuestionActiveMin}>
+						<QuestionActiveMin />
+						<DashboardPage Activepet={state.ActivePet} Status={state.Status} />
+					</Route>
+
+					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
+						<ChallengeContext.Provider value={state}>
+							<DailyChallengesPage></DailyChallengesPage>
+						</ChallengeContext.Provider>
+					</Route>
+
+					<Route exact path="/petshop" component={PetShopPage}>
+						<BuyContext.Provider value={buydigitalpet}>
 							<PetShopPage
 								PetInventory={state.PetShop}
 								coins={state.balanceCoins}
 							></PetShopPage>
-						</Route>
-					</BuyContext.Provider>
-					
+						</BuyContext.Provider>
+					</Route>
 				</Switch>
 			</Router>
 		</Fragment>

@@ -8,7 +8,7 @@ import BuyContext from "./BuyContext.js";
 export default function PetShopListItem(props) {
 	const data = props.purchased ? "Sold" : "Buy";
 	const buydigitalpet = useContext(BuyContext);
-	console.log('buydigi', buydigitalpet);
+	// console.log('buydigi', buydigitalpet);
 
 	return (
 		<Card>

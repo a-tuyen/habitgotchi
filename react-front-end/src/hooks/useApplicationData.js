@@ -30,7 +30,6 @@ export default function useApplicationData() {
 			DailyChallengesPromise,
 			// userChallengesPromise,
 			balanceCoinspromise,
-			
 		]).then((all) => {
 			setState((prev) => ({
 				...prev,
@@ -41,7 +40,6 @@ export default function useApplicationData() {
 				DailyChallenges: all[4].data.message,
 				// UserChallenges: all[5].data.message,
 				balanceCoins: parseInt(all[5].data.message.sum),
-
 			}));
 		});
 	}, []);
@@ -50,13 +48,16 @@ export default function useApplicationData() {
 		if (itemcoins < parseInt(state.balanceCoins)) {
 			const balanceCoins = state.balanceCoins - itemcoins;
 			console.log(balanceCoins);
-			const PetShop = { ...state.PetShop[id - 1], purchased: true };
-			console.log("Petshop", PetShop);
-			console.log("id", id);
-			axios.put(`/api/Shop`, { balanceCoins, PetShop, id }).then((response) => {
-				console.log("Response", response);
-				setState((prev) => ({ ...prev, PetShop, balanceCoins }));
-			});
+			const PetShop = [...state.PetShop];
+			const Pet = { ...state.PetShop[id - 1] };
+			console.log("Pet", Pet);
+			Pet.purchased = true;
+
+			PetShop[id - 1] = Pet;
+
+			axios
+				.put(`/api/Shop`, { balanceCoins, PetShop, id })
+				.then(() => setState((prev) => ({ ...prev, PetShop, balanceCoins })));
 		}
 	}
 	return { state, buydigitalpet };
