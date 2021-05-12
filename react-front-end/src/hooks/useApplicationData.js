@@ -48,20 +48,25 @@ export default function useApplicationData() {
 		if (itemcoins < parseInt(state.balanceCoins)) {
 			const balanceCoins = state.balanceCoins - itemcoins;
 			const PetShop = [...state.PetShop];
-			const Pet = { ...state.PetShop[id - 1] };
-			Pet.purchased = true;
-			PetShop[id - 1] = Pet;
-			const MyPet = [...state.MyPetInventory];
-			MyPet.push(Pet);
 
-			axios.put(`/api/Shop`, { balanceCoins, PetShop, id }).then(() =>
+			const Pet = { ...state.PetShop[id - 1], purchased: true };
+			console.log(PetShop);
+			// Pet.purchased = true;
+			PetShop[id - 1] = Pet;
+			const MyPetInventory = [...state.MyPetInventory];
+			MyPetInventory.push(Pet);
+			console.log(Pet);
+
+			axios.put(`/api/Shop`, { balanceCoins, Pet, id }).then(() =>
 				setState((prev) => ({
 					...prev,
 					PetShop,
+					MyPetInventory,
 					balanceCoins,
-					MyPetInventory: MyPet,
 				}))
 			);
+		} else {
+			alert("INSUFFICIENT FUNDS");
 		}
 	}
 	return { state, buydigitalpet };

@@ -41,7 +41,7 @@ exports.getdailyStatus = getdailyStatus;
 const getPetInventory = function () {
 	return db
 		.query(
-			`SELECT * FROM pet_shop JOIN my_pets ON pet_id = pet_shop.id WHERE user_id = $1`,
+			`SELECT * FROM pet_shop JOIN my_pets ON pet_id = pet_shop.id WHERE user_id = $1  `,
 			[1]
 		)
 		.then((result) => {
@@ -55,7 +55,7 @@ exports.getPetInventory = getPetInventory;
 
 const getAllfrompetShop = function () {
 	return db
-		.query(`SELECT * FROM pet_shop `)
+		.query(`SELECT * FROM pet_shop ORDER BY id `)
 		.then((result) => {
 			return result.rows;
 		})
@@ -121,3 +121,19 @@ const updatePetShop = function (id) {
 		});
 };
 exports.updatePetShop = updatePetShop;
+
+const insertnewPet = function (id) {
+	return db
+		.query(
+			`INSERT INTO my_pets (isActive, pet_id, user_id)
+VALUES ($1, $2, $3) RETURNING *; `,
+			[false, id, 1]
+		)
+		.then((result) => {
+			return result.rows;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+exports.insertnewPet = insertnewPet;

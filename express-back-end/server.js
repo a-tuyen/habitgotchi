@@ -38,10 +38,14 @@ App.get("/api/balancecoins", (req, res) => {
 });
 
 App.put("/api/Shop", (req, res) => {
-	db.updatePetShop(req.body.id).then((result) => {
-		console.log(req.body.id);
-		res.json({ message: "Success" });
-	});
+	db.updatePetShop(req.body.id)
+		.then(() => {
+			return db.insertnewPet(req.body.id);
+		})
+		.then((result) => {
+			console.log(req.body.id, req.body.Pet);
+			res.json({ message: "Success" });
+		});
 });
 
 App.get("/api/dailychallenges", (req, res) => {
