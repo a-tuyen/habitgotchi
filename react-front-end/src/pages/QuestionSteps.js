@@ -22,8 +22,8 @@ import {Link} from 'react-router-dom';
 
 export default function QuestionSteps(props) {
   console.log("tHis is steps page")
-	return (
-		<div>
+  return (
+    <div>
       <Nav />
       <FormControl>
         <p>What is your step goal for each day?</p>
@@ -45,7 +45,8 @@ export default function QuestionSteps(props) {
           Next
      </button>
  </Link>
-		</div>
-	);
+    </div>
+  );
 }
+
 
