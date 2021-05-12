@@ -137,3 +137,18 @@ VALUES ($1, $2, $3) RETURNING *; `,
 		});
 };
 exports.insertnewPet = insertnewPet;
+
+const insertnewTransaction = function insertnewTransaction(coins) {
+	return db
+		.query(
+			`INSERT INTO coins (transaction,user_id) VALUES ($1,$2) RETURNING *`,
+			[coins, 1]
+		)
+		.then((result) => {
+			return result.rows;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+exports.insertnewTransaction = insertnewTransaction;

@@ -42,6 +42,9 @@ App.put("/api/Shop", (req, res) => {
 		.then(() => {
 			return db.insertnewPet(req.body.id);
 		})
+		.then(() => {
+			return db.insertnewTransaction(-req.body.itemcoins);
+		})
 		.then((result) => {
 			console.log(req.body.id, req.body.Pet);
 			res.json({ message: "Success" });
