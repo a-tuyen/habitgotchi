@@ -8,7 +8,6 @@ import BuyContext from "./BuyContext.js";
 export default function PetShopListItem(props) {
 	const data = props.purchased ? "Sold" : "Buy";
 	const buydigitalpet = useContext(BuyContext);
-	// console.log('buydigi', buydigitalpet);
 
 	return (
 		<Card>
@@ -18,15 +17,22 @@ export default function PetShopListItem(props) {
 			<Button variant="contained" color="primary" disableElevation>
 				{props.coins} coins
 			</Button>
-			<Button
-				variant="contained"
-				color="primary"
-				onClick={(event) => {
-					buydigitalpet(props.coins, props.id);
-				}}
-			>
-				{data}
-			</Button>
+			{props.purchased && (
+				<Button variant="contained" color="black">
+					{data}
+				</Button>
+			)}
+			{!props.purchased && (
+				<Button
+					variant="contained"
+					color="primary"
+					onClick={(event) => {
+						buydigitalpet(props.coins, props.id);
+					}}
+				>
+					{data}
+				</Button>
+			)}
 		</Card>
 	);
 }
