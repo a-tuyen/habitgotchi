@@ -38,8 +38,8 @@ App.get("/api/balancecoins", (req, res) => {
 });
 
 App.put("/api/Shop", (req, res) => {
-	db.updatePetShop(req.id).then((result) => {
-		console.log(result);
+	db.updatePetShop(req.body.id).then((result) => {
+		console.log(req.body.id);
 		res.json({ message: "Success" });
 	});
 });

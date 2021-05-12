@@ -110,7 +110,9 @@ exports.getbalanceCoins = getbalanceCoins;
 
 const updatePetShop = function (id) {
 	return db
-		.query(`UPDATE pet_shop SET purchased = $1 WHERE id = $2`, [true, id])
+		.query(`UPDATE pet_shop SET purchased = true WHERE id = $1 RETURNING *;`, [
+			id,
+		])
 		.then((result) => {
 			return result.rows;
 		})
