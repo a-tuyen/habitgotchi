@@ -27,4 +27,10 @@
     margin-top: 30px;
     // border: blue solid 5px;
   }
+  a {
+    font-family: $heading-font;
+    color: white;
+    font-size: 36;
+    font-weight: $bold;
+  }
 }
