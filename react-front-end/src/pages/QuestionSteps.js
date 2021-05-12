@@ -21,6 +21,7 @@ import {Link} from 'react-router-dom';
 
 
 export default function QuestionSteps(props) {
+  console.log("tHis is steps page")
 	return (
 		<div>
       <Nav />

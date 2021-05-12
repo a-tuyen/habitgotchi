@@ -1,5 +1,5 @@
 // Libraries
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Style sheet
@@ -29,35 +29,16 @@ export default function App() {
 
 	console.log(state.balanceCoins);
 	return (
-		<div className="App">
+		<Fragment>
 			<Router>
 				<Switch>
-					<Route exact path="/" component={DashboardPage}>
-							<DashboardPage
-								Activepet={state.ActivePet}
-								Status={state.Status}
-							/>
-					</Route>
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 							<InventoryPage myPetInventory={state.MyPetInventory} />
 					</Route>
-					<BuyContext.Provider value={buydigitalpet}>
-						<Route exact path="/petshop" component={PetShopPage}>
-							<PetShopPage
-								PetInventory={state.PetShop}
-								coins={state.balanceCoins}
-							></PetShopPage>
-						</Route>
-					</BuyContext.Provider>
-					<ChallengeContext.Provider value={state}>
-					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
-							<DailyChallengesPage></DailyChallengesPage>
-					</Route>
-					</ChallengeContext.Provider>
-					{/* <Route exact path="/userchallenges" component={UserChallengesPage}>
+					<Route exact path="/userchallenges" component={UserChallengesPage}>
 							<UserChallengesPage userChallenges={state.UserChallenges} />
-					</Route> */}
-										<Route exact path="/questionsteps" component={QuestionSteps}>
+					</Route>
+					<Route exact path="/questionsteps" component={QuestionSteps}>
 							<QuestionSteps />
 					</Route>
 					<Route exact path="/questionwater" component={QuestionWater}>
@@ -70,8 +51,27 @@ export default function App() {
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 						<InventoryPage myPetInventory={state.MyPetInventory} />
 					</Route>
+					<ChallengeContext.Provider value={state}>
+					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
+							<DailyChallengesPage></DailyChallengesPage>
+					</Route>
+					</ChallengeContext.Provider>
+					<BuyContext.Provider value={buydigitalpet}>
+						<Route exact path="/petshop" component={PetShopPage}>
+							<PetShopPage
+								PetInventory={state.PetShop}
+								coins={state.balanceCoins}
+							></PetShopPage>
+						</Route>
+					</BuyContext.Provider>
+					<Route exact path="/" component={DashboardPage}>
+							<DashboardPage
+								Activepet={state.ActivePet}
+								Status={state.Status}
+							/>
+					</Route>
 				</Switch>
 			</Router>
-		</div>
+		</Fragment>
 	);
 }
