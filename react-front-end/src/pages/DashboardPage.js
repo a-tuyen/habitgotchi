@@ -12,7 +12,6 @@ export default function DashboardPage(props) {
 				<Grid item xs={12}>
 					<Nav />
 				</Grid>
-
 				<Grid item xs={12}>
 					<DigitalPet Activepet={props.Activepet} />
 				</Grid>
