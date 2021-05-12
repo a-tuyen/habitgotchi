@@ -12,6 +12,7 @@ export default function MyPetlist(props) {
 			name={pet.name}
 			description={pet.description}
 			img={pet.img}
+			Active={pet.isactive}
 		/>
 	));
 	return (
