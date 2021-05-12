@@ -152,3 +152,17 @@ const insertnewTransaction = function insertnewTransaction(coins) {
 		});
 };
 exports.insertnewTransaction = insertnewTransaction;
+
+const updateisActive = function (pet_id) {
+	db.query(
+		`UPDATE my_pets SET isActive = NOT isActive WHERE pet_id = $1 RETURNING * ;`,
+		[pet_id]
+	)
+		.then((result) => {
+			return result.rows;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+exports.updateisActive = updateisActive;

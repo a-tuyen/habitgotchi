@@ -51,6 +51,15 @@ App.put("/api/updateShop", (req, res) => {
 		});
 });
 
+App.put("/api/digitalpet1", (req, res) => {
+	const Promise1 = db.updateisActive(req.body.CurrentPet_id);
+	const Promise2 = db.updateisActive(req.body.id);
+	Promise.all([Promise1, Promise2]).then((all) => {
+		console.log(req.body.id, req.body.CurrentPet_id);
+		return res.json({ message: "Success" });
+	});
+});
+
 App.get("/api/dailychallenges", (req, res) => {
 	db.getDailyChallenges().then((result) => {
 		res.json({ message: result });

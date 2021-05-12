@@ -90,7 +90,7 @@ export default function useApplicationData() {
 		}
 		console.log(ActivePet);
 
-		axios.put(`/api/ditialpet`, { currentid, id }).then(() =>
+		axios.put(`/api/digitalpet1`, { CurrentPet_id, id }).then(() =>
 			setState((prev) => ({
 				...prev,
 				MyPetInventory,
