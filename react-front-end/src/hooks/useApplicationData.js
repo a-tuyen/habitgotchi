@@ -9,70 +9,55 @@ export default function useApplicationData() {
 		MyPetInventory: [],
 		PetShop: [],
 		DailyChallenges: {},
-		UserChallenges: {}
+		// UserChallenges: {},
+		balanceCoins: 0,
 	});
 	//  uses API to load data from API
 
-// 	useEffect(() => {
-// 		const digitalPetpromise = axios.get("/api/digitalpet");
-// 		const statusdataPromise = axios.get("/api/statdata");
-// 		const myPetInventorydataPromise = axios.get("/api/mypetinventory");
-// 		const Petshopdatapromise = axios.get("/api/petshop");
-// 		const DailyChallengesPromise = axios.get("/api/dailychallenges");
-// 		const userChallengesPromise = axios.get("/api/userchallenges")
-// 		Promise.all([
-// 			digitalPetpromise,
-// 			statusdataPromise,
-// 			myPetInventorydataPromise,
-// 			Petshopdatapromise,
-// 			DailyChallengesPromise,
-// 			userChallengesPromise
-// 		]).then((all) => {
-// 			console.log('ALL', all[4].data.message)
-// 			setState((prev) => ({
-// 				...prev,
-// 				ActivePet: all[0].data.message,
-// 				Status: all[1].data.message,
-// 				MyPetInventory: all[2].data.message,
-// 				PetShop: all[3].data.message,
-// 				DailyChallenges: all[4].data.message,
-// 				UserChallenges: all[5].data.message
-// 			}));
-// 			console.log('ALL', all[4].data.message)
-// 		});
-// 	}, []);
-// 	console.log('STATE:', state)
-// 	return { state };
-// }
-
-useEffect(() => {
-	const digitalPetpromise = axios.get("/api/digitalpet");
-	const statusdataPromise = axios.get("/api/statdata");
-	const myPetInventorydataPromise = axios.get("/api/mypetinventory");
-	const Petshopdatapromise = axios.get("/api/petshop");
-	const DailyChallengesPromise = axios.get("/api/dailychallenges");
-
-	Promise.all([
+	useEffect(() => {
+		const digitalPetpromise = axios.get("/api/digitalpet");
+		const statusdataPromise = axios.get("/api/statdata");
+		const myPetInventorydataPromise = axios.get("/api/mypetinventory");
+		const Petshopdatapromise = axios.get("/api/petshop");
+		const DailyChallengesPromise = axios.get("/api/dailychallenges");
+		// const userChallengesPromise = axios.get("/api/userchallenges");
+		const balanceCoinspromise = axios.get("/api/balancecoins");
+		Promise.all([
 			digitalPetpromise,
 			statusdataPromise,
 			myPetInventorydataPromise,
 			Petshopdatapromise,
 			DailyChallengesPromise,
-
-	]).then((all) => {
-		console.log("ALL:", all[4].data.message)
-			setState((prev) => ({
-					...prev,
-					ActivePet: all[0].data.message,
-					Status: all[1].data.message,
-					MyPetInventory: all[2].data.message,
-					PetShop: all[3].data.message,
-					DailyChallenges: all[4].data.message,
-
-			}))
+			// userChallengesPromise,
+			balanceCoinspromise,
 			
-	});
-}, []);
+		]).then((all) => {
+			setState((prev) => ({
+				...prev,
+				ActivePet: all[0].data.message,
+				Status: all[1].data.message,
+				MyPetInventory: all[2].data.message,
+				PetShop: all[3].data.message,
+				DailyChallenges: all[4].data.message,
+				// UserChallenges: all[5].data.message,
+				balanceCoins: parseInt(all[5].data.message.sum),
 
-	return { state };
+			}));
+		});
+	}, []);
+
+	function buydigitalpet(itemcoins, id) {
+		if (itemcoins < parseInt(state.balanceCoins)) {
+			const balanceCoins = state.balanceCoins - itemcoins;
+			console.log(balanceCoins);
+			const PetShop = { ...state.PetShop[id - 1], purchased: true };
+			console.log("Petshop", PetShop);
+			console.log("id", id);
+			axios.put(`/api/Shop`, { balanceCoins, PetShop, id }).then((response) => {
+				console.log("Response", response);
+				setState((prev) => ({ ...prev, PetShop, balanceCoins }));
+			});
+		}
+	}
+	return { state, buydigitalpet };
 }

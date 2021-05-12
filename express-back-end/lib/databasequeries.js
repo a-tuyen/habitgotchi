@@ -30,7 +30,6 @@ const getdailyStatus = function () {
 			[1, "2021-05-15"]
 		)
 		.then((result) => {
-			console.log(result.rows);
 			return result.rows[0];
 		})
 		.catch((err) => {
@@ -46,7 +45,6 @@ const getPetInventory = function () {
 			[1]
 		)
 		.then((result) => {
-			console.log(result.rows);
 			return result.rows;
 		})
 		.catch((err) => {
@@ -57,9 +55,8 @@ exports.getPetInventory = getPetInventory;
 
 const getAllfrompetShop = function () {
 	return db
-		.query(`SELECT * FROM pet_shop WHERE purchased = $1`, [false])
+		.query(`SELECT * FROM pet_shop `)
 		.then((result) => {
-			console.log(result.rows);
 			return result.rows;
 		})
 		.catch((err) => {
@@ -72,13 +69,14 @@ const getDailyChallenges = function () {
 	return db
 		.query(`SELECT step_goal, water_goal, active_min_goal FROM daily_challenges WHERE user_id = $1 AND completed = $2`, [1, false])
 		.then((result) => {
-			console.log('DAILY:', result.rows);
+			console.log('DAILY:', result)
 			return result.rows;
 		})
 		.catch((err) => {
 			console.log(err);
 		});
 };
+
 exports.getDailyChallenges = getDailyChallenges;
 
 
@@ -94,3 +92,16 @@ const getUserChallenges = function () {
 		});
 };
 exports.getUserChallenges = getUserChallenges;
+
+const getbalanceCoins = function () {
+	return db
+		.query(`SELECT SUM(transaction) FROM COINS WHERE user_id = $1`, [1])
+		.then((result) => {
+			console.log(result.rows[0]);
+			return result.rows[0];
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+exports.getbalanceCoins = getbalanceCoins;

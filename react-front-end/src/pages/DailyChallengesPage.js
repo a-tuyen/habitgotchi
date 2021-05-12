@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Grid } from "@material-ui/core";
 import Nav from "../components/Nav";
-import ChallengeContext from "../components/challengecontext";
+import ChallengeContext from "../components/ChallengeContext";
 // import DailyChallengesList from "../components/DailyChallengesList"
 
 

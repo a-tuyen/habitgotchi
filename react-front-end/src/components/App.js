@@ -7,6 +7,7 @@ import "./styles/App.css";
 
 // Helpers
 import useApplicationData from "../hooks/useApplicationData";
+import BuyContext from "./BuyContext";
 
 //Pages
 import DashboardPage from "../pages/DashboardPage";
@@ -19,12 +20,14 @@ import UserChallengesPage from "../pages/UserChallengesPage";
 import QuestionSteps from "../pages/QuestionSteps";
 import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
-import ChallengeContext from "./challengecontext";
+import ChallengeContext from "./ChallengeContext";
 
-export default function App(props) {
-	const { state } = useApplicationData();
-	// console.log('STATE!!', state)
 
+
+export default function App() {
+	const { state, buydigitalpet } = useApplicationData();
+
+	console.log(state.balanceCoins);
 	return (
 		<div className="App">
 			<Router>
@@ -38,9 +41,14 @@ export default function App(props) {
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 							<InventoryPage myPetInventory={state.MyPetInventory} />
 					</Route>
-					<Route exact path="/petshop" component={PetShopPage}>
-							<PetShopPage PetInventory={state.PetShop}></PetShopPage>
-					</Route>
+					<BuyContext.Provider value={buydigitalpet}>
+						<Route exact path="/petshop" component={PetShopPage}>
+							<PetShopPage
+								PetInventory={state.PetShop}
+								coins={state.balanceCoins}
+							></PetShopPage>
+						</Route>
+					</BuyContext.Provider>
 					<ChallengeContext.Provider value={state}>
 					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
 							<DailyChallengesPage></DailyChallengesPage>
@@ -57,6 +65,10 @@ export default function App(props) {
 					</Route>
 					<Route exact path="/questionactive" component={QuestionActiveMin}>
 							<QuestionActiveMin />
+						<DashboardPage Activepet={state.ActivePet} Status={state.Status} />
+					</Route>
+					<Route exact path="/mypetinventory" component={InventoryPage}>
+						<InventoryPage myPetInventory={state.MyPetInventory} />
 					</Route>
 				</Switch>
 			</Router>
