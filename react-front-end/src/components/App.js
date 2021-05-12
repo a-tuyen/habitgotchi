@@ -8,6 +8,7 @@ import "./styles/App.css";
 // Helpers
 import useApplicationData from "../hooks/useApplicationData";
 import BuyContext from "./BuyContext";
+import SelectContext from "./SelectContext";
 
 //Pages
 import DashboardPage from "../pages/DashboardPage";
@@ -23,7 +24,7 @@ import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
 
 export default function App() {
-	const { state, buydigitalpet } = useApplicationData();
+	const { state, buydigitalpet, selectdigitalpet } = useApplicationData();
 
 	console.log(state.balanceCoins);
 	return (
@@ -34,7 +35,9 @@ export default function App() {
 						<DashboardPage Activepet={state.ActivePet} Status={state.Status} />
 					</Route>
 					<Route exact path="/mypetinventory" component={InventoryPage}>
-						<InventoryPage myPetInventory={state.MyPetInventory} />
+						<SelectContext.Provider value={selectdigitalpet}>
+							<InventoryPage myPetInventory={state.MyPetInventory} />
+						</SelectContext.Provider>
 					</Route>
 					<Route exact path="/userchallenges" component={UserChallengesPage}>
 						<UserChallengesPage userChallenges={state.UserChallenges} />

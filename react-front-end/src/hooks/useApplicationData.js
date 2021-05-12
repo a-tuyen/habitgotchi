@@ -43,7 +43,7 @@ export default function useApplicationData() {
 			}));
 		});
 	}, []);
-
+	//Function to buy digital pet and update the state
 	function buydigitalpet(itemcoins, id) {
 		if (itemcoins < parseInt(state.balanceCoins)) {
 			const balanceCoins = state.balanceCoins - itemcoins;
@@ -69,5 +69,11 @@ export default function useApplicationData() {
 			alert("INSUFFICIENT FUNDS");
 		}
 	}
-	return { state, buydigitalpet };
+
+	function selectdigitalpet(id, name) {
+		// console.log(state.ActivePet);
+		console.log(id, name);
+	}
+
+	return { state, buydigitalpet, selectdigitalpet };
 }
