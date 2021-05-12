@@ -3,7 +3,7 @@ import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Style sheet
-import "./styles/App.css";
+import "./styles/App.scss";
 
 // Helpers
 import useApplicationData from "../hooks/useApplicationData";
@@ -21,8 +21,6 @@ import QuestionSteps from "../pages/QuestionSteps";
 import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
-
-
 
 export default function App() {
 	const { state, buydigitalpet } = useApplicationData();
