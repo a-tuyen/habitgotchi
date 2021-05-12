@@ -71,8 +71,32 @@ export default function useApplicationData() {
 	}
 
 	function selectdigitalpet(id, name) {
-		// console.log(state.ActivePet);
-		console.log(id, name);
+		const Currentpet = { ...state.ActivePet };
+		console.log(Currentpet.pet_id);
+		const CurrentPet_id = Currentpet.pet_id;
+		const ActivePet = Currentpet;
+		console.log(ActivePet);
+		const MyPetInventory = [...state.MyPetInventory];
+		for (const pet of MyPetInventory) {
+			//finds the Pet
+			if (pet["pet_id"] == CurrentPet_id) {
+				pet["isactive"] = false;
+			} else if (pet["pet_id"] == id) {
+				pet["isactive"] = true;
+				ActivePet.name = pet["name"];
+				ActivePet.img = pet["img"];
+				ActivePet.pet_id = pet["pet_id"];
+			}
+		}
+		console.log(ActivePet);
+
+		axios.put(`/api/ditialpet`, { currentid, id }).then(() =>
+			setState((prev) => ({
+				...prev,
+				MyPetInventory,
+				ActivePet,
+			}))
+		);
 	}
 
 	return { state, buydigitalpet, selectdigitalpet };
