@@ -5,6 +5,7 @@ import MyPetInventoryListItem from "./myPetInventoryListItem";
 
 // Petist Component which lists Pets
 export default function MyPetlist(props) {
+	console.log(props);
 	const List = props.myPetInventory.map((pet, index) => (
 		<MyPetInventoryListItem
 			key={index}

@@ -47,17 +47,21 @@ export default function useApplicationData() {
 	function buydigitalpet(itemcoins, id) {
 		if (itemcoins < parseInt(state.balanceCoins)) {
 			const balanceCoins = state.balanceCoins - itemcoins;
-			console.log(balanceCoins);
 			const PetShop = [...state.PetShop];
 			const Pet = { ...state.PetShop[id - 1] };
-			console.log("Pet", Pet);
 			Pet.purchased = true;
-
 			PetShop[id - 1] = Pet;
+			const MyPet = [...state.MyPetInventory];
+			MyPet.push(Pet);
 
-			axios
-				.put(`/api/Shop`, { balanceCoins, PetShop, id })
-				.then(() => setState((prev) => ({ ...prev, PetShop, balanceCoins })));
+			axios.put(`/api/Shop`, { balanceCoins, PetShop, id }).then(() =>
+				setState((prev) => ({
+					...prev,
+					PetShop,
+					balanceCoins,
+					MyPetInventory: MyPet,
+				}))
+			);
 		}
 	}
 	return { state, buydigitalpet };
