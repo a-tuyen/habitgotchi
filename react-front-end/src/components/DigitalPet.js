@@ -9,12 +9,13 @@ export default function DigitalPet(props) {
 	return (
 		<Card className="pet">
 			{/* <CardMedia img src={props.Activepet.img} /> */}
-			<CardMedia
-				style={{ height: "700px", width: "600px" }}
+			{/* <CardMedia
+				// style={{ height: "700px", width: "600px" }}
+        // className="digipet-img"
 				image={props.Activepet.img}
-			/>
-			{/* <img src= {props.img}></img> */}
-			<Typography>{props.Activepet.name}</Typography>
+			/> */}
+			<img src= {props.Activepet.img} className="digipet-img"></img>
+			<h1>{props.Activepet.name}</h1>
 		</Card>
 	);
 }
