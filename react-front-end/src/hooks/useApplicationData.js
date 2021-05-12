@@ -57,7 +57,7 @@ export default function useApplicationData() {
 			MyPetInventory.push(Pet);
 			console.log(Pet);
 
-			axios.put(`/api/Shop`, { itemcoins, Pet, id }).then(() =>
+			axios.put(`/api/updateShop`, { itemcoins, Pet, id }).then(() =>
 				setState((prev) => ({
 					...prev,
 					PetShop,

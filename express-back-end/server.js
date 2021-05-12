@@ -37,7 +37,7 @@ App.get("/api/balancecoins", (req, res) => {
 	});
 });
 
-App.put("/api/Shop", (req, res) => {
+App.put("/api/updateShop", (req, res) => {
 	db.updatePetShop(req.body.id)
 		.then(() => {
 			return db.insertnewPet(req.body.id);

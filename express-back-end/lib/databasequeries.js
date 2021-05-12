@@ -11,7 +11,7 @@ db.connect(function (err) {
 const getActivePet = function () {
 	return db
 		.query(
-			`SELECT name, img  FROM my_pets  JOIN pet_shop ON pet_id = pet_shop.id where isActive = $1 and user_id =$2`,
+			`SELECT name, img,pet_id  FROM my_pets  JOIN pet_shop ON pet_id = pet_shop.id where isActive = $1 and user_id =$2`,
 			[true, 1]
 		)
 		.then((res) => {
