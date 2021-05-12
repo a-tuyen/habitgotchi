@@ -28,8 +28,8 @@ export default function Nav() {
 		<AppBar position="static" className="nav-bar">
 			<Toolbar className="nav-bar--container">
         <span className="app-name">
-          {/* <PetsIcon/> */}
-          <h3>HabitGotchi</h3>
+          <h3><span className="app-logo"><PetsIcon /></span>HabitGotchi</h3>
+          
           {/* <Typography variant="h3">HabitGotchi</Typography> */}
         </span>			
 				<Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>

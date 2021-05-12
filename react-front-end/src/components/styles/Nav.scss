@@ -13,8 +13,18 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+  // border: black solid 5px;
 
   .app-name {
+    display: flex;
     flex-direction: row;
+    align-items: flex-start;
+    align-content: center;
+    // border: red solid 5px;
+  }
+  
+  .app-logo {
+    margin-top: 30px;
+    // border: blue solid 5px;
   }
 }
