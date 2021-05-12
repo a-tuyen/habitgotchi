@@ -6,26 +6,47 @@ import ChallengeContext from "../components/ChallengeContext";
 
 
 export default function DailyChallengesPage() {
-	// console.log('DailyChallengeprops:', props.dailyChallenges);
-	// console.log('props.stepcount:', props.dailyChallenges.step_count);
+
   const dailyChallenges = useContext(ChallengeContext)
-  console.log('dailyChall:', dailyChallenges.DailyChallenges)
+  const userChallenges = useContext(ChallengeContext)
+
   const getChallenges = (data) => {
-    console.log('data:', data)
-    // console.log('data:', data.DailyChallenges.length)
+
     if (data.DailyChallenges.length) {
-      console.log('datalengthinside:', data.DailyChallenges.length)
       return data.DailyChallenges.map(item => {
-        return <div>{item.step_goal}</div>
+        return (
+          <p>
+          Do {item.step_goal} Steps <br></br>
+          Drink {item.water_goal} cups of water <br></br>
+          Complete {item.active_min_goal} Active Minutes <br></br>
+          Complete all three goals to earn {item.coins} coins!
+          </p>
+        )
       })
     }
   }
-  // const Arr = Object.entries(props.dailyChallenges)
+
+  const getUserChallenges = (data) => {
+
+    if (data.UserChallenges.length) {
+      return data.UserChallenges.map(item => {
+        return (
+          <p>
+          {item.description}<br></br>
+          Complete to earn {item.coins} coins!
+          </p>
+        )
+      })
+    }
+  }
+  
 	return (
     <div>
       <Nav />
-     {/* <h1>{dailyChallenges.step_goal}</h1> */}
-        {getChallenges(dailyChallenges)}
+      <h1>Daily Challenges</h1>
+      {getChallenges(dailyChallenges)}
+      <h1>Bonus Challenges</h1>
+      {getUserChallenges(userChallenges)}
     </div>
 
   );

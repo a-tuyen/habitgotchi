@@ -41,9 +41,6 @@ export default function App() {
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 							<InventoryPage myPetInventory={state.MyPetInventory} />
 					</Route>
-					<Route exact path="/userchallenges" component={UserChallengesPage}>
-							<UserChallengesPage userChallenges={state.UserChallenges} />
-					</Route>
 					<Route exact path="/questionsteps" component={QuestionSteps}>
 							<QuestionSteps />
 					</Route>

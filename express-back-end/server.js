@@ -11,54 +11,55 @@ App.use(Express.static("public"));
 
 // Sample GET route
 App.get("/api/digitalpet", (req, res) => {
-	db.getActivePet().then((result) => {
-		res.json({ message: result });
-	});
+  db.getActivePet().then((result) => {
+    res.json({ message: result });
+  });
 });
 App.get("/api/statdata", (req, res) => {
-	db.getdailyStatus().then((result) => {
-		res.json({ message: result });
-	});
+  db.getdailyStatus().then((result) => {
+    res.json({ message: result });
+  });
 });
 App.get("/api/mypetinventory", (req, res) => {
-	db.getPetInventory().then((result) => {
-		res.json({ message: result });
-	});
+  db.getPetInventory().then((result) => {
+    res.json({ message: result });
+  });
 });
 
 App.get("/api/petshop", (req, res) => {
-	db.getAllfrompetShop().then((result) => {
-		res.json({ message: result });
-	});
+  db.getAllfrompetShop().then((result) => {
+    res.json({ message: result });
+  });
 });
 App.get("/api/balancecoins", (req, res) => {
-	db.getbalanceCoins().then((result) => {
-		res.json({ message: result });
-	});
+  db.getbalanceCoins().then((result) => {
+    res.json({ message: result });
+  });
 });
 
 App.put("/api/Shop", (req, res) => {
-	console.log(req.body.id);
-	console.log(req.body.balanceCoins);
-	console.log("Petshop", req.body.PetShop);
+  console.log(req.body.id);
+  console.log(req.body.balanceCoins);
+  console.log("Petshop", req.body.PetShop);
 
-	res.json({ message: "Success" });
+  res.json({ message: "Success" });
 });
 
 App.get("/api/dailychallenges", (req, res) => {
-	db.getDailyChallenges().then((result) => {
-		res.json({ message: result });
-	});
+  db.getDailyChallenges().then((result) => {
+    res.json({ message: result });
+  });
 });
 
 App.get("/api/userchallenges", (req, res) => {
-	db.getuserChallenges().then((result) => {
-		res.json({ message: result });
-	});
+  db.getUserChallenges().then((result) => {
+    res.json({ message: result });
+  });
 });
 App.listen(PORT, () => {
-	// eslint-disable-next-line no-console
-	console.log(
-		`Express seems to be listening on port ${PORT} so that's pretty good 👍`
-	);
+  // eslint-disable-next-line no-console
+  console.log(
+    `Express seems to be listening on port ${PORT} so that's pretty good 👍`
+  );
 });
+
