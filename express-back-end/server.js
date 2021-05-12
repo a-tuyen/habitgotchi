@@ -31,7 +31,31 @@ App.get("/api/petshop", (req, res) => {
 		res.json({ message: result });
 	});
 });
+App.get("/api/balancecoins", (req, res) => {
+	db.getbalanceCoins().then((result) => {
+		res.json({ message: result });
+	});
+});
 
+App.put("/api/Shop", (req, res) => {
+	console.log(req.body.id);
+	console.log(req.body.balanceCoins);
+	console.log("Petshop", req.body.PetShop);
+
+	res.json({ message: "Success" });
+});
+
+App.get("/api/dailychallenges", (req, res) => {
+	db.getDailyChallenges().then((result) => {
+		res.json({ message: result });
+	});
+});
+
+App.get("/api/userchallenges", (req, res) => {
+	db.getuserChallenges().then((result) => {
+		res.json({ message: result });
+	});
+});
 App.listen(PORT, () => {
 	// eslint-disable-next-line no-console
 	console.log(

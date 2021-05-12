@@ -39,5 +39,5 @@ CREATE TABLE daily_challenges (
     coins INTEGER NOT NULL,
     completed BOOLEAN DEFAULT FALSE,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    created_date DATE NOT NULL DEFAULT NOW() 
+    created_date DATE NOT NULL DEFAULT NOW()
 );
