@@ -22,34 +22,34 @@ const getActivePet = function () {
 		});
 };
 exports.getActivePet = getActivePet;
-var Caloriesvalue = 100;
-setInterval(() => {
-	Caloriesvalue = Caloriesvalue + 10;
-}, 3000);
-let StepsValue = 1000;
-setInterval(() => {
-	StepsValue = StepsValue + 1000;
-	if (StepsValue == 10000) {
-		StepsValue = 100;
-	}
-}, 3000);
+var Caloriesvalue = 50;
+function getCaloriesValue() {
+	setInterval(() => {
+		Caloriesvalue = Caloriesvalue + 10;
+	}, 6000);
+
+	return Caloriesvalue;
+}
+let StepsValue = 100;
+function getstepsValue() {
+	setInterval(() => {
+		StepsValue = StepsValue + 100;
+		if (StepsValue == 10000) {
+			StepsValue = 100;
+		}
+	}, 6000);
+	return StepsValue;
+}
 
 const getdailyStatus = function () {
-	// return db
-	// 	.query(
-	// 		`SELECT calories, sleep, steps, water FROM user_data_readings where user_id =$1 and created_date = $2`,
-	// 		[1, "2021-05-15"]
-	// 	)
-
-	return { calories: Caloriesvalue, sleep: 7, steps: StepsValue, water: 10 };
-	// .then((result) => {
-	// 	// console.log(result.rows[0]);
-	// 	console.log(result);
-	// 	return result;
-	// })
-	// .catch((err) => {
-	// 	console.log(err);
-	//	});
+	const calorie = getCaloriesValue();
+	const step = getstepsValue();
+	return {
+		calories: calorie,
+		sleep: 7,
+		steps: step,
+		water: 10,
+	};
 };
 exports.getdailyStatus = getdailyStatus;
 
