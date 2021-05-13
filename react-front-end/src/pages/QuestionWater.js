@@ -62,7 +62,8 @@ const { water_goal } = formData;
 
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="s">
+      <Nav/>
       <h3>How many cups of water are you aiming to drink a day?</h3>
       <TextField
         label="Cups of Water"

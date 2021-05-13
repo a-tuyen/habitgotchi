@@ -62,17 +62,17 @@ const handleChange = (event) => {
 
 return (
   <>
-  
-  <FormControl component="fieldset">
-    {/* <FormLabel component="legend"></FormLabel> */}
-    <h3>Please select your desired level of fitness intensity</h3>
-    <RadioGroup aria-label="intensity" name="intensity" value={intensity} onChange={handleChange}>
-      <FormControlLabel value="intensity" control={<Radio />} label="Low" />
-      <FormControlLabel value="intensity" control={<Radio />} label="Moderate" />
-      <FormControlLabel value="intensity" control={<Radio />} label="High" />
-    </RadioGroup>
-  </FormControl>
-  <div style={{ marginTop: "1rem" }}>
+    <Nav />
+    <FormControl component="fieldset">
+      {/* <FormLabel component="legend"></FormLabel> */}
+      <h3>Please select your desired level of fitness intensity</h3>
+      <RadioGroup aria-label="intensity" name="intensity" value={intensity} onChange={handleChange}>
+        <FormControlLabel value="intensity" control={<Radio />} label="Low" />
+        <FormControlLabel value="intensity" control={<Radio />} label="Moderate" />
+        <FormControlLabel value="intensity" control={<Radio />} label="High" />
+      </RadioGroup>
+    </FormControl>
+    <div style={{ marginTop: "1rem" }}>
       <Button
         color="secondary"
         variant="contained"

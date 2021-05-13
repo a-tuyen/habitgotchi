@@ -61,7 +61,8 @@ export default function QuestionActiveMin({ formData, setForm, navigation }) {
 const { active_min_goal } = formData;
 
 return (
-  <Container maxWidth="xs">
+  <Container maxWidth="s">
+    <Nav />
     <h3>How many Active Minutes are you aiming to complete each day?</h3>
     <TextField
       label="Amount of Active Minutes"

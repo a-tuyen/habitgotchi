@@ -45,7 +45,8 @@ const { steps_goal } = formData;
 
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="s">
+      <Nav/>
       <h3>What is your step goal for each day?</h3>
       <TextField
         label="Number of Steps"

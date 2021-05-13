@@ -46,7 +46,7 @@ export default function Nav() {
         <MenuItem onClick={handleClose}><Link to="/">Home</Link></MenuItem>
         <MenuItem onClick={handleClose}><Link to="/dailychallenges">Daily Challenges</Link></MenuItem>
         <MenuItem onClick={handleClose}><Link to="/mypetinventory">My Pets</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to="/questionnaireform">Questionnaire</Link></MenuItem>
+        <MenuItem onClick={handleClose}><Link to="/questionsform">Questionnaire</Link></MenuItem>
         <MenuItem onClick={handleClose}><Link to="/petshop">Pet Shop</Link></MenuItem>
       </Menu>
             </Toolbar>
