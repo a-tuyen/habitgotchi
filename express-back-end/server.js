@@ -15,10 +15,12 @@ App.get("/api/digitalpet", (req, res) => {
 		res.json({ message: result });
 	});
 });
+
 App.get("/api/statdata", (req, res) => {
-	db.getdailyStatus().then((result) => {
-		res.json({ message: result });
-	});
+	const result = db.getdailyStatus();
+	// .then((result) => {
+	res.json({ message: result });
+	// });
 });
 App.get("/api/mypetinventory", (req, res) => {
 	db.getPetInventory().then((result) => {

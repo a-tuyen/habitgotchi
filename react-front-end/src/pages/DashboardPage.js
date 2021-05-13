@@ -5,7 +5,8 @@ import DigitalPet from "../components/DigitalPet";
 import Status from "../components/status";
 
 export default function DashboardPage(props) {
-	console.log(props);
+	console.log(props.Status);
+
 	return (
 		<div>
 			<Grid container spacing={3}>

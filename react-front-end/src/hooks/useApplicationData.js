@@ -16,7 +16,7 @@ export default function useApplicationData() {
 
 	useEffect(() => {
 		const digitalPetpromise = axios.get("/api/digitalpet");
-		const statusdataPromise = axios.get("/api/statdata");
+		// const statusdataPromise = axios.get("/api/statdata");
 		const myPetInventorydataPromise = axios.get("/api/mypetinventory");
 		const Petshopdatapromise = axios.get("/api/petshop");
 		const DailyChallengesPromise = axios.get("/api/dailychallenges");
@@ -24,7 +24,7 @@ export default function useApplicationData() {
 		const balanceCoinspromise = axios.get("/api/balancecoins");
 		Promise.all([
 			digitalPetpromise,
-			statusdataPromise,
+			// statusdataPromise,
 			myPetInventorydataPromise,
 			Petshopdatapromise,
 			DailyChallengesPromise,
@@ -34,15 +34,35 @@ export default function useApplicationData() {
 			setState((prev) => ({
 				...prev,
 				ActivePet: all[0].data.message,
-				Status: all[1].data.message,
-				MyPetInventory: all[2].data.message,
-				PetShop: all[3].data.message,
-				DailyChallenges: all[4].data.message,
-				UserChallenges: all[5].data.message,
-				balanceCoins: parseInt(all[6].data.message.sum),
+				// Status: all[1].data.message,
+				MyPetInventory: all[1].data.message,
+				PetShop: all[2].data.message,
+				DailyChallenges: all[3].data.message,
+				UserChallenges: all[4].data.message,
+				balanceCoins: parseInt(all[5].data.message.sum),
 			}));
 		});
 	}, []);
+	// let Value = 100;
+
+	useEffect(() => {
+		setInterval(() => {
+			const statusdataPromise = axios.get("/api/statdata");
+			statusdataPromise.then((result) =>
+				setState((prev) => ({ ...prev, Status: result.data.message }))
+			);
+		}, 8000);
+	}, state.Status);
+	// console.log(Value);
+	// useEffect(() => {
+	// 	const statusdataPromise = axios.get("/api/statdata");
+	// 	statusdataPromise.then((result) =>
+	// 		setState((prev) => ({ ...prev, Status: result.data.message }))
+	// 	);
+
+	// 	// Status: all[1].data.message,
+	// }, Value);
+
 	//Function to buy digital pet and update the state
 	function buydigitalpet(itemcoins, id) {
 		if (itemcoins < parseInt(state.balanceCoins)) {
@@ -77,9 +97,9 @@ export default function useApplicationData() {
 		const MyPetInventory = [...state.MyPetInventory];
 		for (const pet of MyPetInventory) {
 			//finds the Pet
-			if (pet["pet_id"] == CurrentPet_id) {
+			if (pet["pet_id"] === CurrentPet_id) {
 				pet["isactive"] = false;
-			} else if (pet["pet_id"] == id) {
+			} else if (pet["pet_id"] === id) {
 				pet["isactive"] = true;
 				ActivePet.name = pet["name"];
 				ActivePet.img = pet["img"];
