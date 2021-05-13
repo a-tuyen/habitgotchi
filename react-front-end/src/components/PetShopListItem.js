@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "2rem",
 	},
   img: {
-    // height: "25vh",
+    height: "25vh",
     padding: "2em"
   },
   button: {
@@ -29,6 +29,18 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Quicksand",
     color: "white", 
     marginLeft: "50px",
+    padding: "0.75em",
+    borderRadius: "1.5rem",
+  },
+  price: {
+    backgroundColor: "#DEF2F1",
+    // padding: "0.75em",
+    paddingRight: "1em",
+    paddingLeft: "1em",
+    borderRadius: "1.5rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   footer: {
     display: "flex",
@@ -44,12 +56,14 @@ export default function PetShopListItem(props) {
 
 	return (
 		<Card className={classes.root}>
-			<img src={props.img} />
+			<img src={props.img} className={classes.img}/>
 			<h3>{props.name}</h3>
 			<p>{props.description}</p>
 			<footer className={classes.footer}>
-        <MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }}/>
-				<p style={{ fontWeight: "bolder" }}>{props.coins} coins</p>
+        <div className={classes.price}>
+          <MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }}/>
+          <p>{props.coins} coins</p>
+        </div>
         {props.purchased && (
           <Button variant="contained" className={classes.button}>
             {data}

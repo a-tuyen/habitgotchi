@@ -10,6 +10,11 @@ const useStyles = makeStyles((theme) => ({
 		marginLeft: "2.5vw",
 		marginRight: "2.5vw",
 	},
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  }
 }));
 
 export default function PetShopPage(props) {
@@ -19,8 +24,16 @@ export default function PetShopPage(props) {
 		<Fragment>
 			<Nav />
       <div className={classes.root}>
-        <h1>Pet Shop</h1>
-        {props.coins} Coins
+        <header className={classes.header}>
+          <h1>Pet Shop</h1>
+          <p style={{ 
+            backgroundColor: "#DEF2F1",
+            padding: "0.75em",
+            borderRadius: "2rem"
+             }}>
+              {props.coins} Coins
+          </p>
+        </header>
         <div>
           <Petshoplist PetInventory={props.PetInventory} />
         </div>
