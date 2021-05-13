@@ -1,6 +1,5 @@
 import React from "react";
 // import { makeStyles } from '@material-ui/core/styles';
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import MyPetlist from "../components/MyPetList";
 import Nav from "../components/Nav";
@@ -8,8 +7,7 @@ export default function InventoryPage(props) {
 	return (
 		<div>
 			<Nav />
-			<Typography variant="h1">My Inventory</Typography>
-			{/* Map through each inventory item, not sure how to do it quite yet */}
+			<h1>My Inventory</h1>
 			<MyPetlist myPetInventory={props.myPetInventory} />
 		</div>
 	);

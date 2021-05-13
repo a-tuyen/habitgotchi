@@ -6,14 +6,16 @@ import { Button } from "@material-ui/core";
 import { useContext } from "react";
 import SelectContext from "./SelectContext";
 
+
+
 export default function MyPetInventoryListItem(props) {
 	// console.log(props);
 	const selectdigitalpet = useContext(SelectContext);
 	return (
 		<Card>
 			<img src={props.img} />
-			<Typography variant="h3">{props.name}</Typography>
-			<Typography variant="subtitle1">{props.description}</Typography>
+			<h3>{props.name}</h3>
+			<p>{props.description}</p>
 			<Button
 				variant="contained"
 				color="Primary"
