@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Grid, Button, Checkbox } from "@material-ui/core";
+import { Grid, Button, Checkbox, Card } from "@material-ui/core";
 import Nav from "../components/Nav";
 import ChallengeContext from "../components/ChallengeContext";
 // import DailyChallengesList from "../components/DailyChallengesList"
@@ -10,33 +10,23 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import Checkbox from "@material-ui/core/Checkbox";
+// import Checkbox from "@material-ui/core/Checkbox";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
+    maxWidth: '80%',
+    marginLeft: '10vw',
+    marginRight: '10vw',
+    marginTop: '2vh',
+    padding: '1em'
+  }
+
 }));
 
 export default function DailyChallengesPage() {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState([0]);
-
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
-
+  
   const dailyChallenges = useContext(ChallengeContext)
   const userChallenges = useContext(ChallengeContext)
 
@@ -70,6 +60,9 @@ export default function DailyChallengesPage() {
           <p>
           {item.description}<br></br>
           Complete to earn {item.coins} coins!
+          <Button variant="contained" color="primary">
+              I did it!
+            </Button>
           </p>
         )
       })
@@ -79,10 +72,14 @@ export default function DailyChallengesPage() {
 	return (
     <div>
       <Nav />
-      <h1>Daily Challenges</h1>
-        {getChallenges(dailyChallenges)}
-      <h1>Bonus Challenges</h1>
-        {getUserChallenges(userChallenges)}
+      <Card className={classes.root}>
+          <h1>Daily Challenges</h1>
+          {getChallenges(dailyChallenges)}
+      </Card>
+      <Card className={classes.root}>
+          <h1>Bonus Challenges</h1>
+          {getUserChallenges(userChallenges)}
+      </Card>
     </div>
    );
   };
