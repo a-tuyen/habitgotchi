@@ -5,28 +5,35 @@ import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
 import BuyContext from "./BuyContext.js";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import MonetizationOnRoundedIcon from '@material-ui/icons/MonetizationOnRounded';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		width: "100%",
 		maxWidth: "80%",
-		// marginLeft: "5vw",
-		// marginRight: "5vw",
-		marginTop: "5vh",
+		marginBottom: "2vh",
 		padding: "5em",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     padding: "2em",
     minHeight: "3vh",
+    borderRadius: "2rem",
 	},
   img: {
-    height: "25vh",
+    // height: "25vh",
     padding: "2em"
   },
   button: {
     backgroundColor: "#2B7A78",
-    fontFamily: "Quicksand"
+    fontFamily: "Quicksand",
+    color: "white", 
+    marginLeft: "50px",
+  },
+  footer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   }
 }));
 
@@ -40,25 +47,26 @@ export default function PetShopListItem(props) {
 			<img src={props.img} />
 			<h3>{props.name}</h3>
 			<p>{props.description}</p>
-			<Button variant="contained" color="primary" disableElevation>
-				{props.coins} coins
-			</Button>
-			{props.purchased && (
-				<Button variant="contained" color="black">
-					{data}
-				</Button>
-			)}
-			{!props.purchased && (
-				<Button
-					variant="contained"
-					color="primary"
-					onClick={(event) => {
-						buydigitalpet(props.coins, props.id);
-					}}
-				>
-					{data}
-				</Button>
-			)}
+			<footer className={classes.footer}>
+        <MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }}/>
+				<p style={{ fontWeight: "bolder" }}>{props.coins} coins</p>
+        {props.purchased && (
+          <Button variant="contained" className={classes.button}>
+            {data}
+          </Button>
+        )}
+        {!props.purchased && (
+          <Button
+            className={classes.button}
+            variant="contained"
+            onClick={(event) => {
+              buydigitalpet(props.coins, props.id);
+            }}
+          >
+            {data}
+          </Button>
+        )}
+			</footer>
 		</Card>
 	);
 }
