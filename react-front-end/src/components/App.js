@@ -18,10 +18,12 @@ import DailyChallengesPage from "../pages/DailyChallengesPage";
 import UserChallengesPage from "../pages/UserChallengesPage";
 
 // Questionnaire
+import QuestionsForm from "../pages/QuestionsForm";
 import QuestionSteps from "../pages/QuestionSteps";
 import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
+
 
 export default function App() {
 	const { state, buydigitalpet, selectdigitalpet } = useApplicationData();
@@ -42,17 +44,19 @@ export default function App() {
 					<Route exact path="/userchallenges" component={UserChallengesPage}>
 						<UserChallengesPage userChallenges={state.UserChallenges} />
 					</Route>
-					<Route exact path="/questionsteps" component={QuestionSteps}>
-						<QuestionSteps />
+					<Route exact path="/questionsform" component={QuestionsForm}>
+							<QuestionsForm />
 					</Route>
-					<Route exact path="/questionwater" component={QuestionWater}>
-						<QuestionWater />
-					</Route>
-					<Route exact path="/questionactive" component={QuestionActiveMin}>
-						<QuestionActiveMin />
+					{/* <Route exact path="/questionsteps" component={QuestionSteps}>
+							<QuestionSteps />
+					</Route> */}
+					{/* <Route exact path="/questionwater" component={QuestionWater}>
+							<QuestionWater />
+					</Route> */}
+					{/* <Route exact path="/questionactive" component={QuestionActiveMin}>
+							<QuestionActiveMin />
 						<DashboardPage Activepet={state.ActivePet} Status={state.Status} />
-					</Route>
-
+					</Route> */}
 					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
 						<ChallengeContext.Provider value={state}>
 							<DailyChallengesPage></DailyChallengesPage>
