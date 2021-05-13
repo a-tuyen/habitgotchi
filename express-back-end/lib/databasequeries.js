@@ -1,4 +1,5 @@
 //PG connection
+const { getCaloriesValue, getstepsValue } = require("../Helpers/apihelper");
 const pg = require("pg");
 const dbParams = require("./db.js");
 
@@ -22,24 +23,27 @@ const getActivePet = function () {
 		});
 };
 exports.getActivePet = getActivePet;
-var Caloriesvalue = 50;
-function getCaloriesValue() {
-	setInterval(() => {
-		Caloriesvalue = Caloriesvalue + 10;
-	}, 6000);
+// var Caloriesvalue = 50;
+// function getCaloriesValue() {
+// 	setInterval(() => {
+// 		Caloriesvalue = Caloriesvalue + 10;
+// 		if (Caloriesvalue == 2000) {
+// 			Caloriesvalue = 10;
+// 		}
+// 	}, 6000);
 
-	return Caloriesvalue;
-}
-let StepsValue = 100;
-function getstepsValue() {
-	setInterval(() => {
-		StepsValue = StepsValue + 100;
-		if (StepsValue == 10000) {
-			StepsValue = 100;
-		}
-	}, 6000);
-	return StepsValue;
-}
+// 	return Caloriesvalue;
+// }
+// let StepsValue = 100;
+// function getstepsValue() {
+// 	setInterval(() => {
+// 		StepsValue = StepsValue + 100;
+// 		if (StepsValue == 10000) {
+// 			StepsValue = 100;
+// 		}
+// 	}, 6000);
+// 	return StepsValue;
+// }
 
 const getdailyStatus = function () {
 	const calorie = getCaloriesValue();

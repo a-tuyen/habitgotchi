@@ -19,7 +19,7 @@ App.get("/api/digitalpet", (req, res) => {
 App.get("/api/statdata", (req, res) => {
 	const result = db.getdailyStatus();
 	// .then((result) => {
-	res.json({ message: result });
+	res.json({ result });
 	// });
 });
 App.get("/api/mypetinventory", (req, res) => {

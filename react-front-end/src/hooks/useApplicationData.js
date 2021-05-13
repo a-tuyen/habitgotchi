@@ -5,15 +5,15 @@ import axios from "axios";
 export default function useApplicationData() {
 	const [state, setState] = useState({
 		ActivePet: {},
-		Status: {},
+		// Status: {},
 		MyPetInventory: [],
 		PetShop: [],
 		DailyChallenges: {},
 		balanceCoins: 0,
 		UserChallenges: {},
 	});
-	//  uses API to load data from API
 
+	//  uses API to load data from API
 	useEffect(() => {
 		const digitalPetpromise = axios.get("/api/digitalpet");
 		// const statusdataPromise = axios.get("/api/statdata");
@@ -45,25 +45,19 @@ export default function useApplicationData() {
 	}, []);
 	// let Value = 100;
 
-	useEffect(() => {
-		setInterval(() => {
-			const statusdataPromise = axios.get("/api/statdata");
-			statusdataPromise.then((result) =>
-				setState((prev) => ({ ...prev, Status: result.data.message }))
-			);
-		}, 8000);
-	}, state.Status);
-	// console.log(Value);
-	// useEffect(() => {
+	// setInterval(() => {
 	// 	const statusdataPromise = axios.get("/api/statdata");
 	// 	statusdataPromise.then((result) =>
-	// 		setState((prev) => ({ ...prev, Status: result.data.message }))
+	// 		setStatus((prev) => ({
+	// 			...prev,
+	// 			calories: result.data.result.calories,
+	// 			sleep: result.data.result.sleep,
+	// 			steps: result.data.result.steps,
+	// 			water: result.data.result.water,
+	// 		}))
 	// 	);
-
-	// 	// Status: all[1].data.message,
-	// }, Value);
-
-	//Function to buy digital pet and update the state
+	// }, 8000);
+	// Function to buy digital pet and update the state
 	function buydigitalpet(itemcoins, id) {
 		if (itemcoins < parseInt(state.balanceCoins)) {
 			const balanceCoins = state.balanceCoins - itemcoins;
