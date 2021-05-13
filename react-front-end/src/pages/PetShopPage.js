@@ -11,11 +11,11 @@ export default function PetShopPage(props) {
 	return (
 		<Fragment>
 			<Nav />
-			<Typography variant="h1">Pet Shop</Typography>
+			<h1>Pet Shop</h1>
 			{props.coins} Coins
-			<Typography variant="subtitle2">
+			<div>
 				<Petshoplist PetInventory={props.PetInventory} />
-			</Typography>
+			</div>
 		</Fragment>
 	);
 }

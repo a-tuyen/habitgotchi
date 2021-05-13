@@ -12,8 +12,8 @@ export default function PetShopListItem(props) {
 	return (
 		<Card>
 			<img src={props.img} />
-			<Typography variant="h3">{props.name}</Typography>
-			<Typography variant="subtitle1">{props.description}</Typography>
+			<h3>{props.name}</h3>
+			<p>{props.description}</p>
 			<Button variant="contained" color="primary" disableElevation>
 				{props.coins} coins
 			</Button>
