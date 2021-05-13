@@ -77,9 +77,9 @@ export default function useApplicationData() {
 		const MyPetInventory = [...state.MyPetInventory];
 		for (const pet of MyPetInventory) {
 			//finds the Pet
-			if (pet["pet_id"] == CurrentPet_id) {
+			if (pet["pet_id"] === CurrentPet_id) {
 				pet["isactive"] = false;
-			} else if (pet["pet_id"] == id) {
+			} else if (pet["pet_id"] === id) {
 				pet["isactive"] = true;
 				ActivePet.name = pet["name"];
 				ActivePet.img = pet["img"];
@@ -97,5 +97,32 @@ export default function useApplicationData() {
 		);
 	}
 
-	return { state, buydigitalpet, selectdigitalpet };
+	function updateDailyChall(formData) {
+		// console.log("STATE:", state.DailyChallenges);
+		// console.log("FORM:",formData);
+		console.log('STATE!!!', state)
+		const DailyChallenge = { ...state.DailyChallenges[0]};
+		// console.log("STATEDAILY:", DailyChallenges);
+ 		DailyChallenge.step_goal = parseInt(formData.steps_goal);
+  	DailyChallenge.water_goal= parseInt(formData.water_goal);
+	 DailyChallenge.active_min_goal = parseInt(formData.active_min_goal);
+
+const DailyChallenges =[...state.DailyChallenges]
+DailyChallenges[0] = DailyChallenge
+		// console.log('DC', DailyChallenges)
+		
+  axios.put(`/api/dailychallenges`, { formData }).then((result) =>
+    setState((prev) => ({
+      ...prev,
+      DailyChallenges,
+    }))
+
+		// console.log("Result from server",result)
+  );
 }
+
+
+
+	return { state, buydigitalpet, selectdigitalpet, updateDailyChall };
+}
+

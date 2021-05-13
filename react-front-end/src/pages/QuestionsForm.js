@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm, useStep } from "react-hooks-helper";
+
 import QuestionActiveMin from './QuestionActiveMin';
 import QuestionWater from './QuestionWater';
 import QuestionSteps from './QuestionSteps';
 import QuestionIntensity from './QuestionIntensity';
+
+import ChallengeContext from "../components/ChallengeContext";
+
 
 const defaultData = {
   steps_goal: "",
@@ -26,7 +30,10 @@ export default function QuestionsForm() {
     initialStep: 0
   })
 
-  const props = { formData, setForm, navigation };
+  const dailyChallengesState = useContext(ChallengeContext);
+  console.log('DC', dailyChallengesState)
+
+  const props = { formData, setForm, navigation, dailyChallengesState };
 
   console.log("props!!!", props)
 

@@ -23,10 +23,12 @@ import QuestionSteps from "../pages/QuestionSteps";
 import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
+import QuestionsContext from "./QuestionsContext";
+
 
 
 export default function App() {
-	const { state, buydigitalpet, selectdigitalpet } = useApplicationData();
+	const { state, buydigitalpet, selectdigitalpet, updateDailyChall } = useApplicationData();
 
 	console.log(state.balanceCoins);
 	return (
@@ -45,7 +47,9 @@ export default function App() {
 						<UserChallengesPage userChallenges={state.UserChallenges} />
 					</Route>
 					<Route exact path="/questionsform" component={QuestionsForm}>
+						<QuestionsContext.Provider value={updateDailyChall}>
 							<QuestionsForm />
+						</QuestionsContext.Provider>
 					</Route>
 					{/* <Route exact path="/questionsteps" component={QuestionSteps}>
 							<QuestionSteps />

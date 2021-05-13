@@ -159,11 +159,28 @@ const updateisActive = function (pet_id) {
 		`UPDATE my_pets SET isActive = NOT isActive WHERE pet_id = $1 RETURNING * ;`,
 		[pet_id]
 	)
-		.then((result) => {
-			return result.rows;
-		})
-		.catch((err) => {
-			console.log(err);
-		});
+	.then((result) => {
+		return result.rows;
+	})
+	.catch((err) => {
+		console.log(err);
+	});
 };
 exports.updateisActive = updateisActive;
+
+const updateDailyChallenges = function (formData) {
+	return db.query(
+		`UPDATE daily_challenges SET step_goal = $1, water_goal = $2, active_min_goal = $3 WHERE user_id = $4 RETURNING *;`, [formData.steps_goal, formData.water_goal, formData.active_min_goal, 1]
+	)
+	.then((result) => {
+		return result.rows;
+	})
+	.catch((err) => {
+		console.log(err);
+	});
+};
+
+exports.updateDailyChallenges = updateDailyChallenges;
+
+
+

@@ -38,6 +38,7 @@ CREATE TABLE daily_challenges (
     active_min_goal INTEGER NOT NULL,
     coins INTEGER NOT NULL,
     completed BOOLEAN DEFAULT FALSE,
+    is_active BOOLEAN DEFAULT TRUE,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     created_date DATE NOT NULL DEFAULT NOW()
 );

@@ -71,6 +71,25 @@ App.get("/api/userchallenges", (req, res) => {
 		res.json({ message: result });
 	});
 });
+
+App.put("/api/digitalpet1", (req, res) => {
+	const promiseUpdateCurrentPet = db.updateisActive(req.body.CurrentPet_id);
+	const promiseUpdateNewPet = db.updateisActive(req.body.id);
+	Promise.all([promiseUpdateCurrentPet, promiseUpdateNewPet]).then((all) => {
+		// console.log(req.body.id, req.body.CurrentPet_id);
+		return res.json({ message: "Success" });
+	});
+});
+
+App.put("/api/dailychallenges", (req, res) => {
+	db.updateDailyChallenges(req.body.formData).then((result) => {
+		console.log('serverbody', req.body.formData)
+		 res.json({ message: "Success" });
+	});
+
+});
+
+
 App.listen(PORT, () => {
 	// eslint-disable-next-line no-console
 	console.log(

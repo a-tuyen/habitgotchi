@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid } from "@material-ui/core";
 import Nav from "../components/Nav";
 
@@ -14,64 +14,41 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import {Link} from 'react-router-dom';
+import QuestionsContext from "../components/QuestionsContext";
 
 
-export default function QuestionIntensity({ formData, setForm, navigation }) {
+export default function QuestionIntensity({ formData, setForm, navigation, dailyChallengesState }) {
 
 const { intensity } = formData;
-console.log('FORM', formData)
+console.log('formData:', formData)
 
-const [value, setValue] = React.useState('intensity');
+// const { DailyChallenges } = dailyChallengesState;
+// console.log('dailyChallengesState:', dailyChallengesState)
 
-const handleChange = (event) => {
-  setValue(event.target.value);
-};
-// return (
-//   <Container maxWidth="xs">
-//     <h3>Please select your level of fitness intensity?</h3>
-//     <TextField
-//       label="15 active minutes"
-//       name="active_min_goal"
-//       value={active_min_goal}
-//       onChange={setForm}
-//       margin="normal"
-//       variant="outlined"
-//       autoComplete="off"
-//       fullWidth
-//     />
-//     <div style={{ marginTop: "1rem" }}>
-//       <Button
-//         color="secondary"
-//         variant="contained"
-//         style={{ marginRight: "1rem" }}
-//         onClick={() => navigation.previous()}
-//       >
-//         Back
-//       </Button>
-//       <Button
-//         color="primary"
-//         variant="contained"
-//         onClick={() => navigation.next()}
-//       >
-//         Next
-//       </Button>
-//     </div>
-//   </Container>
-// );
-// };
+const updateDailyChall = useContext(QuestionsContext);
+
+
+// formData: {steps_goal: "1000", water_goal: "8", active_min_goal: "9
+// dailyChallengesState: 
+// {ActivePet: {…}, Status: {…}, MyPetInventory: Array(3), PetShop: Array(8), DailyChallenges: Array(1), …}
+// ActivePet: {name: "Mango", img: "https://github.com/a-tuyen/habitgotchi/blob/master/docs/pets/051-cat.png?raw=true", pet_id: 1}
+// DailyChallenges: Array(1)
+// 0: {id: 3, step_goal: 10000, water_goal: 8, active_min_goal: 30, coins: 300, …}
+// length: 1
 
 return (
   <>
     <Nav />
     <FormControl component="fieldset">
-      {/* <FormLabel component="legend"></FormLabel> */}
+      <FormLabel component="legend"></FormLabel>
       <h3>Please select your desired level of fitness intensity</h3>
-      <RadioGroup aria-label="intensity" name="intensity" value={intensity} onChange={handleChange}>
-        <FormControlLabel value="intensity" control={<Radio />} label="Low" />
-        <FormControlLabel value="intensity" control={<Radio />} label="Moderate" />
-        <FormControlLabel value="intensity" control={<Radio />} label="High" />
+      <RadioGroup aria-label="intensity" name="intensity" value={intensity}>
+        <FormControlLabel value="low" control={<Radio />} label="Low"  onChange={setForm}/>
+        <FormControlLabel value="moderate" control={<Radio />} label="Moderate"  onChange={setForm}/>
+        <FormControlLabel value="high" control={<Radio />} label="High"  onChange={setForm}/>
       </RadioGroup>
     </FormControl>
+
     <div style={{ marginTop: "1rem" }}>
       <Button
         color="secondary"
@@ -85,7 +62,9 @@ return (
       <Button
         color="primary"
         variant="contained"
-        // onClick={() => navigation.next()}
+        onClick={(event) => {
+          updateDailyChall(formData);
+        }}
       >
         Submit
       </Button>
