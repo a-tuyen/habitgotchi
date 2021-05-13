@@ -2,14 +2,13 @@ import React, { useContext } from "react";
 import { Grid, Button, Checkbox, Card } from "@material-ui/core";
 import Nav from "../components/Nav";
 import ChallengeContext from "../components/ChallengeContext";
-// import DailyChallengesList from "../components/DailyChallengesList"
 
 //List Component Stuff
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
+// import List from "@material-ui/core/List";
+// import ListItem from "@material-ui/core/ListItem";
+// import ListItemIcon from "@material-ui/core/ListItemIcon";
+// import ListItemText from "@material-ui/core/ListItemText";
 // import Checkbox from "@material-ui/core/Checkbox";
 
 const useStyles = makeStyles((theme) => ({
