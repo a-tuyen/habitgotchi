@@ -1,21 +1,30 @@
 import React, { Fragment } from "react";
 // import { makeStyles } from '@material-ui/core/styles';
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Petshoplist from "../components/Petshoplist";
 import Nav from "../components/Nav";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		marginLeft: "2.5vw",
+		marginRight: "2.5vw",
+	},
+}));
 
 export default function PetShopPage(props) {
-	console.log(props);
+	const classes = useStyles();
 
 	return (
 		<Fragment>
 			<Nav />
-			<h1>Pet Shop</h1>
-			{props.coins} Coins
-			<div>
-				<Petshoplist PetInventory={props.PetInventory} />
-			</div>
+      <div className={classes.root}>
+        <h1>Pet Shop</h1>
+        {props.coins} Coins
+        <div>
+          <Petshoplist PetInventory={props.PetInventory} />
+        </div>
+      </div>
 		</Fragment>
 	);
 }
