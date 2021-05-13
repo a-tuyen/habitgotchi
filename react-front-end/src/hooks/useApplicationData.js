@@ -60,20 +60,6 @@ export default function useApplicationData() {
     }
   }
 
-  // function updateDailyChallenges(step_goal, water_goal, active_min_goal, id) {
-  //   if (itemcoins < parseInt(state.balanceCoins)) {
-  //     const balanceCoins = state.balanceCoins - itemcoins;
-  //     console.log(balanceCoins);
-  //     const PetShop = { ...state.PetShop[id - 1], purchased: true };
-  //     console.log("Petshop", PetShop);
-  //     console.log("id", id);
-  //     axios.put(`/api/Shop`, { balanceCoins, PetShop, id }).then((response) => {
-  //       console.log("Response", response);
-  //       setState((prev) => ({ ...prev, PetShop, balanceCoins }));
-  //     });
-  //   }
-  // }
-
   return { state, buydigitalpet };
 }
 

@@ -17,10 +17,12 @@ import DailyChallengesPage from "../pages/DailyChallengesPage";
 import UserChallengesPage from "../pages/UserChallengesPage";
 
 // Questionnaire
+import QuestionnaireForm from "../pages/QuestionnaireForm";
 import QuestionSteps from "../pages/QuestionSteps";
 import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
+
 
 export default function App() {
 	const { state, buydigitalpet } = useApplicationData();
@@ -38,6 +40,9 @@ export default function App() {
 					</Route>
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 							<InventoryPage myPetInventory={state.MyPetInventory} />
+					</Route>
+					<Route exact path="/questionnaireform" component={QuestionnaireForm}>
+							<QuestionnaireForm />
 					</Route>
 					<Route exact path="/questionsteps" component={QuestionSteps}>
 							<QuestionSteps />
