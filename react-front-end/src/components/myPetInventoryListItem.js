@@ -18,7 +18,7 @@ export default function MyPetInventoryListItem(props) {
 				variant="contained"
 				color="Primary"
 				onClick={() => {
-					selectdigitalpet(props.id, props.name);
+					selectdigitalpet(props.id);
 				}}
 			>
 				{props.Active ? "Current Pet" : "Select"}

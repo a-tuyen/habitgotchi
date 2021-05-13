@@ -70,12 +70,10 @@ export default function useApplicationData() {
 		}
 	}
 
-	function selectdigitalpet(id, name) {
+	function selectdigitalpet(id) {
 		const Currentpet = { ...state.ActivePet };
-		console.log(Currentpet.pet_id);
 		const CurrentPet_id = Currentpet.pet_id;
 		const ActivePet = Currentpet;
-		console.log(ActivePet);
 		const MyPetInventory = [...state.MyPetInventory];
 		for (const pet of MyPetInventory) {
 			//finds the Pet

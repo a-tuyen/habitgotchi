@@ -52,10 +52,10 @@ App.put("/api/updateShop", (req, res) => {
 });
 
 App.put("/api/digitalpet1", (req, res) => {
-	const Promise1 = db.updateisActive(req.body.CurrentPet_id);
-	const Promise2 = db.updateisActive(req.body.id);
-	Promise.all([Promise1, Promise2]).then((all) => {
-		console.log(req.body.id, req.body.CurrentPet_id);
+	const promiseUpdateCurrentPet = db.updateisActive(req.body.CurrentPet_id);
+	const promiseUpdateNewPet = db.updateisActive(req.body.id);
+	Promise.all([promiseUpdateCurrentPet, promiseUpdateNewPet]).then((all) => {
+		// console.log(req.body.id, req.body.CurrentPet_id);
 		return res.json({ message: "Success" });
 	});
 });
