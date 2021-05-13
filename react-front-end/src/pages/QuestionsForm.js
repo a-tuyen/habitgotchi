@@ -6,7 +6,10 @@ import QuestionSteps from './QuestionSteps';
 import QuestionIntensity from './QuestionIntensity';
 
 const defaultData = {
-  steps: ""
+  steps_goal: "",
+  water_goal: "",
+  active_min_goal: "",
+  intensity: ""
 }
 
 const steps = [
@@ -16,7 +19,7 @@ const steps = [
   { id: "intensity" },
 ]
 
-export default function QuestionnaireForm() {
+export default function QuestionsForm() {
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({
     steps,
@@ -24,6 +27,8 @@ export default function QuestionnaireForm() {
   })
 
   const props = { formData, setForm, navigation };
+
+  console.log("props!!!", props)
 
   switch(step.id) {
     case "steps_goal":
@@ -37,12 +42,4 @@ export default function QuestionnaireForm() {
 
   }
 
-  console.log('step!!', steps)
-
-  return (
-    <div>
-      This is the questionnaire form
-    </div>
-
-  );
 }

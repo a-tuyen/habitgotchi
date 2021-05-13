@@ -17,7 +17,7 @@ import DailyChallengesPage from "../pages/DailyChallengesPage";
 import UserChallengesPage from "../pages/UserChallengesPage";
 
 // Questionnaire
-import QuestionnaireForm from "../pages/QuestionnaireForm";
+import QuestionsForm from "../pages/QuestionsForm";
 import QuestionSteps from "../pages/QuestionSteps";
 import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
@@ -41,19 +41,19 @@ export default function App() {
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 							<InventoryPage myPetInventory={state.MyPetInventory} />
 					</Route>
-					<Route exact path="/questionnaireform" component={QuestionnaireForm}>
-							<QuestionnaireForm />
+					<Route exact path="/questionsform" component={QuestionsForm}>
+							<QuestionsForm />
 					</Route>
-					<Route exact path="/questionsteps" component={QuestionSteps}>
+					{/* <Route exact path="/questionsteps" component={QuestionSteps}>
 							<QuestionSteps />
-					</Route>
-					<Route exact path="/questionwater" component={QuestionWater}>
+					</Route> */}
+					{/* <Route exact path="/questionwater" component={QuestionWater}>
 							<QuestionWater />
-					</Route>
-					<Route exact path="/questionactive" component={QuestionActiveMin}>
+					</Route> */}
+					{/* <Route exact path="/questionactive" component={QuestionActiveMin}>
 							<QuestionActiveMin />
 						<DashboardPage Activepet={state.ActivePet} Status={state.Status} />
-					</Route>
+					</Route> */}
 					<ChallengeContext.Provider value={state}>
 					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
 							<DailyChallengesPage></DailyChallengesPage>
