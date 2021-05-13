@@ -15,15 +15,15 @@ export default function Status(props) {
 		" " + (props.walk || props.sleep || props.excercise || props.water);
 	return (
 		<Fragment>
-			<Card className="stat-bar">
-				{props.water && <LocalDrinkIcon style={{ fontSize: 80 }} />}
-				{props.sleep && <NightsStayIcon style={{ fontSize: 80 }} />}
-				{props.excercise && <WhatshotIcon style={{ fontSize: 80 }} />}
-				{props.walk && <DirectionsWalkIcon style={{ fontSize: 80 }} />}
-				<Typography gutterBottom variant="h5" component="h2">
+			<Card className="stat-card">
+				{props.water && <LocalDrinkIcon className="stat-card--icon"/>}
+				{props.sleep && <NightsStayIcon className="stat-card--icon"/>}
+				{props.excercise && <WhatshotIcon className="stat-card--icon"/>}
+				{props.walk && <DirectionsWalkIcon className="stat-card--icon" />}
+				<h3>
 					{props.value}
 					{string}
-				</Typography>
+				</h3>
 			</Card>
 		</Fragment>
 	);

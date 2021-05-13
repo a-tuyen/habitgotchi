@@ -67,7 +67,7 @@ App.get("/api/dailychallenges", (req, res) => {
 });
 
 App.get("/api/userchallenges", (req, res) => {
-	db.getuserChallenges().then((result) => {
+	db.getUserChallenges().then((result) => {
 		res.json({ message: result });
 	});
 });

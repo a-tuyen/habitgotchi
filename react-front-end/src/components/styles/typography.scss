@@ -27,3 +27,9 @@ h3 {
 body, p {
   @include typography-styles($body-font, 12, $normal)
 }
+
+a {
+  @include typography-styles($body-font, 12, $semibold);
+  text-decoration: none;
+  color: $accent-color;
+}

@@ -21,8 +21,8 @@ import {Link} from 'react-router-dom';
 
 
 export default function QuestionWater(props) {
-	return (
-		<div>
+  return (
+    <div>
       <Nav />
       <FormControl>
         <p>How many cups of water are you aiming to drink a day?</p>
@@ -39,12 +39,18 @@ export default function QuestionWater(props) {
           {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
         </FormControl>
         {/* <button>Next</button> */}
+        <Link to="/questionsteps">
+     <button type="button">
+          Back
+     </button>
+ </Link>
         <Link to="/questionactive">
      <button type="button">
           Next
      </button>
  </Link>
-		</div>
-	);
+    </div>
+  );
 }
+
 

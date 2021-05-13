@@ -3,7 +3,7 @@ import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Style sheet
-import "./styles/App.css";
+import "./styles/App.scss";
 
 // Helpers
 import useApplicationData from "../hooks/useApplicationData";

@@ -28,8 +28,9 @@ export default function Nav() {
 		<AppBar position="static" className="nav-bar">
 			<Toolbar className="nav-bar--container">
         <span className="app-name">
-          {/* <PetsIcon/> */}
-          <h3>HabitGotchi</h3>
+          <h3>
+            <Link to="/"> <span className="app-logo"><PetsIcon /></span>HabitGotchi</Link>
+            </h3>
           {/* <Typography variant="h3">HabitGotchi</Typography> */}
         </span>			
 				<Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
@@ -46,7 +47,7 @@ export default function Nav() {
         <MenuItem onClick={handleClose}><Link to="/dailychallenges">Daily Challenges</Link></MenuItem>
         <MenuItem onClick={handleClose}><Link to="/mypetinventory">My Pets</Link></MenuItem>
         <MenuItem onClick={handleClose}><Link to="/questionsteps">Questionnaire</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to="/petshop">PetInventory</Link></MenuItem>
+        <MenuItem onClick={handleClose}><Link to="/petshop">Pet Shop</Link></MenuItem>
       </Menu>
             </Toolbar>
     </AppBar>

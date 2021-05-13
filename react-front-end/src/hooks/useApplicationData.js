@@ -9,8 +9,8 @@ export default function useApplicationData() {
 		MyPetInventory: [],
 		PetShop: [],
 		DailyChallenges: {},
-		// UserChallenges: {},
 		balanceCoins: 0,
+		UserChallenges: {},
 	});
 	//  uses API to load data from API
 

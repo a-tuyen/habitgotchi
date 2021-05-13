@@ -68,10 +68,11 @@ exports.getAllfrompetShop = getAllfrompetShop;
 const getDailyChallenges = function () {
 	return db
 		.query(
-			`SELECT step_goal, water_goal, active_min_goal FROM daily_challenges WHERE user_id = $1 AND completed = $2`,
+			`SELECT * FROM daily_challenges WHERE user_id = $1 AND completed = $2`,
 			[1, false]
 		)
 		.then((result) => {
+			// console.log('DAILY:', result)
 			return result.rows;
 		})
 		.catch((err) => {

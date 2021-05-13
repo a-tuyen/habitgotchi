@@ -1,13 +1,12 @@
-.stat-bar {
+.stat-card {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	height: auto;
-	margin: auto;
-	background-color: aquamarine;
-	color: red;
+	// margin: 50px;
+	padding: 2em;
 }
-.stat-bar--icon {
-	font-size: 300px;
+.stat-card--icon {
+	font-size: 5em !important;
 }

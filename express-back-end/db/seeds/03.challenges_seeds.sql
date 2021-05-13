@@ -22,6 +22,6 @@ INSERT INTO user_challenges (created_date, completed, challenge_id, user_id) VAL
 INSERT INTO user_challenges (created_date, completed, challenge_id, user_id) VALUES ('2021-05-05', FALSE, 7, 1);
 
 
-INSERT INTO daily_challenges (step_goal, water_goal, active_min_goal, coins, completed, user_id, created_date) VALUES (6000, 8, 10, 200, TRUE, 1, '2021-05-05');
-INSERT INTO daily_challenges (step_goal, water_goal, active_min_goal, coins, completed, user_id, created_date) VALUES (8000, 8, 20, 200, TRUE, 1, '2021-05-05');
-INSERT INTO daily_challenges (step_goal, water_goal, active_min_goal, coins, user_id,created_date) VALUES (10000, 8, 30, 200, 1, '2021-05-05');
+INSERT INTO daily_challenges (step_goal, water_goal, active_min_goal, coins, completed, user_id, created_date) VALUES (6000, 8, 10, 300, TRUE, 1, '2021-05-05');
+INSERT INTO daily_challenges (step_goal, water_goal, active_min_goal, coins, completed, user_id, created_date) VALUES (8000, 8, 20, 300, TRUE, 1, '2021-05-05');
+INSERT INTO daily_challenges (step_goal, water_goal, active_min_goal, coins, completed, user_id,created_date) VALUES (10000, 8, 30, 300, FALSE, 1, '2021-05-05');

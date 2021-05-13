@@ -21,8 +21,8 @@ import {Link} from 'react-router-dom';
 
 
 export default function QuestionActiveMin(props) {
-	return (
-		<div>
+  return (
+    <div>
       <Nav />
       <FormControl>
         <p>How many Active Minutes are you aiming to complete each day?</p>
@@ -39,12 +39,16 @@ export default function QuestionActiveMin(props) {
           {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
         </FormControl>
         {/* <button>Next</button> */}
+        <Link to="/questionwater">
+     <button type="button">
+          Back
+     </button>
+ </Link>
         <Link to="/">
      <button type="button">
           Next
      </button>
  </Link>
-		</div>
-	);
+    </div>
+  );
 }
-
