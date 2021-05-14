@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DashboardPage(props) {
 	const classes = useStyles();
-	console.log(props);
+	// console.log('DASHPROPS', props);
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
@@ -36,6 +36,12 @@ export default function DashboardPage(props) {
 				</Grid>
 				<Grid item xs={6}>
 					<Status value={props.status.water} water={"cups"} />
+				</Grid>
+				<Grid item xs={6}>
+					<Status value={props.status.active_min} active_min={"active minutes"} />
+				</Grid>
+				<Grid item xs={6}>
+					<Status value={props.status.heart_rate} heart_rate={"BPM"} />
 				</Grid>
 			</Grid>
 		</div>
