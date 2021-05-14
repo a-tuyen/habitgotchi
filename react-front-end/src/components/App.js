@@ -1,15 +1,12 @@
 // Libraries
 import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 // Style sheet
 import "./styles/App.scss";
-
 // Helpers
 import useApplicationData from "../hooks/useApplicationData";
 import BuyContext from "./BuyContext";
 import SelectContext from "./SelectContext";
-
 //Pages
 import DashboardPage from "../pages/DashboardPage";
 import InventoryPage from "../pages/InventoryPage";
@@ -17,7 +14,6 @@ import PetShopPage from "../pages/PetShopPage";
 import DailyChallengesPage from "../pages/DailyChallengesPage";
 import UserChallengesPage from "../pages/UserChallengesPage";
 import QuestionsContext from "./QuestionsContext";
-
 // Questionnaire
 import QuestionsForm from "../pages/QuestionsForm";
 import QuestionSteps from "../pages/QuestionSteps";
@@ -31,6 +27,7 @@ export default function App() {
 		useApplicationData();
 
 	const { status } = useStatData();
+	const challengeContext = { state, status };
 
 	return (
 		<Fragment>
@@ -58,8 +55,8 @@ export default function App() {
 					</Route>
 
 					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
-						<ChallengeContext.Provider value={state}>
-							<DailyChallengesPage></DailyChallengesPage>
+						<ChallengeContext.Provider value={challengeContext}>
+							<DailyChallengesPage />
 						</ChallengeContext.Provider>
 					</Route>
 

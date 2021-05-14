@@ -25,19 +25,31 @@ const useStyles = makeStyles((theme) => ({
 export default function DailyChallengesPage() {
 	const classes = useStyles();
 
-	const dailyChallenges = useContext(ChallengeContext);
-	console.log('state', dailyChallenges.DailyChallenges)
+	const challengeContext = useContext(ChallengeContext);
+	// console.log("state", dailyChallenges.DailyChallenges);
 	const userChallenges = useContext(ChallengeContext);
-
+	const dailyChallenges = challengeContext.state;
+	const status = challengeContext.status;
+	// const statuschecked = status.steps - item.step_goal;
 	const getChallenges = (data) => {
 		if (data.DailyChallenges.length) {
 			return data.DailyChallenges.map((item) => {
 				return (
 					<form method="POST" action="/">
-						<input type="checkbox" id="step_goal" name="step_goal"></input>
+						<input
+							checked={status.steps > item.step_goal ? "checked" : ""}
+							type="checkbox"
+							id="step_goal"
+							name="step_goal"
+						></input>
 						<label for="step_goal">Do {item.step_goal} Steps</label>
 						<br></br>
-						<input type="checkbox" id="water_goal" name="water_goal"></input>
+						<input
+							checked={status.water > item.water_goal ? "checked" : ""}
+							type="checkbox"
+							id="water_goal"
+							name="water_goal"
+						></input>
 						<label for="water_goal">
 							Drink {item.water_goal} cups of water
 						</label>
@@ -85,7 +97,6 @@ export default function DailyChallengesPage() {
 				<h1>Daily Challenges</h1>
 				{getChallenges(dailyChallenges)}
 			</Card>
-	
 		</div>
 	);
 }
