@@ -18,11 +18,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DailyChallengesPage() {
 	const challengeContext = useContext(ChallengeContext);
-	// console.log("state", dailyChallenges.DailyChallenges);
+
 	const userChallenges = challengeContext.state;
 	const dailyChallenges = challengeContext.state;
 	const status = challengeContext.status;
-	// const statuschecked = status.steps - item.step_goal;
 
 	const classes = useStyles();
 

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -9,22 +9,23 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { Link } from "react-router-dom";
 
 export default function ChallengeAlert(props) {
-	console.log("props---", props);
 	// const userChallenges = useContext(ChallengeContext);
 	const userChallenges = props.state;
 	console.log("UserChallenges", userChallenges);
 	const [open, setOpen] = React.useState(false);
 	console.log("USERCHALL", userChallenges);
 
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
+	// const handleClickOpen = () => {
+	// 	setOpen(true);
+	// };
 
 	const handleClose = () => {
+		props.SetTrigger(false);
 		setOpen(false);
 	};
 
 	const handleCloseAccept = () => {
+		props.SetTrigger(false);
 		props.acceptChallenge();
 		setOpen(false);
 	};
@@ -45,11 +46,8 @@ export default function ChallengeAlert(props) {
 
 	return (
 		<div>
-			<Button variant="outlined" color="primary" onClick={handleClickOpen}>
-				Open Incoming Challenge
-			</Button>
 			<Dialog
-				open={open}
+				open={props.trigger}
 				onClose={handleClose}
 				aria-labelledby="alert-dialog-title"
 				aria-describedby="alert-dialog-description"

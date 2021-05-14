@@ -1,5 +1,5 @@
 // Libraries
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Style sheet
 import "./styles/App.scss";
@@ -34,10 +34,22 @@ export default function App() {
 
 	const { status } = useStatData();
 	const challengeContext = { state, status };
+	const [trigger, SetTrigger] = useState(false);
+	useEffect(() => {
+		setTimeout(() => {
+			SetTrigger(true);
+		}, 5000);
+	}, []);
 
 	return (
 		<Fragment>
 			<Router>
+				<ChallengeAlert
+					state={state}
+					acceptChallenge={acceptChallenge}
+					trigger={trigger}
+					SetTrigger={SetTrigger}
+				/>
 				<Switch>
 					<Route exact path="/" component={DashboardPage}>
 						<DashboardPage
