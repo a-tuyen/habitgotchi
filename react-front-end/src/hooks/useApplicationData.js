@@ -123,8 +123,8 @@ export default function useApplicationData() {
   	DailyChallenge.water_goal= parseInt(formData.water_goal);
 	 DailyChallenge.active_min_goal = parseInt(formData.active_min_goal);
 
-const DailyChallenges =[...state.DailyChallenges]
-DailyChallenges[0] = DailyChallenge
+  const DailyChallenges =[...state.DailyChallenges]
+  DailyChallenges[0] = DailyChallenge
 		// console.log('DC', DailyChallenges)
 		
   axios.put(`/api/dailychallenges`, { formData }).then((result) =>
@@ -140,14 +140,23 @@ function acceptChallenge (){
 	const acceptchallenge =  1;
 
   setState((prev) => ({
-      ...prev,
-     		acceptedchallenges :  acceptchallenge
+    ...prev,
+      acceptedchallenges :  acceptchallenge
     }))
 	
-console.log("Afteraccepting",state)
+  console.log("Afteraccepting",state)
 }
 
+function collectCoins(){
+	const acceptchallenge =  1;
 
+  setState((prev) => ({
+    ...prev,
+      acceptedchallenges :  acceptchallenge
+  }));
+	
+  console.log("Afteraccepting",state)
+}
 
 	return { state, buydigitalpet, selectdigitalpet, updateDailyChall,acceptChallenge };
 }

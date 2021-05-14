@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Grid, Button, Checkbox, Card } from "@material-ui/core";
 import Nav from "../components/Nav";
 import ChallengeContext from "../components/ChallengeContext";
@@ -18,25 +18,49 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DailyChallengesPage() {
 	const challengeContext = useContext(ChallengeContext);
-	// console.log("state", dailyChallenges.DailyChallenges);
+	
 	const userChallenges = challengeContext.state;
 	const dailyChallenges = challengeContext.state;
+	console.log("dailyChallenges", dailyChallenges);
+	
+
 	const status = challengeContext.status;
 	// const statuschecked = status.steps - item.step_goal;
 
 	const classes = useStyles();
 
 	const mode = dailyChallenges.acceptedchallenges;
+
+  //CheckBox States
+  
+	// const [state, setState] = useState({
+	// 	first: false,
+	// 	// Status: {},
+	// 	MyPetInventory: [],
+	// 	PetShop: [],
+	// 	DailyChallenges: {},
+	// 	balanceCoins: 0,
+	// 	UserChallenges: {},
+	// 	acceptedchallenges : 0
+	// });
+
+  const [ firstBox, setFirstBox ] = useState(false);
+  const [ secondBox, setSecondBox ] = useState(false);
+  const [ thirdBox, setThirdBox ] = useState(false);
+  console.log('all boxes', firstBox, secondBox, thirdBox)
+
 	const getChallenges = (data) => {
 		if (data.DailyChallenges.length) {
 			return data.DailyChallenges.map((item) => {
 				return (
 					<form method="POST" action="/">
 						<input
-							checked={status.steps > item.step_goal ? "checked" : ""}
+							checked={status.steps > item.step_goal ? ("checked", ()=>setFirstBox(!firstBox)) : ""}
 							type="checkbox"
 							id="step_goal"
 							name="step_goal"
+              onClick={()=>setFirstBox(!firstBox)}
+							value={firstBox}
 						></input>
 						<label for="step_goal">Do {item.step_goal} Steps</label>
 						<br></br>
@@ -45,6 +69,8 @@ export default function DailyChallengesPage() {
 							type="checkbox"
 							id="water_goal"
 							name="water_goal"
+              onClick={()=>setSecondBox(!secondBox)}
+              value={secondBox}
 						></input>
 						<label for="water_goal">
 							Drink {item.water_goal} cups of water
@@ -52,11 +78,13 @@ export default function DailyChallengesPage() {
 						<br></br>
 						<input
 							checked={
-								status.active_min > item.active_min_goal ? "checked" : ""
+								status.active_min > item.active_min_goal ? ("checked", ()=>setThirdBox(!thirdBox)) : ""
 							}
 							type="checkbox"
 							id="active_min_goal"
 							name="active_min_goal"
+              // onClick={()=>setThirdBox(!thirdBox)}
+              value={thirdBox}
 						></input>
 						<label for="active_min_goal">
 							Complete {item.active_min_goal} Active Minutes
