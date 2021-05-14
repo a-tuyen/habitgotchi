@@ -25,6 +25,7 @@ import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
 import useStatData from "../hooks/useStatData";
+import ChallengeAlert from "./ChallengeAlert";
 
 export default function App() {
 	const { state, buydigitalpet, selectdigitalpet, updateDailyChall } =
@@ -37,7 +38,7 @@ export default function App() {
 			<Router>
 				<Switch>
 					<Route exact path="/" component={DashboardPage}>
-						<DashboardPage Activepet={state.ActivePet} status={status} />
+						<DashboardPage state={state} Activepet={state.ActivePet} status={status} />
 					</Route>
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 						<SelectContext.Provider value={selectdigitalpet}>

@@ -8,10 +8,13 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 import ChallengeContext from "./ChallengeContext";
 
-export default function ChallengeAlert() {
-
-  const userChallenges = useContext(ChallengeContext);
+export default function ChallengeAlert(props) {
+console.log('props---', props)
+  // const userChallenges = useContext(ChallengeContext);
+  const userChallenges = props.state;
+  console.log("UserChallenges", userChallenges);
   const [open, setOpen] = React.useState(false);
+  console.log('USERCHALL', userChallenges)
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -21,18 +24,18 @@ export default function ChallengeAlert() {
     setOpen(false);
   };
 
-  // const getUserChallenges = data => {
-  //   if (data.UserChallenges.length) {
-  //     return data.UserChallenges.map(item => {
-  //       return (
-  //         <p>
-  //         {item.description}<br></br>
-  //         Complete to earn {item.coins} coins!
-  //         </p>
-  //       )
-  //     })
-  //   }
-  // };
+  const getUserChallenges = data => {
+    if (data.UserChallenges.length) {
+      return data.UserChallenges.map(item => {
+        return (
+          <p>
+          {item.description}<br></br>
+          Complete to earn {item.coins} coins!
+          </p>
+        )
+      })
+    }
+  };
 
   return (
     <div>
@@ -48,7 +51,7 @@ export default function ChallengeAlert() {
         <DialogTitle id="alert-dialog-title">{"Incoming Challenge!"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {/* {getUserChallenges(userChallenges)} */}
+            {getUserChallenges(userChallenges)}
             Challenge Description
           </DialogContentText>
         </DialogContent>

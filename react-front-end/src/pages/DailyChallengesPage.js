@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DailyChallengesPage() {
 	const classes = useStyles();
-
+const mode = 0;
 	const dailyChallenges = useContext(ChallengeContext);
 	console.log('state', dailyChallenges.DailyChallenges)
 	const userChallenges = useContext(ChallengeContext);
@@ -61,33 +61,51 @@ export default function DailyChallengesPage() {
 		}
 	};
 
-	// const getUserChallenges = (data) => {
-	// 	if (data.UserChallenges.length) {
-	// 		return data.UserChallenges.map((item) => {
-	// 			return (
-	// 				<p>
-	// 					{item.description}
-	// 					<br></br>
-	// 					Complete to earn {item.coins} coins!
-	// 					<Button variant="contained" color="primary">
-	// 						I did it!
-	// 					</Button>
-	// 				</p>
-	// 			);
-	// 		});
-	// 	}
-	// };
+	const getUserChallenges = (data) => {
+		if (data.UserChallenges.length) {
+			return data.UserChallenges.map((item) => {
+				return (
+					<p>
+						{item.description}
+						<br></br>
+						Complete to earn {item.coins} coins!
+						<Button variant="contained" color="primary">
+							I did it!
+						</Button>
+					</p>
+				);
+			});
+		}
+	};
 
-	return (
-		<div>
-			<Nav />
-			<Card className={classes.root}>
-				<h1>Daily Challenges</h1>
-				{getChallenges(dailyChallenges)}
-			</Card>
+// 	return (
+// 		<div>
+// 			<Nav />
+// 			<Card className={classes.root}>
+// 				<h1>Daily Challenges</h1>
+// 				{getChallenges(dailyChallenges)}
+// 			</Card>
 	
-		</div>
-	);
+// 		</div>
+// 	);
+// }
+
+  return (
+    <div>
+      <Nav />
+			<Card className={classes.root}>
+      <h1>Daily Challenges</h1>
+      {getChallenges(dailyChallenges)}
+			</Card>
+			{mode && <Card className={classes.root}>
+				<h1>Bonus Challenges</h1>
+      	{getUserChallenges(userChallenges)}
+			</Card>}
+			
+
+    </div>
+
+  );
 }
 
 // return (
@@ -137,14 +155,4 @@ export default function DailyChallengesPage() {
 //     }
 //   }
 
-//   return (
-//     <div>
-//       <Nav />
-//       <h1>Daily Challenges</h1>
-//       {getChallenges(dailyChallenges)}
-//       <h1>Bonus Challenges</h1>
-//       {getUserChallenges(userChallenges)}
-//     </div>
 
-//   );
-// }

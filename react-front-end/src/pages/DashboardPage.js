@@ -15,14 +15,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DashboardPage(props) {
 	const classes = useStyles();
-	// console.log('DASHPROPS', props);
+	console.log('DASHPROPS', props);
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
 				<Grid item xs={12}>
 					<Nav />
 				</Grid>
-        <ChallengeAlert/>
+        <ChallengeAlert state={props.state}/>
 
 				<Grid item xs={12}>
 					<DigitalPet Activepet={props.Activepet} />
