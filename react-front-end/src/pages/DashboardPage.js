@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 import Nav from "../components/Nav";
 import DigitalPet from "../components/DigitalPet";
 import Status from "../components/status";
+import ChallengeAlert from "../components/ChallengeAlert";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,6 +22,7 @@ export default function DashboardPage(props) {
 				<Grid item xs={12}>
 					<Nav />
 				</Grid>
+        <ChallengeAlert/>
 
 				<Grid item xs={12}>
 					<DigitalPet Activepet={props.Activepet} />
