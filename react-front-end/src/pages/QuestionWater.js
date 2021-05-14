@@ -12,6 +12,11 @@ import FormControl from '@material-ui/core/FormControl';
 // import TextField from '@material-ui/core/TextField';
 // import Visibility from '@material-ui/icons/Visibility';
 // import VisibilityOff from '@material-ui/icons/VisibilityOff';
+
+
+import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
+
 import Nav from "../components/Nav";
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
@@ -20,37 +25,73 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Link} from 'react-router-dom';
 
 
-export default function QuestionWater(props) {
+export default function QuestionWater({ formData, setForm, navigation }) {
+//   return (
+//     <div>
+//       <Nav />
+//       <FormControl>
+//         <p>How many cups of water are you aiming to drink a day?</p>
+//           <Input
+//             id="standard-adornment-weight"
+//             // value={values.weight}
+//             // onChange={handleChange('weight')}
+//             endAdornment={<InputAdornment position="end">cups</InputAdornment>}
+//             aria-describedby="standard-weight-helper-text"
+//             inputProps={{
+//               'aria-label': 'weight',
+//             }}
+//           />
+//           {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
+//         </FormControl>
+//         {/* <button>Next</button> */}
+//         <Link to="/questionsteps">
+//      <button type="button">
+//           Back
+//      </button>
+//  </Link>
+//         <Link to="/questionactive">
+//      <button type="button">
+//           Next
+//      </button>
+//  </Link>
+//     </div>
+//   );
+// }
+
+const { water_goal } = formData;
+
+
   return (
-    <div>
-      <Nav />
-      <FormControl>
-        <p>How many cups of water are you aiming to drink a day?</p>
-          <Input
-            id="standard-adornment-weight"
-            // value={values.weight}
-            // onChange={handleChange('weight')}
-            endAdornment={<InputAdornment position="end">cups</InputAdornment>}
-            aria-describedby="standard-weight-helper-text"
-            inputProps={{
-              'aria-label': 'weight',
-            }}
-          />
-          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
-        </FormControl>
-        {/* <button>Next</button> */}
-        <Link to="/questionsteps">
-     <button type="button">
+    <Container maxWidth="s">
+      <Nav/>
+      <h3>How many cups of water are you aiming to drink a day?</h3>
+      <TextField
+        label="Cups of Water"
+        name="water_goal"
+        value={water_goal}
+        onChange={setForm}
+        margin="normal"
+        variant="outlined"
+        autoComplete="off"
+        fullWidth
+      />
+      <div style={{ marginTop: "1rem" }}>
+        <Button
+          color="secondary"
+          variant="contained"
+          style={{ marginRight: "1rem" }}
+          onClick={() => navigation.previous()}
+        >
           Back
-     </button>
- </Link>
-        <Link to="/questionactive">
-     <button type="button">
+        </Button>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={() => navigation.next()}
+        >
           Next
-     </button>
- </Link>
-    </div>
+        </Button>
+      </div>
+    </Container>
   );
-}
-
-
+};

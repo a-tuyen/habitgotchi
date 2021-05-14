@@ -1,8 +1,8 @@
 //PG connection
-const { getCaloriesValue, getstepsValue } = require("../Helpers/apihelper");
+
 const pg = require("pg");
 const dbParams = require("./db.js");
-
+const { getCaloriesValue, getstepsValue } = require("../Helpers/apihelper");
 var db = new pg.Client(dbParams);
 db.connect(function (err) {
 	if (err) {
@@ -23,27 +23,6 @@ const getActivePet = function () {
 		});
 };
 exports.getActivePet = getActivePet;
-// var Caloriesvalue = 50;
-// function getCaloriesValue() {
-// 	setInterval(() => {
-// 		Caloriesvalue = Caloriesvalue + 10;
-// 		if (Caloriesvalue == 2000) {
-// 			Caloriesvalue = 10;
-// 		}
-// 	}, 6000);
-
-// 	return Caloriesvalue;
-// }
-// let StepsValue = 100;
-// function getstepsValue() {
-// 	setInterval(() => {
-// 		StepsValue = StepsValue + 100;
-// 		if (StepsValue == 10000) {
-// 			StepsValue = 100;
-// 		}
-// 	}, 6000);
-// 	return StepsValue;
-// }
 
 const getdailyStatus = function () {
 	const calorie = getCaloriesValue();
@@ -91,7 +70,6 @@ const getDailyChallenges = function () {
 			[1, false]
 		)
 		.then((result) => {
-			// console.log('DAILY:', result)
 			return result.rows;
 		})
 		.catch((err) => {
@@ -186,3 +164,32 @@ const updateisActive = function (pet_id) {
 		});
 };
 exports.updateisActive = updateisActive;
+
+const updateDailyChallenges = function (formData) {
+	return db
+		.query(
+			`UPDATE daily_challenges SET step_goal = $1, water_goal = $2, active_min_goal = $3 WHERE user_id = $4 RETURNING *;`,
+			[formData.steps_goal, formData.water_goal, formData.active_min_goal, 1]
+		)
+		.then((result) => {
+			return result.rows;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+
+exports.updateDailyChallenges = updateDailyChallenges;
+
+const updateUserIntensity = function (data) {
+	return db
+		.query(`UPDATE users SET intensity = $1 WHERE id = $2;`, [`${data}`, 1])
+		.then((result) => {
+			return result.rows;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+
+exports.updateUserIntensity = updateUserIntensity;

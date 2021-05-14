@@ -18,5 +18,5 @@ export default function Petshoplist(props) {
 			purchased={pet.purchased}
 		/>
 	));
-	return <Grid column={2}>{List}</Grid>;
+	return <>{List}</>;
 }

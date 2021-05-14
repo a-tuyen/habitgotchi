@@ -16,15 +16,20 @@ import InventoryPage from "../pages/InventoryPage";
 import PetShopPage from "../pages/PetShopPage";
 import DailyChallengesPage from "../pages/DailyChallengesPage";
 import UserChallengesPage from "../pages/UserChallengesPage";
+import QuestionsContext from "./QuestionsContext";
 
 // Questionnaire
+import QuestionsForm from "../pages/QuestionsForm";
 import QuestionSteps from "../pages/QuestionSteps";
 import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
 import useStatData from "../hooks/useStatData";
+
 export default function App() {
-	const { state, buydigitalpet, selectdigitalpet } = useApplicationData();
+	const { state, buydigitalpet, selectdigitalpet, updateDailyChall } =
+		useApplicationData();
+
 	const { status } = useStatData();
 
 	return (
@@ -43,21 +48,20 @@ export default function App() {
 					<Route exact path="/userchallenges" component={UserChallengesPage}>
 						<UserChallengesPage userChallenges={state.UserChallenges} />
 					</Route>
-					<Route exact path="/questionsteps" component={QuestionSteps}>
-						<QuestionSteps />
-					</Route>
-					<Route exact path="/questionwater" component={QuestionWater}>
-						<QuestionWater />
+					<Route exact path="/questionsform" component={QuestionsForm}>
+						<QuestionsContext.Provider value={updateDailyChall}>
+							<QuestionsForm />
+						</QuestionsContext.Provider>
 					</Route>
 					<Route exact path="/questionactive" component={QuestionActiveMin}>
 						<QuestionActiveMin />
 					</Route>
 
-					{/* <Route exact path="/dailychallenges" component={DailyChallengesPage}>
+					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
 						<ChallengeContext.Provider value={state}>
 							<DailyChallengesPage></DailyChallengesPage>
 						</ChallengeContext.Provider>
-					</Route> */}
+					</Route>
 
 					<Route exact path="/petshop" component={PetShopPage}>
 						<BuyContext.Provider value={buydigitalpet}>

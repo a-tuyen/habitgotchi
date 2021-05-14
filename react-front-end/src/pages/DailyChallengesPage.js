@@ -26,6 +26,7 @@ export default function DailyChallengesPage() {
 	const classes = useStyles();
 
 	const dailyChallenges = useContext(ChallengeContext);
+	console.log('state', dailyChallenges.DailyChallenges)
 	const userChallenges = useContext(ChallengeContext);
 
 	const getChallenges = (data) => {
@@ -60,22 +61,22 @@ export default function DailyChallengesPage() {
 		}
 	};
 
-	const getUserChallenges = (data) => {
-		if (data.UserChallenges.length) {
-			return data.UserChallenges.map((item) => {
-				return (
-					<p>
-						{item.description}
-						<br></br>
-						Complete to earn {item.coins} coins!
-						<Button variant="contained" color="primary">
-							I did it!
-						</Button>
-					</p>
-				);
-			});
-		}
-	};
+	// const getUserChallenges = (data) => {
+	// 	if (data.UserChallenges.length) {
+	// 		return data.UserChallenges.map((item) => {
+	// 			return (
+	// 				<p>
+	// 					{item.description}
+	// 					<br></br>
+	// 					Complete to earn {item.coins} coins!
+	// 					<Button variant="contained" color="primary">
+	// 						I did it!
+	// 					</Button>
+	// 				</p>
+	// 			);
+	// 		});
+	// 	}
+	// };
 
 	return (
 		<div>
@@ -84,13 +85,22 @@ export default function DailyChallengesPage() {
 				<h1>Daily Challenges</h1>
 				{getChallenges(dailyChallenges)}
 			</Card>
-			<Card className={classes.root}>
-				<h1>Bonus Challenges</h1>
-				{getUserChallenges(userChallenges)}
-			</Card>
+	
 		</div>
 	);
 }
+
+// return (
+// 	<div>
+// 		<Nav />
+// 		<Card className={classes.root}>
+// 			<h1>Daily Challenges</h1>
+// 			{dailyChallenges.DailyChallenges.water_goal}
+// 		</Card>
+
+// 	</div>
+// );
+// }
 
 // export default function DailyChallengesPage() {
 

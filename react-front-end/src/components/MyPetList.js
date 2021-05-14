@@ -17,7 +17,7 @@ export default function MyPetlist(props) {
 		/>
 	));
 	return (
-		<Grid className="list" column={2}>
+		<Grid className="list">
 			{List}
 		</Grid>
 	);
