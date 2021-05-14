@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 import Nav from "../components/Nav";
 import DigitalPet from "../components/DigitalPet";
 import Status from "../components/status";
+import ChallengeAlert from "../components/ChallengeAlert";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -14,13 +15,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DashboardPage(props) {
 	const classes = useStyles();
-	console.log(props);
+	console.log('DASHPROPS', props);
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
 				<Grid item xs={12}>
 					<Nav />
 				</Grid>
+        <ChallengeAlert state={props.state} acceptChallenge ={props.acceptChallenge}/>
 
 				<Grid item xs={12}>
 					<DigitalPet Activepet={props.Activepet} />
@@ -36,6 +38,12 @@ export default function DashboardPage(props) {
 				</Grid>
 				<Grid item xs={6}>
 					<Status value={props.status.water} water={"cups"} />
+				</Grid>
+				<Grid item xs={6}>
+					<Status value={props.status.active_min} active_min={"active minutes"} />
+				</Grid>
+				<Grid item xs={6}>
+					<Status value={props.status.heart_rate} heart_rate={"BPM"} />
 				</Grid>
 			</Grid>
 		</div>

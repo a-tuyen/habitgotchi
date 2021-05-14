@@ -6,6 +6,8 @@ export default function useStatData() {
 		sleep: 7,
 		steps: 10,
 		water: 1,
+		heart_rate: 73,
+		active_min: 12
 	});
 	useEffect(() => {
 		// const fetchData = setInterval(() => {
@@ -31,6 +33,8 @@ export default function useStatData() {
 						sleep: result.data.result.sleep,
 						steps: result.data.result.steps,
 						water: result.data.result.water,
+						heart_rate: result.data.result.heart_rate,
+						active_min: result.data.result.active_min
 					}))
 				);
 			}, 60000);
@@ -38,6 +42,6 @@ export default function useStatData() {
 
 		return fetchData();
 	}, []);
-
+	console.log('status!', status)
 	return { status };
 }

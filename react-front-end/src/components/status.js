@@ -6,13 +6,15 @@ import DirectionsWalkIcon from "@material-ui/icons/DirectionsWalk";
 import LocalDrinkIcon from "@material-ui/icons/LocalDrink";
 import NightsStayIcon from "@material-ui/icons/NightsStay";
 import WhatshotIcon from '@material-ui/icons/Whatshot';
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import "./styles/status.scss";
 
 export default function Status(props) {
-	console.log(props);
+	console.log('props++', props);
 	const string =
-		" " + (props.walk || props.sleep || props.excercise || props.water);
+		" " + (props.walk || props.sleep || props.excercise || props.water || props.heart_rate || props.active_min);
 	return (
 		<Fragment>
 			<Card className="stat-card">
@@ -20,6 +22,8 @@ export default function Status(props) {
 				{props.sleep && <NightsStayIcon className="stat-card--icon"/>}
 				{props.excercise && <WhatshotIcon className="stat-card--icon"/>}
 				{props.walk && <DirectionsWalkIcon className="stat-card--icon" />}
+				{props.active_min  && <DirectionsRunIcon className="stat-card--icon" />}
+				{props.heart_rate && <FavoriteIcon className="stat-card--icon" />}
 				<h3>
 					{props.value}
 					{string}

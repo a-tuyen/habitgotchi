@@ -32,6 +32,8 @@ const getdailyStatus = function () {
 		sleep: 7,
 		steps: step,
 		water: 10,
+		heart_rate: 73,
+		active_min: 13,
 	};
 };
 exports.getdailyStatus = getdailyStatus;
