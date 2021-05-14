@@ -39,6 +39,7 @@ export default function App() {
 							<InventoryPage myPetInventory={state.MyPetInventory} />
 						</SelectContext.Provider>
 					</Route>
+
 					<Route exact path="/userchallenges" component={UserChallengesPage}>
 						<UserChallengesPage userChallenges={state.UserChallenges} />
 					</Route>
@@ -52,11 +53,11 @@ export default function App() {
 						<QuestionActiveMin />
 					</Route>
 
-					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
+					{/* <Route exact path="/dailychallenges" component={DailyChallengesPage}>
 						<ChallengeContext.Provider value={state}>
 							<DailyChallengesPage></DailyChallengesPage>
 						</ChallengeContext.Provider>
-					</Route>
+					</Route> */}
 
 					<Route exact path="/petshop" component={PetShopPage}>
 						<BuyContext.Provider value={buydigitalpet}>
