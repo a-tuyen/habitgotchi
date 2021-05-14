@@ -83,6 +83,8 @@ App.put("/api/digitalpet1", (req, res) => {
 
 App.put("/api/dailychallenges", (req, res) => {
 	db.updateDailyChallenges(req.body.formData).then((result) => {
+		 return db.updateUserIntensity(req.body.formData.intensity)})
+		 .then ((result)=>{
 		console.log('serverbody', req.body.formData)
 		 res.json({ message: "Success" });
 	});

@@ -180,7 +180,23 @@ const updateDailyChallenges = function (formData) {
 	});
 };
 
+
 exports.updateDailyChallenges = updateDailyChallenges;
 
+
+const updateUserIntensity = function (data) {
+	return db.query(
+		`UPDATE users SET intensity = $1 WHERE id = $2;`, [`${data}`,1]
+	)
+	.then((result) => {
+		return result.rows;
+	})
+	.catch((err) => {
+		console.log(err);
+	});
+};
+
+
+exports.updateUserIntensity = updateUserIntensity;
 
 
