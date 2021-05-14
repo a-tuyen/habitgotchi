@@ -6,7 +6,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import {Link} from 'react-router-dom';
+
 import ChallengeContext from "./ChallengeContext";
+import challengePopUp from "../helpers/challenge-popup";
 
 export default function ChallengeAlert(props) {
 console.log('props---', props)
@@ -23,6 +26,12 @@ console.log('props---', props)
   const handleClose = () => {
     setOpen(false);
   };
+
+   const handleCloseAccept = () => {
+     props.acceptChallenge();
+    setOpen(false);
+  };
+
 
   const getUserChallenges = data => {
     if (data.UserChallenges.length) {
@@ -59,8 +68,11 @@ console.log('props---', props)
           <Button onClick={handleClose} color="primary">
             Maybe Later
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
+          
+          <Button onClick={handleCloseAccept} color="primary" autoFocus>
+          <Link to="/dailychallenges">
             Challenge Accepted!
+            </Link>
           </Button>
         </DialogActions>
       </Dialog>

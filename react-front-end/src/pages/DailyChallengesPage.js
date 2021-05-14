@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Grid, Button, Checkbox, Card } from "@material-ui/core";
 import Nav from "../components/Nav";
 import ChallengeContext from "../components/ChallengeContext";
+import challengePopUp from "../helpers/challenge-popup";
 
 //List Component Stuff
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -23,12 +24,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DailyChallengesPage() {
-	const classes = useStyles();
-const mode = 0;
-	const dailyChallenges = useContext(ChallengeContext);
-	console.log('state', dailyChallenges.DailyChallenges)
-	const userChallenges = useContext(ChallengeContext);
 
+	
+	const classes = useStyles();
+	
+	const dailyChallenges = useContext(ChallengeContext);
+	console.log('state', dailyChallenges.acceptedchallenges)
+	const userChallenges = useContext(ChallengeContext);
+const mode = dailyChallenges.acceptedchallenges
 	const getChallenges = (data) => {
 		if (data.DailyChallenges.length) {
 			return data.DailyChallenges.map((item) => {

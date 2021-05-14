@@ -11,7 +11,9 @@ export default function useApplicationData() {
 		DailyChallenges: {},
 		balanceCoins: 0,
 		UserChallenges: {},
+		acceptedchallenges : 0
 	});
+
 
 	//  uses API to load data from API
 	useEffect(() => {
@@ -134,9 +136,19 @@ DailyChallenges[0] = DailyChallenge
 		// console.log("Result from server",result)
   );
 }
+function acceptChallenge (){
+	const acceptchallenge =  1;
+
+  setState((prev) => ({
+      ...prev,
+     		acceptedchallenges :  acceptchallenge
+    }))
+	
+console.log("Afteraccepting",state)
+}
 
 
 
-	return { state, buydigitalpet, selectdigitalpet, updateDailyChall };
+	return { state, buydigitalpet, selectdigitalpet, updateDailyChall,acceptChallenge };
 }
 

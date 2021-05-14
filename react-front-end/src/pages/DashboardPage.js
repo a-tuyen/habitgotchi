@@ -22,7 +22,7 @@ export default function DashboardPage(props) {
 				<Grid item xs={12}>
 					<Nav />
 				</Grid>
-        <ChallengeAlert state={props.state}/>
+        <ChallengeAlert state={props.state} acceptChallenge ={props.acceptChallenge}/>
 
 				<Grid item xs={12}>
 					<DigitalPet Activepet={props.Activepet} />

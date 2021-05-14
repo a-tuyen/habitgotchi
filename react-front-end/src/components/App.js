@@ -28,17 +28,17 @@ import useStatData from "../hooks/useStatData";
 import ChallengeAlert from "./ChallengeAlert";
 
 export default function App() {
-	const { state, buydigitalpet, selectdigitalpet, updateDailyChall } =
+	const { state, buydigitalpet, selectdigitalpet, updateDailyChall,acceptChallenge } =
 		useApplicationData();
 
 	const { status } = useStatData();
-
 	return (
 		<Fragment>
 			<Router>
 				<Switch>
 					<Route exact path="/" component={DashboardPage}>
-						<DashboardPage state={state} Activepet={state.ActivePet} status={status} />
+
+						<DashboardPage state={state} Activepet={state.ActivePet} status={status} acceptChallenge ={acceptChallenge}  />
 					</Route>
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 						<SelectContext.Provider value={selectdigitalpet}>
