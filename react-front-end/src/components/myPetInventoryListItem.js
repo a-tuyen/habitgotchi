@@ -9,38 +9,37 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		width: "100%",
-		maxWidth: "80%",
-		// marginLeft: "5vw",
-		// marginRight: "5vw",
-		// marginTop: "5vh",
     marginBottom: "2vh",
 		padding: "5em",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     padding: "2em",
-    // minHeight: "3vh",
-    // height: "18rem",
-    // width: '14rem',
 	},
+  petContent: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
   img: {
     height: "25vh",
     padding: "2em"
   },
   button: {
     backgroundColor: "#2B7A78",
-    fontFamily: "Quicksand"
+    fontFamily: "Quicksand",
+    color: "white",
+    borderRadius: "1.5rem",
   }
 }));
 
 export default function MyPetInventoryListItem(props) {
   const classes = useStyles();
-	// console.log(props);
 	const selectdigitalpet = useContext(SelectContext);
-	return (
+	
+  return (
 		<Card className={classes.root}>
-      <div className="pet-content">
+      <div className={classes.petContent}>
         <img src={props.img} className={classes.img}/>
         <h3>{props.name}</h3>
         <p>{props.description}</p>
@@ -48,7 +47,6 @@ export default function MyPetInventoryListItem(props) {
 			<Button
         className={classes.button}
 				variant="contained"
-				color="Primary"
 				onClick={() => {
 					selectdigitalpet(props.id);
 				}}

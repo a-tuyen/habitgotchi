@@ -7,23 +7,19 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		// width: "80%",
-		// maxWidth: "80%",
 		marginLeft: "2.5vw",
 		marginRight: "2.5vw",
-		// marginTop: "2vh",
-		// padding: "5em",
 	},
 }));
 
 export default function InventoryPage(props) {
   const classes = useStyles();
 	return (
-		<div>
+		<div className={classes.root}>
 			<Nav />
-        <div className={classes.root}>
+        <div>
           <h1>My Inventory</h1>
-          <MyPetlist myPetInventory={props.myPetInventory} className={classes.root} />
+          <MyPetlist myPetInventory={props.myPetInventory}/>
         </div>
 		</div>
 	);
