@@ -17,52 +17,29 @@ import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 
 import Nav from "../components/Nav";
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Link } from "react-router-dom";
 
 export default function QuestionWater({ formData, setForm, navigation }) {
-	//   return (
-	//     <div>
-	//       <Nav />
-	//       <FormControl>
-	//         <p>How many cups of water are you aiming to drink a day?</p>
-	//           <Input
-	//             id="standard-adornment-weight"
-	//             // value={values.weight}
-	//             // onChange={handleChange('weight')}
-	//             endAdornment={<InputAdornment position="end">cups</InputAdornment>}
-	//             aria-describedby="standard-weight-helper-text"
-	//             inputProps={{
-	//               'aria-label': 'weight',
-	//             }}
-	//           />
-	//           {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
-	//         </FormControl>
-	//         {/* <button>Next</button> */}
-	//         <Link to="/questionsteps">
-	//      <button type="button">
-	//           Back
-	//      </button>
-	//  </Link>
-	//         <Link to="/questionactive">
-	//      <button type="button">
-	//           Next
-	//      </button>
-	//  </Link>
-	//     </div>
-	//   );
-	// }
-
 	const { water_goal } = formData;
+	const [goalerror, SetError] = useState(0);
+	function validate() {
+		if (parseInt(water_goal)) {
+			navigation.next();
+		} else {
+			SetError(1);
+		}
+	}
 
 	return (
 		<Container maxWidth="s">
 			<Nav />
 			<h3>How many cups of water are you aiming to drink a day?</h3>
 			<TextField
+				error={goalerror}
 				label="Cups of Water"
 				name="water_goal"
 				value={water_goal}
@@ -71,6 +48,7 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 				variant="outlined"
 				autoComplete="off"
 				fullWidth
+				helperText={!goalerror ? "" : " It should be a number"}
 			/>
 			<div style={{ marginTop: "1rem" }}>
 				<Button
@@ -81,11 +59,7 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 				>
 					Back
 				</Button>
-				<Button
-					color="primary"
-					variant="contained"
-					onClick={() => navigation.next()}
-				>
+				<Button color="primary" variant="contained" onClick={() => validate()}>
 					Next
 				</Button>
 			</div>
