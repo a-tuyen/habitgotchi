@@ -43,11 +43,31 @@ export default function Nav() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}><Link to="/">Home</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to="/dailychallenges">Daily Challenges</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to="/mypetinventory">My Pets</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to="/questionsform">Questionnaire</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to="/petshop">Pet Shop</Link></MenuItem>
+        <Link to="/">
+          <MenuItem onClick={handleClose}>
+          <p>Home</p>
+          </MenuItem>
+        </Link>
+        <Link to="/dailychallenges">
+          <MenuItem onClick={handleClose}>
+          <p>Daily Challenges</p>
+          </MenuItem>
+        </Link>
+        <Link to="/mypetinventory">
+          <MenuItem onClick={handleClose}>
+          <p>My Pets</p>
+          </MenuItem>
+        </Link>
+        <Link to="/questionsform">
+          <MenuItem onClick={handleClose}>
+          <p>Questionnaire</p>
+          </MenuItem>
+        </Link>
+        <Link to="/petshop">
+          <MenuItem onClick={handleClose}>
+          <p>Pet Shop</p>
+          </MenuItem>
+        </Link>
       </Menu>
             </Toolbar>
     </AppBar>
