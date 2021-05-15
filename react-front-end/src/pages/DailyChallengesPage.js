@@ -101,7 +101,7 @@ export default function DailyChallengesPage(props) {
 						</label>
 						<br></br>
 						<p>Complete all three goals to earn {item.coins} coins!</p>
-						{areAllChecked()}
+						{areAllChecked}
 						<PageAlert
 							trigger={trigger}
 							setTrigger={setTrigger}
