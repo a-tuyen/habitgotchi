@@ -148,10 +148,24 @@ export default function useApplicationData() {
 	}
 	function taskcompleted(coins) {
 		// alert("Collect Coins");
-		console.log(state.DailyChallenges[0]);
-		state.DailyChallenges[0].completed = true;
+		// console.log(state.DailyChallenges[0]);
+		const DailyChallenge = { ...state.DailyChallenges[0] };
+		DailyChallenge.completed = true;
+
+		const DailyChallenges = [...state.DailyChallenges];
+		DailyChallenges[0] = DailyChallenge;
 		console.log(coins);
-		state.balanceCoins += coins;
+		const balanceCoins = state.balanceCoins + coins;
+
+		axios.put(`/api/updateCoins`, { coins }).then(
+			(result) =>
+				setState((prev) => ({
+					...prev,
+					balanceCoins,
+				}))
+
+			// console.log("Result from server",result)
+		);
 	}
 
 	return {

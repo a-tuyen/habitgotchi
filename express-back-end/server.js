@@ -84,15 +84,22 @@ App.put("/api/digitalpet1", (req, res) => {
 });
 
 App.put("/api/dailychallenges", (req, res) => {
-	db.updateDailyChallenges(req.body.formData).then((result) => {
-		 return db.updateUserIntensity(req.body.formData.intensity)})
-		 .then ((result)=>{
-		console.log('serverbody', req.body.formData)
-		 res.json({ message: "Success" });
-	});
-
+	db.updateDailyChallenges(req.body.formData)
+		.then((result) => {
+			return db.updateUserIntensity(req.body.formData.intensity);
+		})
+		.then((result) => {
+			console.log("serverbody", req.body.formData);
+			res.json({ message: "Success" });
+		});
 });
 
+App.put("/api/updateCoins", (req, res) => {
+	db.insertnewTransaction(req.body.coins).then((result) => {
+		// console.log(req.body.id, req.body.Pet);
+		res.json({ message: "Success" });
+	});
+});
 
 App.listen(PORT, () => {
 	// eslint-disable-next-line no-console
