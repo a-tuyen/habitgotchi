@@ -34,7 +34,9 @@ export default function Nav() {
           {/* <Typography variant="h3">HabitGotchi</Typography> */}
         </span>			
 				<Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-				<MenuIcon />
+				<MenuIcon 
+          style={{color: "white"}}
+        />
       </Button>
       <Menu
         id="simple-menu"
