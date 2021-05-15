@@ -65,7 +65,7 @@ export default function DailyChallengesPage() {
 						<label for="step_goal">Do {item.step_goal} Steps</label>
 						<br></br>
 						<input
-							checked={status.water > item.water_goal ? "checked" : ""}
+							checked={status.water > item.water_goal ? ("checked", ()=>setFirstBox(!firstBox)): ""}
 							type="checkbox"
 							id="water_goal"
 							name="water_goal"
