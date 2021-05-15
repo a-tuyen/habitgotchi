@@ -30,10 +30,17 @@ export default function App() {
 		selectdigitalpet,
 		updateDailyChall,
 		acceptChallenge,
+		taskcompleted,
+		bonustaskcompleted,
 	} = useApplicationData();
 
 	const { status } = useStatData();
-	const challengeContext = { state, status };
+	const challengeContext = {
+		state,
+		status,
+		taskcompleted,
+		bonustaskcompleted,
+	};
 	const [trigger, SetTrigger] = useState(false);
 	useEffect(() => {
 		setTimeout(() => {

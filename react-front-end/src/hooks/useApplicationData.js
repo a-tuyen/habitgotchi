@@ -1,32 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, React } from "react";
 import axios from "axios";
 
 // custom Hook
 export default function useApplicationData() {
 	const [state, setState] = useState({
 		ActivePet: {},
-		// Status: {},
+
 		MyPetInventory: [],
 		PetShop: [],
 		DailyChallenges: {},
 		balanceCoins: 0,
 		UserChallenges: {},
-		acceptedchallenges : 0
+		acceptedchallenges: 0,
 	});
-
 
 	//  uses API to load data from API
 	useEffect(() => {
 		const digitalPetpromise = axios.get("/api/digitalpet");
-		// const statusdataPromise = axios.get("/api/statdata");
 		const myPetInventorydataPromise = axios.get("/api/mypetinventory");
 		const Petshopdatapromise = axios.get("/api/petshop");
 		const DailyChallengesPromise = axios.get("/api/dailychallenges");
 		const userChallengesPromise = axios.get("/api/userchallenges");
 		const balanceCoinspromise = axios.get("/api/balancecoins");
+
 		Promise.all([
 			digitalPetpromise,
-			// statusdataPromise,
+
 			myPetInventorydataPromise,
 			Petshopdatapromise,
 			DailyChallengesPromise,
@@ -45,21 +44,7 @@ export default function useApplicationData() {
 			}));
 		});
 	}, []);
-	// let Value = 100;
 
-	// setInterval(() => {
-	// 	const statusdataPromise = axios.get("/api/statdata");
-	// 	statusdataPromise.then((result) =>
-	// 		setStatus((prev) => ({
-	// 			...prev,
-	// 			calories: result.data.result.calories,
-	// 			sleep: result.data.result.sleep,
-	// 			steps: result.data.result.steps,
-	// 			water: result.data.result.water,
-	// 		}))
-	// 	);
-	// }, 8000);
-	// Function to buy digital pet and update the state
 	function buydigitalpet(itemcoins, id) {
 		if (itemcoins < parseInt(state.balanceCoins)) {
 			const balanceCoins = state.balanceCoins - itemcoins;
@@ -67,7 +52,7 @@ export default function useApplicationData() {
 
 			const Pet = { ...state.PetShop[id - 1], purchased: true };
 			console.log(PetShop);
-			// Pet.purchased = true;
+
 			PetShop[id - 1] = Pet;
 			const MyPetInventory = [...state.MyPetInventory];
 			MyPetInventory.push(Pet);
@@ -116,39 +101,80 @@ export default function useApplicationData() {
 	function updateDailyChall(formData) {
 		// console.log("STATE:", state.DailyChallenges);
 		// console.log("FORM:",formData);
-		console.log('STATE!!!', state)
-		const DailyChallenge = { ...state.DailyChallenges[0]};
+		console.log("STATE!!!", state);
+		const DailyChallenge = { ...state.DailyChallenges[0] };
 		// console.log("STATEDAILY:", DailyChallenges);
- 		DailyChallenge.step_goal = parseInt(formData.steps_goal);
-  	DailyChallenge.water_goal= parseInt(formData.water_goal);
-	 DailyChallenge.active_min_goal = parseInt(formData.active_min_goal);
+		DailyChallenge.step_goal = parseInt(formData.steps_goal);
+		DailyChallenge.water_goal = parseInt(formData.water_goal);
+		DailyChallenge.active_min_goal = parseInt(formData.active_min_goal);
 
-const DailyChallenges =[...state.DailyChallenges]
-DailyChallenges[0] = DailyChallenge
-		// console.log('DC', DailyChallenges)
-		
-  axios.put(`/api/dailychallenges`, { formData }).then((result) =>
-    setState((prev) => ({
-      ...prev,
-      DailyChallenges,
-    }))
+		const DailyChallenges = [...state.DailyChallenges];
+		DailyChallenges[0] = DailyChallenge;
 
-		// console.log("Result from server",result)
-  );
+		axios.put(`/api/dailychallenges`, { formData }).then((result) =>
+			setState((prev) => ({
+				...prev,
+				DailyChallenges,
+			}))
+		);
+	}
+	function acceptChallenge() {
+		const acceptchallenge = 1;
+
+		setState((prev) => ({
+			...prev,
+			acceptedchallenges: acceptchallenge,
+		}));
+
+		console.log("Afteraccepting", state);
+	}
+	function taskcompleted(coins) {
+		const DailyChallenge = { ...state.DailyChallenges[0] };
+		DailyChallenge.completed = true;
+
+		const DailyChallenges = [...state.DailyChallenges];
+		DailyChallenges[0] = DailyChallenge;
+		console.log(coins);
+		const balanceCoins = state.balanceCoins + coins;
+
+		axios.put(`/api/updateCoins`, { coins }).then(
+			(result) =>
+				setState((prev) => ({
+					...prev,
+					DailyChallenges,
+					balanceCoins,
+				}))
+
+			// console.log("Result from server",result)
+		);
+	}
+
+	function bonustaskcompleted(coins) {
+		const UserChallenge = { ...state.UserChallenges[0] };
+		UserChallenge.completed = true;
+		const UserChallenges = [...state.DailyChallenges];
+		UserChallenges[0] = UserChallenge;
+		console.log(coins);
+		const balanceCoins = state.balanceCoins + coins;
+		const acceptedchallenges = 0;
+
+		axios.put(`/api/updateCoins`, { coins }).then((result) =>
+			setState((prev) => ({
+				...prev,
+				UserChallenges,
+				balanceCoins,
+				acceptedchallenges,
+			}))
+		);
+	}
+
+	return {
+		state,
+		buydigitalpet,
+		selectdigitalpet,
+		updateDailyChall,
+		acceptChallenge,
+		taskcompleted,
+		bonustaskcompleted,
+	};
 }
-function acceptChallenge (){
-	const acceptchallenge =  1;
-
-  setState((prev) => ({
-      ...prev,
-     		acceptedchallenges :  acceptchallenge
-    }))
-	
-console.log("Afteraccepting",state)
-}
-
-
-
-	return { state, buydigitalpet, selectdigitalpet, updateDailyChall,acceptChallenge };
-}
-

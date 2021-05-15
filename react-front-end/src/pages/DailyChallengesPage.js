@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { Grid, Button, Checkbox, Card } from "@material-ui/core";
+import { Button, Card } from "@material-ui/core";
 import Nav from "../components/Nav";
 import ChallengeContext from "../components/ChallengeContext";
-
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import PageAlert from "../components/PageAlert";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -16,23 +16,42 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function DailyChallengesPage() {
+export default function DailyChallengesPage(props) {
 	const challengeContext = useContext(ChallengeContext);
-
-	const userChallenges = challengeContext.state;
-	const dailyChallenges = challengeContext.state;
+	const state = challengeContext.state;
 	const status = challengeContext.status;
-
+	const taskcompleted = challengeContext.taskcompleted;
+	const bonustaskcompleted = challengeContext.bonustaskcompleted;
+	const mode = state.acceptedchallenges;
 	const classes = useStyles();
 
-	const mode = dailyChallenges.acceptedchallenges;
+	const areAllChecked = () => {
+		if (
+			status.steps >= state.DailyChallenges[0].step_goal &&
+			status.water >= state.DailyChallenges[0].water_goal &&
+			status.active_min >= state.DailyChallenges[0].active_min_goal
+		) {
+			return (
+				!state.DailyChallenges[0].completed && (
+					<PageAlert
+						title="Daily Challenges Complete!"
+						message={`Congratulations, you have earned ${state.DailyChallenges[0].coins} Coins`}
+						buttonMessage="Accept!"
+						function={taskcompleted}
+						coins={state.DailyChallenges[0].coins}
+					/>
+				)
+			);
+		}
+	};
+
 	const getChallenges = (data) => {
-		if (data.DailyChallenges.length) {
-			return data.DailyChallenges.map((item) => {
+		if (data.length) {
+			return data.map((item) => {
 				return (
 					<form method="POST" action="/">
 						<input
-							checked={status.steps > item.step_goal ? "checked" : ""}
+							checked={status.steps >= item.step_goal ? "checked" : ""}
 							type="checkbox"
 							id="step_goal"
 							name="step_goal"
@@ -40,7 +59,7 @@ export default function DailyChallengesPage() {
 						<label for="step_goal">Do {item.step_goal} Steps</label>
 						<br></br>
 						<input
-							checked={status.water > item.water_goal ? "checked" : ""}
+							checked={status.water >= item.water_goal ? "checked" : ""}
 							type="checkbox"
 							id="water_goal"
 							name="water_goal"
@@ -51,7 +70,7 @@ export default function DailyChallengesPage() {
 						<br></br>
 						<input
 							checked={
-								status.active_min > item.active_min_goal ? "checked" : ""
+								status.active_min >= item.active_min_goal ? "checked" : ""
 							}
 							type="checkbox"
 							id="active_min_goal"
@@ -62,9 +81,8 @@ export default function DailyChallengesPage() {
 						</label>
 						<br></br>
 						<p>Complete all three goals to earn {item.coins} coins!</p>
-						<Button variant="contained" color="primary">
-							Complete!
-						</Button>
+						<br></br>
+						{areAllChecked()}
 					</form>
 				);
 			});
@@ -72,14 +90,20 @@ export default function DailyChallengesPage() {
 	};
 
 	const getUserChallenges = (data) => {
-		if (data.UserChallenges.length) {
-			return data.UserChallenges.map((item) => {
+		if (data.length) {
+			return data.map((item) => {
 				return (
 					<p>
 						{item.description}
 						<br></br>
 						Complete to earn {item.coins} coins!
-						<Button variant="contained" color="primary">
+						<Button
+							variant="contained"
+							color="primary"
+							onClick={() => {
+								bonustaskcompleted(item.coins);
+							}}
+						>
 							I did it!
 						</Button>
 					</p>
@@ -98,17 +122,17 @@ export default function DailyChallengesPage() {
 					borderRadius: "2rem",
 				}}
 			>
-				{dailyChallenges.balanceCoins} Coins
+				{state.balanceCoins} Coins
 			</p>
 
 			<Card className={classes.root}>
 				<h1>Daily Challenges</h1>
-				{getChallenges(dailyChallenges)}
+				{getChallenges(state.DailyChallenges)}
 			</Card>
 			{mode && (
 				<Card className={classes.root}>
 					<h1>Bonus Challenges</h1>
-					{getUserChallenges(userChallenges)}
+					{getUserChallenges(state.UserChallenges)}
 				</Card>
 			)}
 		</div>
