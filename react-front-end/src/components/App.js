@@ -12,7 +12,7 @@ import DashboardPage from "../pages/DashboardPage";
 import InventoryPage from "../pages/InventoryPage";
 import PetShopPage from "../pages/PetShopPage";
 import DailyChallengesPage from "../pages/DailyChallengesPage";
-import UserChallengesPage from "../pages/UserChallengesPage";
+
 import QuestionsContext from "./QuestionsContext";
 // Questionnaire
 import QuestionsForm from "../pages/QuestionsForm";
@@ -45,7 +45,7 @@ export default function App() {
 	useEffect(() => {
 		setTimeout(() => {
 			SetTrigger(true);
-		}, 5000);
+		}, 50000);
 	}, []);
 
 	return (
@@ -72,9 +72,6 @@ export default function App() {
 						</SelectContext.Provider>
 					</Route>
 
-					<Route exact path="/userchallenges" component={UserChallengesPage}>
-						<UserChallengesPage userChallenges={state.UserChallenges} />
-					</Route>
 					<Route exact path="/questionsform" component={QuestionsForm}>
 						<QuestionsContext.Provider value={updateDailyChall}>
 							<QuestionsForm />

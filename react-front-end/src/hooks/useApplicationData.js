@@ -5,7 +5,6 @@ import axios from "axios";
 export default function useApplicationData() {
 	const [state, setState] = useState({
 		ActivePet: {},
-
 		MyPetInventory: [],
 		PetShop: [],
 		DailyChallenges: {},
@@ -25,7 +24,6 @@ export default function useApplicationData() {
 
 		Promise.all([
 			digitalPetpromise,
-
 			myPetInventorydataPromise,
 			Petshopdatapromise,
 			DailyChallengesPromise,
@@ -35,7 +33,6 @@ export default function useApplicationData() {
 			setState((prev) => ({
 				...prev,
 				ActivePet: all[0].data.message,
-				// Status: all[1].data.message,
 				MyPetInventory: all[1].data.message,
 				PetShop: all[2].data.message,
 				DailyChallenges: all[3].data.message,
@@ -49,15 +46,10 @@ export default function useApplicationData() {
 		if (itemcoins < parseInt(state.balanceCoins)) {
 			const balanceCoins = state.balanceCoins - itemcoins;
 			const PetShop = [...state.PetShop];
-
 			const Pet = { ...state.PetShop[id - 1], purchased: true };
-			console.log(PetShop);
-
 			PetShop[id - 1] = Pet;
 			const MyPetInventory = [...state.MyPetInventory];
 			MyPetInventory.push(Pet);
-			console.log(Pet);
-
 			axios.put(`/api/updateShop`, { itemcoins, Pet, id }).then(() =>
 				setState((prev) => ({
 					...prev,
