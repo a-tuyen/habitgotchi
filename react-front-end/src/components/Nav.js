@@ -29,7 +29,7 @@ export default function Nav() {
 			<Toolbar className="nav-bar--container">
         <span className="app-name">
           <h3>
-            <Link to="/"> <span className="app-logo"><PetsIcon /></span>HabitGotchi</Link>
+            <Link to="/" style={{color: "white", fontSize: "30px", fontFamily: "Quicksand"}}> <span className="app-logo"><PetsIcon /></span>HabitGotchi</Link>
             </h3>
           {/* <Typography variant="h3">HabitGotchi</Typography> */}
         </span>			
