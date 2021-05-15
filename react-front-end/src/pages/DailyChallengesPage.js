@@ -129,11 +129,13 @@ export default function DailyChallengesPage(props) {
 				<h1>Daily Challenges</h1>
 				{getChallenges(state.DailyChallenges)}
 			</Card>
-			{mode && (
+			{mode ? (
 				<Card className={classes.root}>
 					<h1>Bonus Challenges</h1>
 					{getUserChallenges(state.UserChallenges)}
 				</Card>
+			) : (
+				""
 			)}
 		</div>
 	);
