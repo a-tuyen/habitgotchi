@@ -29,7 +29,9 @@ export default function PetShopPage(props) {
           <p style={{ 
             backgroundColor: "#DEF2F1",
             padding: "0.75em",
-            borderRadius: "2rem"
+            borderRadius: "2rem",
+            backgroundImage: `url("https://via.placeholder.com/500")` 
+
              }}>
               {props.coins} Coins
           </p>
