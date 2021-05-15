@@ -35,7 +35,7 @@ export default function PageAlert(props) {
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleClose} color="primary">
-						Maybe Later
+						Cancel
 					</Button>
 					<Button onClick={handleAcceptClose} color="primary" autoFocus>
 						{props.buttonMessage}

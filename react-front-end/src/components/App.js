@@ -31,10 +31,11 @@ export default function App() {
 		updateDailyChall,
 		acceptChallenge,
 		taskcompleted,
+		bonustaskcompleted,
 	} = useApplicationData();
 
 	const { status } = useStatData();
-	const challengeContext = { state, status, taskcompleted };
+	const challengeContext = { state, status, taskcompleted, bonustaskcompleted };
 
 	return (
 		<Fragment>
