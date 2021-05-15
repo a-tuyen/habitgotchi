@@ -30,11 +30,11 @@ export default function App() {
 		selectdigitalpet,
 		updateDailyChall,
 		acceptChallenge,
-		checkChallengeBoxes
+		taskcompleted,
 	} = useApplicationData();
 
 	const { status } = useStatData();
-	const challengeContext = { state, status };
+	const challengeContext = { state, status, taskcompleted };
 
 	return (
 		<Fragment>
@@ -68,7 +68,7 @@ export default function App() {
 
 					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
 						<ChallengeContext.Provider value={challengeContext}>
-							<DailyChallengesPage checkChallengeBoxes={checkChallengeBoxes} />
+							<DailyChallengesPage />
 						</ChallengeContext.Provider>
 					</Route>
 

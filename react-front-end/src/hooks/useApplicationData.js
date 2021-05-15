@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, React } from "react";
 import axios from "axios";
-
+import PageAlert from "../components/PageAlert";
 // custom Hook
 export default function useApplicationData() {
 	const [state, setState] = useState({
@@ -11,9 +11,8 @@ export default function useApplicationData() {
 		DailyChallenges: {},
 		balanceCoins: 0,
 		UserChallenges: {},
-		acceptedchallenges : 0
+		acceptedchallenges: 0,
 	});
-
 
 	//  uses API to load data from API
 	useEffect(() => {
@@ -116,39 +115,51 @@ export default function useApplicationData() {
 	function updateDailyChall(formData) {
 		// console.log("STATE:", state.DailyChallenges);
 		// console.log("FORM:",formData);
-		console.log('STATE!!!', state)
-		const DailyChallenge = { ...state.DailyChallenges[0]};
+		console.log("STATE!!!", state);
+		const DailyChallenge = { ...state.DailyChallenges[0] };
 		// console.log("STATEDAILY:", DailyChallenges);
- 		DailyChallenge.step_goal = parseInt(formData.steps_goal);
-  	DailyChallenge.water_goal= parseInt(formData.water_goal);
-	 DailyChallenge.active_min_goal = parseInt(formData.active_min_goal);
+		DailyChallenge.step_goal = parseInt(formData.steps_goal);
+		DailyChallenge.water_goal = parseInt(formData.water_goal);
+		DailyChallenge.active_min_goal = parseInt(formData.active_min_goal);
 
-const DailyChallenges =[...state.DailyChallenges]
-DailyChallenges[0] = DailyChallenge
+		const DailyChallenges = [...state.DailyChallenges];
+		DailyChallenges[0] = DailyChallenge;
 		// console.log('DC', DailyChallenges)
-		
-  axios.put(`/api/dailychallenges`, { formData }).then((result) =>
-    setState((prev) => ({
-      ...prev,
-      DailyChallenges,
-    }))
 
-		// console.log("Result from server",result)
-  );
+		axios.put(`/api/dailychallenges`, { formData }).then(
+			(result) =>
+				setState((prev) => ({
+					...prev,
+					DailyChallenges,
+				}))
+
+			// console.log("Result from server",result)
+		);
+	}
+	function acceptChallenge() {
+		const acceptchallenge = 1;
+
+		setState((prev) => ({
+			...prev,
+			acceptedchallenges: acceptchallenge,
+		}));
+
+		console.log("Afteraccepting", state);
+	}
+	function taskcompleted(coins) {
+		// alert("Collect Coins");
+		console.log(state.DailyChallenges[0]);
+		state.DailyChallenges[0].completed = true;
+		console.log(coins);
+		state.balanceCoins += coins;
+	}
+
+	return {
+		state,
+		buydigitalpet,
+		selectdigitalpet,
+		updateDailyChall,
+		acceptChallenge,
+		taskcompleted,
+	};
 }
-function acceptChallenge (){
-	const acceptchallenge =  1;
-
-  setState((prev) => ({
-      ...prev,
-     		acceptedchallenges :  acceptchallenge
-    }))
-	
-console.log("Afteraccepting",state)
-}
-
-
-
-	return { state, buydigitalpet, selectdigitalpet, updateDailyChall,acceptChallenge };
-}
-

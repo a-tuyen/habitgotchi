@@ -17,47 +17,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DailyChallengesPage(props) {
-	const [trigger, setTrigger] = useState(false);
 	const challengeContext = useContext(ChallengeContext);
-	console.log('challprops***', props)
+	console.log("challprops***", props);
 	const userChallenges = challengeContext.state;
 	const dailyChallenges = challengeContext.state;
 	console.log("dailyChallenges", dailyChallenges.DailyChallenges[0]);
-	
 
 	const status = challengeContext.status;
-	// const statuschecked = status.steps - item.step_goal;
 
+	const taskcompleted = challengeContext.taskcompleted;
 	const classes = useStyles();
 
-	const mode = dailyChallenges.acceptedchallenges;
+	const mode1 = dailyChallenges.acceptedchallenges;
 
-  //CheckBox States
-  
-	// const [state, setState] = useState({
-	// 	first: false,
-	// 	// Status: {},
-	// 	MyPetInventory: [],
-	// 	PetShop: [],
-	// 	DailyChallenges: {},
-	// 	balanceCoins: 0,
-	// 	UserChallenges: {},
-	// 	acceptedchallenges : 0
-	// });
-
-  // const [ firstBox, setFirstBox ] = useState(false);
-  // const [ secondBox, setSecondBox ] = useState(false);
-  // const [ thirdBox, setThirdBox ] = useState(false);
-  // console.log('all boxes', firstBox, secondBox, thirdBox)
-
-		const areAllChecked = () => {
-
-			if ((status.steps >= dailyChallenges.DailyChallenges[0].step_goal) && (status.water >= dailyChallenges.DailyChallenges[0].water_goal) && (status.active_min >= dailyChallenges.DailyChallenges[0].active_min_goal)) {
-		 setTrigger(true);
+	const areAllChecked = () => {
+		if (
+			status.steps >= dailyChallenges.DailyChallenges[0].step_goal &&
+			status.water >= dailyChallenges.DailyChallenges[0].water_goal &&
+			status.active_min >= dailyChallenges.DailyChallenges[0].active_min_goal
+		) {
+			return (
+				!dailyChallenges.DailyChallenges[0].completed && (
+					<PageAlert
+						title="Daily Challenges Complete!"
+						message={`Congratulations, you have earned ${dailyChallenges.DailyChallenges[0].coins} Coins`}
+						buttonMessage="Accept!"
+						function={taskcompleted}
+						coins={dailyChallenges.DailyChallenges[0].coins}
+					/>
+				)
+			);
 		}
-	}
-
-
+	};
 
 	const getChallenges = (data) => {
 		if (data.DailyChallenges.length) {
@@ -69,8 +60,6 @@ export default function DailyChallengesPage(props) {
 							type="checkbox"
 							id="step_goal"
 							name="step_goal"
-              // onChange={(event)=>setFirstBox(!firstBox)}
-							// value={firstBox}
 						></input>
 						<label for="step_goal">Do {item.step_goal} Steps</label>
 						<br></br>
@@ -79,8 +68,6 @@ export default function DailyChallengesPage(props) {
 							type="checkbox"
 							id="water_goal"
 							name="water_goal"
-              // onClick={()=>setSecondBox(!secondBox)}
-              // value={secondBox}
 						></input>
 						<label for="water_goal">
 							Drink {item.water_goal} cups of water
@@ -93,8 +80,8 @@ export default function DailyChallengesPage(props) {
 							type="checkbox"
 							id="active_min_goal"
 							name="active_min_goal"
-              // onClick={()=>setThirdBox(!thirdBox)}
-              // value={thirdBox}
+							// onClick={()=>setThirdBox(!thirdBox)}
+							// value={thirdBox}
 						></input>
 						<label for="active_min_goal">
 							Complete {item.active_min_goal} Active Minutes
@@ -102,13 +89,6 @@ export default function DailyChallengesPage(props) {
 						<br></br>
 						<p>Complete all three goals to earn {item.coins} coins!</p>
 						{areAllChecked()}
-						<PageAlert
-							trigger={trigger}
-							setTrigger={setTrigger}
-							title="Daily Challenges Complete!"
-							message={`Congratulations, you have earned ${item.coins}`}
-							buttonMessage="Accept!"
-						/>
 					</form>
 				);
 			});
@@ -149,7 +129,7 @@ export default function DailyChallengesPage(props) {
 				<h1>Daily Challenges</h1>
 				{getChallenges(dailyChallenges)}
 			</Card>
-			{mode && (
+			{mode1 && (
 				<Card className={classes.root}>
 					<h1>Bonus Challenges</h1>
 					{getUserChallenges(userChallenges)}
