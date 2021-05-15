@@ -25,7 +25,7 @@ export default function Nav() {
   };
 
 	return (
-		<AppBar position="static" className="nav-bar">
+		<AppBar position="fixed" className="nav-bar">
 			<Toolbar className="nav-bar--container">
         <span className="app-name">
           <h3>

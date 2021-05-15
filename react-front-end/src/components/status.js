@@ -18,6 +18,30 @@ export default function Status(props) {
 	return (
 		<Fragment>
 			<Card className="stat-card">
+				{props.water && <img src="https://img.icons8.com/cotton/50/000000/water-glass.png"/>}
+				{props.sleep && <img src="https://img.icons8.com/cotton/64/000000/pillow--v6.png"/>}
+				{props.excercise && <img src="https://img.icons8.com/cotton/64/000000/vegetarian-food--v1.png"/>}
+				{props.walk && <img src="https://img.icons8.com/cotton/64/000000/trainers.png"/>}
+				{props.active_min  && <img src="https://img.icons8.com/cotton/50/000000/dumbbell--v1.png"/>}
+				{props.heart_rate && <img src="https://img.icons8.com/cotton/64/000000/like--v1.png"/>}
+				<h3>
+					{props.value}
+					{string}
+				</h3>
+			</Card>
+			{/* <Card className="stat-card">
+				{props.water && <img src="https://img.icons8.com/dusk/50/000000/soda-water.png"/>}
+				{props.sleep && <img src="https://img.icons8.com/dusk/50/000000/sleeping-in-bed.png"/>}
+				{props.excercise && <img src="https://img.icons8.com/dusk/64/000000/bitten-apple.png"/>}
+				{props.walk && <img src="https://img.icons8.com/officel/50/000000/baby-footprints-path.png"/>}
+				{props.active_min  && <img src="https://img.icons8.com/dusk/50/000000/weightlifting.png"/>}
+				{props.heart_rate && <img src="https://img.icons8.com/dusk/50/000000/heart-with-pulse.png"/>}
+				<h3>
+					{props.value}
+					{string}
+				</h3>
+			</Card> */}
+			{/* <Card className="stat-card">
 				{props.water && <LocalDrinkIcon className="stat-card--icon"/>}
 				{props.sleep && <NightsStayIcon className="stat-card--icon"/>}
 				{props.excercise && <WhatshotIcon className="stat-card--icon"/>}
@@ -28,7 +52,7 @@ export default function Status(props) {
 					{props.value}
 					{string}
 				</h3>
-			</Card>
+			</Card> */}
 		</Fragment>
 	);
 }
