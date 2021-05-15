@@ -18,7 +18,7 @@ export default function InventoryPage(props) {
 		<div className={classes.root}>
 			<Nav />
         <div>
-          <h1>My Inventory</h1>
+          <h1>My Pets</h1>
           <MyPetlist myPetInventory={props.myPetInventory}/>
         </div>
 		</div>
