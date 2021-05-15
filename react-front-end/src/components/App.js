@@ -14,6 +14,8 @@ import PetShopPage from "../pages/PetShopPage";
 import DailyChallengesPage from "../pages/DailyChallengesPage";
 
 import QuestionsContext from "./QuestionsContext";
+import LandingPage from "../pages/LandingPage";
+
 // Questionnaire
 import QuestionsForm from "../pages/QuestionsForm";
 import QuestionSteps from "../pages/QuestionSteps";
@@ -58,6 +60,9 @@ export default function App() {
 					SetTrigger={SetTrigger}
 				/>
 				<Switch>
+          <Route exact path="/landingpage" component={LandingPage}>
+						<LandingPage />
+					</Route>
 					<Route exact path="/" component={DashboardPage}>
 						<DashboardPage
 							state={state}
