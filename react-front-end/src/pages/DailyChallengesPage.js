@@ -143,9 +143,7 @@ export default function DailyChallengesPage(props) {
           <h1>Today's Challenges</h1>
           <div className={classes.coins}>
             <MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }} />
-            <p>
-              {state.balanceCoins} Coins
-            </p>
+            <p>{state.balanceCoins} Coins</p>
           </div>
         </header>
 

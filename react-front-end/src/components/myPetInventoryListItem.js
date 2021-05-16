@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     padding: "2em",
+    borderRadius: "2rem",
 	},
   petContent: {
     display: "flex",
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     height: "25vh",
-    padding: "2em"
+    // padding: "2em"
   },
   button: {
     backgroundColor: "#2B7A78",
