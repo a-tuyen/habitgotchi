@@ -30,13 +30,15 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: "Quicksand",
 		color: "white",
 		marginLeft: "50px",
-		padding: "0.75em",
+		padding: "0.5em",
 		borderRadius: "1.5rem",
 	},
 	price: {
 		backgroundColor: "#DEF2F1",
 		paddingRight: "1em",
 		paddingLeft: "1em",
+    paddingTop: "0.5em",
+    paddingBottom: "0.5em",
 		borderRadius: "1.5rem",
 		display: "flex",
 		justifyContent: "center",
@@ -46,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
+    marginTop: "20px"
 	},
 }));
 

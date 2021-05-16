@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 	card: {
 		marginTop: "2vh",
 		padding: "1em",
+    borderRadius: "2em"
 	},
 	button: {
 		backgroundColor: "#2B7A78",
