@@ -8,8 +8,9 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		marginLeft: "2.5vw",
-		marginRight: "2.5vw",
+		marginLeft: "1rem",
+		marginRight: "1rem",
+		// border: "2px solid red"
 	},
 }));
 
