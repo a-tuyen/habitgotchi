@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PetShopPage(props) {
 	const classes = useStyles();
-
+  console.log('PETSHOPPROPS:', props)
 	return (
     <div className={classes.root}>
       <Nav />
