@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 export default function useStatData() {
 	const [status, setStatus] = useState({
-		calories: 10,
+		calories: 33,
 		sleep: 7,
-		steps: 10,
-		water: 1,
+		steps: 7128,
+		water: 4,
 		heart_rate: 73,
-		active_min: 12,
+		active_min: 10,
 	});
 	useEffect(() => {
 		function fetchData() {

@@ -2,7 +2,11 @@
 
 const pg = require("pg");
 const dbParams = require("./db.js");
-const { getCaloriesValue, getstepsValue } = require("../Helpers/apihelper");
+const {
+	getCaloriesValue,
+	getstepsValue,
+	getactivemin,
+} = require("../Helpers/apihelper");
 var db = new pg.Client(dbParams);
 db.connect(function (err) {
 	if (err) {
@@ -27,13 +31,14 @@ exports.getActivePet = getActivePet;
 const getdailyStatus = function () {
 	const calorie = getCaloriesValue();
 	const step = getstepsValue();
+	const activemin = getactivemin();
 	return {
 		calories: calorie,
 		sleep: 7,
 		steps: step,
 		water: 10,
 		heart_rate: 73,
-		active_min: 13,
+		active_min: activemin,
 	};
 };
 exports.getdailyStatus = getdailyStatus;

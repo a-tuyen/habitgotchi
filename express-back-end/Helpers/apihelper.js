@@ -1,5 +1,6 @@
-var Caloriesvalue = 50;
-let StepsValue = 100;
+var Caloriesvalue = 52;
+let StepsValue = 7263;
+let activeMinvalue = 12;
 
 function getCaloriesValue() {
 	setInterval(() => {
@@ -21,4 +22,14 @@ function getstepsValue() {
 	}, 30000);
 	return StepsValue;
 }
-module.exports = { getstepsValue, getCaloriesValue };
+
+function getactivemin() {
+	setInterval(() => {
+		activeMinvalue = activeMinvalue + 1;
+		if (activeMinvalue == 92) {
+			activeMinvalue = 92;
+		}
+	}, 30000);
+	return activeMinvalue;
+}
+module.exports = { getstepsValue, getCaloriesValue, getactivemin };

@@ -29,7 +29,7 @@ export default function Nav() {
 				<span className="app-name">
 					<h3>
 						<Link
-							to="/"
+							to="/Dashboard"
 							style={{
 								color: "white",
 								fontSize: "30px",

@@ -57,8 +57,8 @@ export default function DailyChallengesPage(props) {
 			return (
 				!state.DailyChallenges[0].completed && (
 					<PageAlert
-						title="Daily Challenges Complete!"
-						message={`Congratulations, you have earned ${state.DailyChallenges[0].coins} Coins`}
+						title="Daily Goals Complete!"
+						message={`Congratulations, you have earned ${state.DailyChallenges[0].coins} coins!`}
 						buttonMessage="Accept!"
 						function={taskcompleted}
 						coins={state.DailyChallenges[0].coins}
@@ -140,7 +140,7 @@ export default function DailyChallengesPage(props) {
 		<div className={classes.root}>
 			<Nav />
 			<header className={classes.header}>
-				<h1>Today's Challenges</h1>
+				<h1>Daily Goals</h1>
 				<div className={classes.coins}>
 					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }} />
 					<p>{state.balanceCoins} Coins</p>
@@ -148,7 +148,6 @@ export default function DailyChallengesPage(props) {
 			</header>
 
 			<Card className={classes.card}>
-				<h1>Daily Challenges</h1>
 				{getChallenges(state.DailyChallenges)}
 			</Card>
 			{mode ? (

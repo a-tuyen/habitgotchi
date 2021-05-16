@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
 		padding: "2em",
 		// minHeight: "3vh",
 		borderRadius: "2rem",
-    // maxHeight: "25vh",
-    // Width: "80vw"
+		// maxHeight: "25vh",
+		// Width: "80vw"
 	},
 	img: {
 		height: "20vh",
@@ -59,13 +59,6 @@ export default function PetShopListItem(props) {
 
 		if (!abletobuy) {
 			SetTrigger(true);
-			// return (
-			// 	<PageAlert
-			// 		title="Pet Shop"
-			// 		message={`You don't have Sufficient funds`}
-			// 		buttonMessage="ok"
-			// 	/>
-			// );
 		}
 	}
 
@@ -97,8 +90,8 @@ export default function PetShopListItem(props) {
 				<AlertPet
 					trigger={trigger}
 					title="Insufficient Coins !"
-					message="You have insufficient Coins.Complete all challenges to gain more coins"
-					buttonMessage="ok"
+					message="You have insufficient coins. Complete your goals or challenges to gain more coins"
+					buttonMessage="OK"
 					setTrigger={SetTrigger}
 				/>
 			</footer>
