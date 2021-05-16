@@ -64,11 +64,13 @@ export default function LandingPage(props) {
 					src="https://github.com/a-tuyen/habitgotchi/blob/master/docs/pets/051-lion.png?raw=true"
 				></img>
 				<h3>Let's get started!</h3>
-				<Button className={classes.button} variant="contained">
-					<Link to="/Dashboard" style={{ color: "white" }}>
+
+				<Link to="/Dashboard" style={{ color: "white" }}>
+					<Button className={classes.button} variant="contained">
 						Login
-					</Link>
-				</Button>
+					</Button>
+				</Link>
+
 				<Button className={classes.button} variant="contained">
 					<Link to="/questionsform" style={{ color: "white" }}>
 						Register

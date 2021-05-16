@@ -77,6 +77,11 @@ export default function Nav() {
 							<p>Pet Shop</p>
 						</MenuItem>
 					</Link>
+					<Link to="/">
+						<MenuItem onClick={handleClose}>
+							<p>Logout</p>
+						</MenuItem>
+					</Link>
 				</Menu>
 			</Toolbar>
 		</AppBar>
