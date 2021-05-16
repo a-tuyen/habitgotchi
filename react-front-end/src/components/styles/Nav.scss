@@ -27,10 +27,11 @@
     margin-top: 30px;
     // border: blue solid 5px;
   }
-  p {
-    font-family: $heading-font;
-    color: white;
-    font-size: 24;
-    font-weight: $bold;
-  }
+}
+p {
+  // font-family: $heading-font;
+  // color: white;
+  font-size: 24;
+  font-weight: $bold;
+  margin: 0;
 }
