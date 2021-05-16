@@ -10,10 +10,14 @@ body {
 
   // background: url(cafe.png);
   // background: url(living-room-interior.png);
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
-  // background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  // background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("living-room-interior.png");
+  background-image: url("https://image.freepik.com/free-vector/spring-landscape-countryside-with-green-meadow-hills-with-blue-sky-summer-spring-landscape-panoramic-village-with-grass-field-wildflowers-holiday-natural-background_39190-527.jpg");
+  
+  
 }
 // body {
 //   margin: 0;

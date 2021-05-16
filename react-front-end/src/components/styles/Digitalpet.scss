@@ -3,15 +3,62 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	margin: auto;
-	// background: url(../../living-room-interior.png);
-	// background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: contain;
-  // background-attachment: fixed;
+	height: 23rem;
+	width: 23rem;
+	// margin: auto;
+	// border: 2px solid blue;
+	border-radius: 30rem !important;
+	background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("../../white-bg.png");
+	// opacity: 50%;
+	min-width: 100%; 
+	min-height: 12em; 
+	position: relative; 
 
   .digipet-img {
-    height: 250px;
-    padding: 2em;
+    height: 200px;
+    padding: 0px;
+		margin: 0px;
+		// border: 2px solid red;
+		// border-radius: 20rem !important;
   }
+
+	.pet::before {
+		content: ""; 
+		display: block;
+		position: absolute;
+		margin-left: 0;
+		min-width: 100%;
+		min-height: 12em;
+		z-index: -1;
+		opacity: 50%;
+		background-color: white;
+				// border: 2px solid red;
+	} 
+	// .pet::before {
+	
 }
+
+// .pet { color: #fff; 
+// 	text-shadow: #343a40 2px 2px; 
+// 	min-width: 100%; 
+// 	min-height: 12em; 
+// 	position: relative; } 
+
+
+// 	content: "";
+//   display: block;
+//   position: absolute;
+//   z-index: -1;
+//   width: 100%;
+//   height: 100%;
+//   background: white ;
+//   opacity: .2;
+// }
+
+
+
+// .digipet-text {
+	
+// }
+
+

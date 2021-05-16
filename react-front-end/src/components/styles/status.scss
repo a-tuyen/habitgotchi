@@ -3,10 +3,18 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: auto;
+	height: 7rem;
+	width: 7rem;
 	// margin: 50px;
-	padding: 2em;
+	padding: 2rem;
+	border-radius: 12rem !important;
+	opacity: 50%;
+	// border: 2px solid red;
 }
-.stat-card--icon {
-	font-size: 5em !important;
+
+.stat-card-text {
+	// display: flex;
+	// justify-content: center;
+	// align-items: center;
+	text-align: center;
 }
