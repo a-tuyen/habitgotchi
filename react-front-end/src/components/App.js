@@ -18,8 +18,6 @@ import LandingPage from "../pages/LandingPage";
 
 // Questionnaire
 import QuestionsForm from "../pages/QuestionsForm";
-import QuestionSteps from "../pages/QuestionSteps";
-import QuestionWater from "../pages/QuestionWater";
 import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
 import useStatData from "../hooks/useStatData";
@@ -60,10 +58,10 @@ export default function App() {
 					SetTrigger={SetTrigger}
 				/>
 				<Switch>
-          <Route exact path="/landingpage" component={LandingPage}>
+					<Route exact path="/" component={LandingPage}>
 						<LandingPage />
 					</Route>
-					<Route exact path="/" component={DashboardPage}>
+					<Route exact path="/Dashboard" component={DashboardPage}>
 						<DashboardPage
 							state={state}
 							Activepet={state.ActivePet}

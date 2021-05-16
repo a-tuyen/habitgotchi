@@ -7,22 +7,9 @@ export default function useStatData() {
 		steps: 10,
 		water: 1,
 		heart_rate: 73,
-		active_min: 12
+		active_min: 12,
 	});
 	useEffect(() => {
-		// const fetchData = setInterval(() => {
-		// 	const statusdataPromise = axios.get("/api/statdata");
-		// 	statusdataPromise.then((result) =>
-		// 		setStatus((prev) => ({
-		// 			...prev,
-		// 			calories: result.data.result.calories,
-		// 			sleep: result.data.result.sleep,
-		// 			steps: result.data.result.steps,
-		// 			water: result.data.result.water,
-		// 		}))
-		// 	);
-		// }, 8000);
-
 		function fetchData() {
 			setInterval(() => {
 				const statusdataPromise = axios.get("/api/statdata");
@@ -34,7 +21,7 @@ export default function useStatData() {
 						steps: result.data.result.steps,
 						water: result.data.result.water,
 						heart_rate: result.data.result.heart_rate,
-						active_min: result.data.result.active_min
+						active_min: result.data.result.active_min,
 					}))
 				);
 			}, 60000);
@@ -42,6 +29,6 @@ export default function useStatData() {
 
 		return fetchData();
 	}, []);
-	console.log('status!', status)
+	console.log("status!", status);
 	return { status };
 }

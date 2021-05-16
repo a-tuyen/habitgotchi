@@ -12,12 +12,12 @@ export default function Alert(props) {
 	console.log("props---", props);
 
 	const [open, setOpen] = React.useState(false);
-  
+
 	const handleClickOpen = () => {
 		setOpen(true);
 	};
 	const handleClose = () => {
-    props.setTrigger(false)
+		props.setTrigger(false);
 		setOpen(false);
 	};
 
@@ -29,9 +29,7 @@ export default function Alert(props) {
 				aria-labelledby="alert-dialog-title"
 				aria-describedby="alert-dialog-description"
 			>
-				<DialogTitle id="alert-dialog-title">
-					{props.title}
-				</DialogTitle>
+				<DialogTitle id="alert-dialog-title">{props.title}</DialogTitle>
 				<DialogContent>
 					<DialogContentText id="alert-dialog-description">
 						{props.message}

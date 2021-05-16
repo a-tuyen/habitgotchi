@@ -16,8 +16,9 @@ export default function PageAlert(props) {
 
 	const handleAcceptClose = () => {
 		setOpen(false);
-		// console.log(props.trigger);
-		props.function(props.coins);
+		if (props.function && props.coins) {
+			props.function(props.coins);
+		}
 	};
 	return (
 		<div>

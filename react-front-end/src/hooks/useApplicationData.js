@@ -58,8 +58,9 @@ export default function useApplicationData() {
 					balanceCoins,
 				}))
 			);
+			return true;
 		} else {
-			alert("INSUFFICIENT FUNDS");
+			return false;
 		}
 	}
 
