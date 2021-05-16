@@ -4,15 +4,38 @@ import Nav from "../components/Nav";
 import ChallengeContext from "../components/ChallengeContext";
 import PageAlert from "../components/PageAlert";
 import { makeStyles } from "@material-ui/core/styles";
+import MonetizationOnRoundedIcon from "@material-ui/icons/MonetizationOnRounded";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		width: "100%",
-		maxWidth: "80%",
-		marginLeft: "10vw",
-		marginRight: "10vw",
+		marginLeft: "2.5vw",
+		marginRight: "2.5vw",
+	},
+	header: {
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
+	},
+	card: {
 		marginTop: "2vh",
 		padding: "1em",
+	},
+	button: {
+		backgroundColor: "#2B7A78",
+		fontFamily: "Quicksand",
+		color: "white",
+		borderRadius: "1.5rem",
+		marginTop: "10px",
+	},
+	coins: {
+		backgroundColor: "#DEF2F1",
+		padding: "0.5em",
+		borderRadius: "2rem",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		minWidth: "90px",
+		maxHeight: "30px",
 	},
 }));
 
@@ -97,9 +120,10 @@ export default function DailyChallengesPage(props) {
 						{item.description}
 						<br></br>
 						Complete to earn {item.coins} coins!
+						<br></br>
 						<Button
 							variant="contained"
-							color="primary"
+							className={classes.button}
 							onClick={() => {
 								bonustaskcompleted(item.coins);
 							}}
@@ -113,24 +137,22 @@ export default function DailyChallengesPage(props) {
 	};
 
 	return (
-		<div>
+		<div className={classes.root}>
 			<Nav />
-			<p
-				style={{
-					backgroundColor: "#DEF2F1",
-					padding: "0.75em",
-					borderRadius: "2rem",
-				}}
-			>
-				{state.balanceCoins} Coins
-			</p>
+			<header className={classes.header}>
+				<h1>Today's Challenges</h1>
+				<div className={classes.coins}>
+					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }} />
+					<p>{state.balanceCoins} Coins</p>
+				</div>
+			</header>
 
-			<Card className={classes.root}>
+			<Card className={classes.card}>
 				<h1>Daily Challenges</h1>
 				{getChallenges(state.DailyChallenges)}
 			</Card>
 			{mode ? (
-				<Card className={classes.root}>
+				<Card className={classes.card}>
 					<h1>Bonus Challenges</h1>
 					{getUserChallenges(state.UserChallenges)}
 				</Card>

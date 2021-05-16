@@ -28,7 +28,14 @@ export default function Nav() {
 			<Toolbar className="nav-bar--container">
 				<span className="app-name">
 					<h3>
-						<Link to="/Dashboard">
+						<Link
+							to="/"
+							style={{
+								color: "white",
+								fontSize: "30px",
+								fontFamily: "Quicksand",
+							}}
+						>
 							{" "}
 							<span className="app-logo">
 								<PetsIcon />
@@ -43,8 +50,9 @@ export default function Nav() {
 					aria-haspopup="true"
 					onClick={handleClick}
 				>
-					<MenuIcon />
+					<MenuIcon style={{ color: "white" }} />
 				</Button>
+
 				<Menu
 					id="simple-menu"
 					anchorEl={anchorEl}

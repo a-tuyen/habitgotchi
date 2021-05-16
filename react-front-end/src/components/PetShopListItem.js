@@ -10,20 +10,20 @@ import AlertPet from "../components/AlertPet";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		width: "100%",
-		maxWidth: "80%",
 		marginBottom: "2vh",
 		padding: "5em",
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
 		padding: "2em",
-		minHeight: "3vh",
+		// minHeight: "3vh",
 		borderRadius: "2rem",
+    // maxHeight: "25vh",
+    // Width: "80vw"
 	},
 	img: {
-		height: "25vh",
-		padding: "2em",
+		height: "20vh",
+		// padding: "2em",
 	},
 	button: {
 		backgroundColor: "#2B7A78",
