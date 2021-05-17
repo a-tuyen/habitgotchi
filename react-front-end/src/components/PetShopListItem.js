@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
 		// padding: "2em",
 	},
 	button: {
-		backgroundColor: "#3f51b5",
+		// backgroundColor: "#2B7A78",
 		fontFamily: "Quicksand",
-		color: "white",
+		// color: "white",
 		marginLeft: "50px",
 		padding: "0.5em",
 		borderRadius: "1.5rem",
@@ -76,7 +76,11 @@ export default function PetShopListItem(props) {
 					<p>{props.coins} coins</p>
 				</div>
 				{props.purchased && (
-					<Button variant="contained" className={classes.button}>
+					<Button 
+          className={classes.button}
+          variant="outlined"
+          color="secondary" 
+          background-color="transparent">
 						{data}
 					</Button>
 				)}
@@ -84,6 +88,7 @@ export default function PetShopListItem(props) {
 					<Button
 						className={classes.button}
 						variant="contained"
+            color="primary"
 						onClick={() => buy()}
 					>
 						{data}
