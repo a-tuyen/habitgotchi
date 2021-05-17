@@ -45,7 +45,7 @@ return (
 
     <div className={classes.buttonContainer}>
       <Button 
-        className={classes.button}
+        className={classes.backButton}
         color="secondary"
         variant="contained"
         onClick={() => navigation.previous()}

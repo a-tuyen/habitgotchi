@@ -32,8 +32,11 @@ export default function QuestionSteps({ formData, setForm, navigation }) {
 			<Nav />
 			<h3  className={classes.question} >What is your step goal for each day?</h3>
 			<TextField
+				className={classes.textField}
+				InputProps={{ disableUnderline: true }}
 				error={goalerror}
 				label="Number of Steps"
+				labelPlacement="top"
 				name="steps_goal"
 				value={steps_goal}
 				onChange={setForm}

@@ -43,7 +43,7 @@ export default function PetShopPage(props) {
       <header className={classes.header}>
         <h1>Pet Shop</h1>
         <div className={classes.coins}>
-          <MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }} />
+          <MonetizationOnRoundedIcon style={{ paddingRight: "0.25em", color: "#FFC145"}} />
           <p>{props.coins} Coins</p>
         </div>
       </header>

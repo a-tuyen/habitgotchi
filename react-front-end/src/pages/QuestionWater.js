@@ -22,6 +22,8 @@ import TextField from "@material-ui/core/TextField";
 
 
 import useStyles from "../components/styles/QuestionsFormUseStyles"
+import { withStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { green, purple, red, teal } from '@material-ui/core/colors';
 
 import { Link } from "react-router-dom";
 
@@ -36,6 +38,22 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 		}
 	}
 
+	const ColorButton = withStyles((theme) => ({
+		root: {
+			color: theme.palette.getContrastText(purple[500]),
+			backgroundColor: purple[500],
+			'&:hover': {
+				backgroundColor: teal[900],
+			},
+		},
+	}))(Button);
+
+	const theme = createMuiTheme({
+		palette: {
+			primary: teal,
+		},
+	});
+
 	const classes = useStyles();
 
 	return (
@@ -43,30 +61,41 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 			<Nav />
 			<h3 className={classes.question} >How many cups of water are you aiming to drink a day?</h3>
 			<TextField
+				className={classes.textField}
+				InputProps={{ disableUnderline: true }}
 				error={goalerror}
 				label="Cups of Water"
 				name="water_goal"
 				value={water_goal}
 				onChange={setForm}
 				margin="normal"
-				variant="outlined"
+				// variant="outlined"
 				autoComplete="off"
 				fullWidth
 				helperText={!goalerror ? "" : "Please enter only numbers"}
 			/>
 			<div className={classes.buttonContainer}>
-				<Button
-					className={classes.button}
-					color="secondary"
+				<ColorButton 
+					className={classes.backButton}
 					variant="contained"
+					color="primary" 
 					onClick={() => navigation.previous()}
 				>
 					Back
-				</Button>
-				<Button color="primary" variant="contained" onClick={() => validate()}>
+				</ColorButton>
+				{/* <ThemeProvider theme={theme}> */}
+				<Button
+				className={classes.backButton}
+				variant="contained"
+				color="primary" 
+				onClick={() => validate()}
+				>
 					Next
 				</Button>
+				{/* </ThemeProvider> */}
 			</div>
 		</Container>
 	);
 }
+
+

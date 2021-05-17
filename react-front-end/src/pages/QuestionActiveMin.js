@@ -38,20 +38,22 @@ export default function QuestionActiveMin({ formData, setForm, navigation }) {
 			<Nav />
 			<h3 className={classes.question} >How many Active Minutes are you aiming to complete each day?</h3>
 			<TextField
+				className={classes.textField}
+				InputProps={{ disableUnderline: true }}
 				error={goalerror}
 				label="Amount of Active Minutes"
 				name="active_min_goal"
 				value={active_min_goal}
 				onChange={setForm}
 				margin="normal"
-				variant="outlined"
+				// variant="outlined"
 				autoComplete="off"
 				fullWidth
 				helperText={!goalerror ? "" : "Please enter only numbers"}
 			/>
 			<div className={classes.buttonContainer}>
 				<Button
-					className={classes.button}
+					className={classes.backButton}
 					color="secondary"
 					variant="contained"
 					onClick={() => navigation.previous()}

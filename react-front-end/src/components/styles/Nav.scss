@@ -5,8 +5,15 @@
 	justify-content: center;
 	flex-grow: 1;
 	height: 72px;
-  background-color: $primary-color !important;
+  // background: rgba(128, 128, 128, 0.7) !important;
+  // background-color: blueviolet!important;
+  // background: url(../../rainbow-bg.png);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   width: 100% !important;
+
 }
 
 .nav-bar--container {
