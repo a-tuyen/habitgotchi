@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   coins: {
-    backgroundColor: "#DEF2F1",
+    backgroundColor: "#FCD200",
 		padding: "0.5em",
 		borderRadius: "2rem",
 		display: "flex",

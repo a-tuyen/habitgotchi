@@ -33,6 +33,7 @@ export default function Nav() {
 							style={{
 								color: "white",
 								fontSize: "30px",
+                fontWeight: "700",
 								fontFamily: "Quicksand",
 							}}
 						>

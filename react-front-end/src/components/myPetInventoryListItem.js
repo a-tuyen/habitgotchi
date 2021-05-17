@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 		// padding: "2em"
 	},
 	button: {
-		backgroundColor: "#2B7A78",
+		backgroundColor: "#3f51b5",
 		fontFamily: "Quicksand",
 		color: "white",
 		borderRadius: "1.5rem",

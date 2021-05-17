@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 		// padding: "2em",
 	},
 	button: {
-		backgroundColor: "#2B7A78",
+		backgroundColor: "#3f51b5",
 		fontFamily: "Quicksand",
 		color: "white",
 		marginLeft: "50px",
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: "1.5rem",
 	},
 	price: {
-		backgroundColor: "#DEF2F1",
+		backgroundColor: "#FCD200",
 		paddingRight: "1em",
 		paddingLeft: "1em",
     paddingTop: "0.5em",

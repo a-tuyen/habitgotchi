@@ -18,18 +18,18 @@ const useStyles = makeStyles((theme) => ({
 	},
 	card: {
 		marginTop: "2vh",
-		padding: "1em",
+		padding: "1.5em",
     borderRadius: "2em"
 	},
 	button: {
-		backgroundColor: "#2B7A78",
+		backgroundColor: "#3f51b5",
 		fontFamily: "Quicksand",
 		color: "white",
 		borderRadius: "1.5rem",
 		marginTop: "10px",
 	},
 	coins: {
-		backgroundColor: "#DEF2F1",
+		backgroundColor: "#FCD200",
 		padding: "0.5em",
 		borderRadius: "2rem",
 		display: "flex",
@@ -104,8 +104,8 @@ export default function DailyChallengesPage(props) {
 							Complete {item.active_min_goal} Active Minutes
 						</label>
 						<br></br>
+            &nbsp;
 						<p>Complete all three goals to earn {item.coins} coins!</p>
-						<br></br>
 						{areAllChecked()}
 					</form>
 				);
