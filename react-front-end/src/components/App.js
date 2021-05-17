@@ -22,7 +22,8 @@ import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
 import useStatData from "../hooks/useStatData";
 import ChallengeAlert from "./ChallengeAlert";
-
+import ScrollTop from "react-scrolltop-button";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 export default function App() {
 	const {
 		state,
@@ -100,6 +101,16 @@ export default function App() {
 					</Route>
 				</Switch>
 			</Router>
+			<ScrollTop
+				text="take me to your header"
+				distance={100}
+				breakpoint={768}
+				style={{ backgroundColor: "blue" }}
+				// className="scroll-your-role"
+				speed={1000}
+				target={75}
+				icon={<KeyboardArrowUpIcon />}
+			/>
 		</Fragment>
 	);
 }

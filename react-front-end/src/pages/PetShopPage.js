@@ -5,6 +5,7 @@ import Petshoplist from "../components/Petshoplist";
 import Nav from "../components/Nav";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import MonetizationOnRoundedIcon from "@material-ui/icons/MonetizationOnRounded";
+import ScrollTop from "react-scrolltop-button";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -21,35 +22,35 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  coins: {
-    backgroundColor: "#FCD200",
+	coins: {
+		backgroundColor: "#FCD200",
 		padding: "0.5em",
 		borderRadius: "2rem",
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
-    minWidth: "90px",
-    maxHeight: "30px",
-    // backgroundImage: `url("https://via.placeholder.com/500")` 
-  }
+		minWidth: "90px",
+		maxHeight: "30px",
+		// backgroundImage: `url("https://via.placeholder.com/500")`
+	},
 }));
 
 export default function PetShopPage(props) {
 	const classes = useStyles();
 
 	return (
-    <div className={classes.root}>
-      <Nav />
-      <header className={classes.header}>
-        <h1>Pet Shop</h1>
-        <div className={classes.coins}>
-          <MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }} />
-          <p>{props.coins} Coins</p>
-        </div>
-      </header>
-      <div className={classes.content}>
-        <Petshoplist PetInventory={props.PetInventory} />
-      </div>
-    </div>
+		<div className={classes.root}>
+			<Nav />
+			<header className={classes.header}>
+				<h1>Pet Shop</h1>
+				<div className={classes.coins}>
+					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }} />
+					<p>{props.coins} Coins</p>
+				</div>
+			</header>
+			<div className={classes.content}>
+				<Petshoplist PetInventory={props.PetInventory} />
+			</div>
+		</div>
 	);
 }
