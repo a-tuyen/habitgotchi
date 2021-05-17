@@ -19,7 +19,9 @@ import Button from "@material-ui/core/Button";
 import Nav from "../components/Nav";
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+
+
+import useStyles from "../components/styles/QuestionsFormUseStyles"
 
 import { Link } from "react-router-dom";
 
@@ -34,10 +36,12 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 		}
 	}
 
+	const classes = useStyles();
+
 	return (
 		<Container maxWidth="s">
 			<Nav />
-			<h3>How many cups of water are you aiming to drink a day?</h3>
+			<h3 className={classes.question} >How many cups of water are you aiming to drink a day?</h3>
 			<TextField
 				error={goalerror}
 				label="Cups of Water"
@@ -48,13 +52,13 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 				variant="outlined"
 				autoComplete="off"
 				fullWidth
-				helperText={!goalerror ? "" : " It should be a number"}
+				helperText={!goalerror ? "" : "Please enter only numbers"}
 			/>
-			<div style={{ marginTop: "1rem" }}>
+			<div className={classes.buttonContainer}>
 				<Button
+					className={classes.button}
 					color="secondary"
 					variant="contained"
-					style={{ marginRight: "1rem" }}
 					onClick={() => navigation.previous()}
 				>
 					Back

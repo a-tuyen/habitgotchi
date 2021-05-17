@@ -12,6 +12,8 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 
+import useStyles from "../components/styles/QuestionsFormUseStyles"
+
 export default function QuestionSteps({ formData, setForm, navigation }) {
 	const { steps_goal } = formData;
 	const [goalerror, SetError] = useState(0);
@@ -23,10 +25,12 @@ export default function QuestionSteps({ formData, setForm, navigation }) {
 		}
 	}
 
+	const classes = useStyles();
+
 	return (
 		<Container maxWidth="s">
 			<Nav />
-			<h3>What is your step goal for each day?</h3>
+			<h3  className={classes.question} >What is your step goal for each day?</h3>
 			<TextField
 				error={goalerror}
 				label="Number of Steps"
@@ -37,18 +41,17 @@ export default function QuestionSteps({ formData, setForm, navigation }) {
 				variant="outlined"
 				autoComplete="off"
 				fullWidth
-				helperText={!goalerror ? "" : " It should be a number"}
+				helperText={!goalerror ? "" : "Please enter only numbers"}
 			/>
-
+			<div className={classes.buttonContainer}>
 			<Button
 				variant="contained"
-				fullWidth
 				color="primary"
-				style={{ marginTop: "1rem" }}
 				onClick={validate}
 			>
 				Next
 			</Button>
+			</div>
 		</Container>
 	);
 }
