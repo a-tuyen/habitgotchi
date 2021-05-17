@@ -4,7 +4,7 @@
 	align-items: center;
 	flex-direction: column;
 	height: 7rem;
-	width: 7rem;
+	// width: 7rem;
 	// margin: 50px;
 	padding: 2rem;
 	// border-radius: 12rem !important;
@@ -13,8 +13,10 @@
 }
 
 .stat-card-text {
-	// display: flex;
-	// justify-content: center;
-	// align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
+	// border: 2px solid red;
+
 }
