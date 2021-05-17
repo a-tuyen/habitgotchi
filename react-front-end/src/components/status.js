@@ -24,7 +24,7 @@ export default function Status(props) {
 				{props.walk && <img src="https://img.icons8.com/cotton/64/000000/trainers.png"/>}
 				{props.active_min  && <img src="https://img.icons8.com/cotton/50/000000/dumbbell--v1.png"/>}
 				{props.heart_rate && <img src="https://img.icons8.com/cotton/64/000000/like--v1.png"/>}
-				<h3>
+				<h3 className="stat-card-text">
 					{props.value}
 					{string}
 				</h3>
