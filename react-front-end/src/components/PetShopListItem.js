@@ -89,8 +89,8 @@ export default function PetShopListItem(props) {
 
 				<AlertPet
 					trigger={trigger}
-					title="Insufficient Coins !"
-					message="You have insufficient coins. Complete your goals or challenges to gain more coins"
+					title="Insufficient Coins!"
+					message="You do not have enough coins. Complete your goals or challenges to earn more coins"
 					buttonMessage="OK"
 					setTrigger={SetTrigger}
 				/>

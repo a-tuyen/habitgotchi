@@ -6,6 +6,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
+import "./styles/Alert.scss";
+
 import { Link } from "react-router-dom";
 
 export default function ChallengeAlert(props) {
@@ -60,7 +62,8 @@ export default function ChallengeAlert(props) {
 						{getUserChallenges(userChallenges)}
 					</DialogContentText>
 				</DialogContent>
-				<DialogActions>
+				<DialogActions
+				style={{ justifyContent: "space-between" }}>
 					<Button onClick={handleClose} color="primary">
 						Maybe Later
 					</Button>

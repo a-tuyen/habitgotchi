@@ -5,6 +5,8 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import "./styles/Alert.scss";
+
 
 export default function PageAlert(props) {
 	console.log("props---", props);
@@ -20,6 +22,8 @@ export default function PageAlert(props) {
 			props.function(props.coins);
 		}
 	};
+
+
 	return (
 		<div>
 			<Dialog
@@ -34,11 +38,13 @@ export default function PageAlert(props) {
 						{props.message}
 					</DialogContentText>
 				</DialogContent>
-				<DialogActions>
-					<Button onClick={handleClose} color="primary">
+				<DialogActions
+					id="buttons-container"
+					style={{ justifyContent: "space-between" }}>
+					<Button className="cancel-button" onClick={handleClose} color="primary">
 						Cancel
 					</Button>
-					<Button onClick={handleAcceptClose} color="primary" autoFocus>
+					<Button onClick={handleAcceptClose} className="accept-button"  color="primary">
 						{props.buttonMessage}
 					</Button>
 				</DialogActions>

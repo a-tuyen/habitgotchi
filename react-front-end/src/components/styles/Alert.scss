@@ -1,0 +1,25 @@
+#alert-dialog-title {
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+#alert-dialog-description {
+  text-align: center;
+}
+
+#buttons-container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+
+  // .accept-button {
+  //   border: 1px solid blue;
+  // }
+  
+  // .cancel-button {
+  //   border: 1px solid blue;
+  // }
+
+}
+
