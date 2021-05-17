@@ -38,6 +38,7 @@ export default function QuestionActiveMin({ formData, setForm, navigation }) {
 			<Nav />
 			<h3 className={classes.question} >How many Active Minutes are you aiming to complete each day?</h3>
 			<TextField
+        className={classes.textField}
 				error={goalerror}
 				label="Amount of Active Minutes"
 				name="active_min_goal"

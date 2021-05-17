@@ -43,6 +43,7 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 			<Nav />
 			<h3 className={classes.question} >How many cups of water are you aiming to drink a day?</h3>
 			<TextField
+        className={classes.textField}
 				error={goalerror}
 				label="Cups of Water"
 				name="water_goal"

@@ -32,6 +32,7 @@ export default function QuestionSteps({ formData, setForm, navigation }) {
 			<Nav />
 			<h3  className={classes.question} >What is your step goal for each day?</h3>
 			<TextField
+        className={classes.textField}
 				error={goalerror}
 				label="Number of Steps"
 				name="steps_goal"
@@ -41,7 +42,6 @@ export default function QuestionSteps({ formData, setForm, navigation }) {
 				variant="outlined"
 				autoComplete="off"
 				fullWidth
-        backgroundColor="white"
 				helperText={!goalerror ? "" : "Please enter only numbers"}
 			/>
 			<div className={classes.buttonContainer}>

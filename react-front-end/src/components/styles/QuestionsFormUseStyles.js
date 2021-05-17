@@ -27,8 +27,13 @@ const useStyles = makeStyles((theme) => ({
   question: {
     paddingTop: "1.2rem",
     textAlign: "center"
-  }
+  },
 
+  textField: {
+    backgroundColor: "white",
+    borderRadius: "0.2rem",
+    border: "red",
+  }
 }));
 
 export default useStyles;
