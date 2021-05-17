@@ -41,6 +41,7 @@ export default function QuestionSteps({ formData, setForm, navigation }) {
 				variant="outlined"
 				autoComplete="off"
 				fullWidth
+        backgroundColor="white"
 				helperText={!goalerror ? "" : "Please enter only numbers"}
 			/>
 			<div className={classes.buttonContainer}>

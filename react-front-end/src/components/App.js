@@ -102,10 +102,10 @@ export default function App() {
 				</Switch>
 			</Router>
 			<ScrollTop
-				text="take me to your header"
+				text="Go to Top"
 				distance={100}
 				breakpoint={768}
-				style={{ backgroundColor: "blue" }}
+				style={{ backgroundColor: "#3f51b5", color: "white", border: "none" }}
 				// className="scroll-your-role"
 				speed={1000}
 				target={75}

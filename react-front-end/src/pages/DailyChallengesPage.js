@@ -153,7 +153,7 @@ export default function DailyChallengesPage(props) {
 			</Card>
 			{mode ? (
 				<Card className={classes.card}>
-					<h1>Bonus Challenges</h1>
+					<h3 style={{ marginTop: "0px" }}>Bonus Challenge</h3>
 					{getUserChallenges(state.UserChallenges)}
 				</Card>
 			) : (
