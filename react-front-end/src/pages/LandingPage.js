@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		marginLeft: "2.5vw",
 		marginRight: "2.5vw",
+
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
@@ -34,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: "35px",
 		width: "100px",
 	},
+	h1: {
+		textAlign: "center",
+	}
 }));
 
 export default function LandingPage(props) {
@@ -41,24 +45,30 @@ export default function LandingPage(props) {
 
 	return (
 		<>
-			<AppBar position="static" className="nav-bar">
-				<Toolbar className="nav-bar--container">
-					<span className="app-name">
-						<h3>
-							<Link to="/">
-								{" "}
-								<span className="app-logo">
-									<PetsIcon />
-								</span>
-								HabitGotchi
-							</Link>
-						</h3>
-						{/* <Typography variant="h3">HabitGotchi</Typography> */}
-					</span>
-				</Toolbar>
-			</AppBar>
+		<AppBar position="fixed" className="nav-bar">
+			<Toolbar className="nav-bar--container">
+				<span className="app-name">
+					<h3>
+						<Link
+							to="/Dashboard"
+							style={{
+								color: "white",
+								fontSize: "30px",
+								fontFamily: "Quicksand",
+							}}
+						>
+							{" "}
+							<span className="app-logo">
+								<PetsIcon />
+							</span>
+							HabitGotchi
+						</Link>
+					</h3>
+				</span>
+			</Toolbar>
+		</AppBar>
 			<div className={classes.root}>
-				<h1>Welcome to HabitGotchi!</h1>
+				<h1 className={classes.h1}>Welcome to HabitGotchi!</h1>
 				<img
 					className={classes.img}
 					src="https://github.com/a-tuyen/habitgotchi/blob/master/docs/pets/051-lion.png?raw=true"
