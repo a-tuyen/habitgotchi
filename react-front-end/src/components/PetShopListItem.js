@@ -27,14 +27,20 @@ const useStyles = makeStyles((theme) => ({
 	},
 	button: {
 		// backgroundColor: "#2B7A78",
+    // backgroundColor: "#2B7A78",
 		fontFamily: "Quicksand",
 		// color: "white",
 		marginLeft: "50px",
-		padding: "0.5em",
+		// padding: "1em, 2em, 2em, 1em",
+    // paddingTop: "1em", 
+    paddingRight: "2em",
+    // paddingBottom: "1em",
+    paddingLeft: "2em",
 		borderRadius: "1.5rem",
+    fontWeight: "bolder"
 	},
 	price: {
-		backgroundColor: "#FCD200",
+		backgroundColor: "#20B2AA",
 		paddingRight: "1em",
 		paddingLeft: "1em",
     paddingTop: "0.5em",
@@ -72,7 +78,7 @@ export default function PetShopListItem(props) {
 			<p>{props.description}</p>
 			<footer className={classes.footer}>
 				<div className={classes.price}>
-					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }} />
+					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em", color: "#FCD200" }} />
 					<p>{props.coins} coins</p>
 				</div>
 				{props.purchased && (
@@ -80,7 +86,9 @@ export default function PetShopListItem(props) {
           className={classes.button}
           variant="outlined"
           color="secondary" 
-          background-color="transparent">
+          background-color="transparent"
+          border= "2.5px solid"
+          >
 						{data}
 					</Button>
 				)}

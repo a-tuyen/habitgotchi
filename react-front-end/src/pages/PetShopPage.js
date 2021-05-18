@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
 	coins: {
-		backgroundColor: "#FCD200",
+		backgroundColor: "white",
 		padding: "0.5em",
 		borderRadius: "2rem",
 		display: "flex",
@@ -44,7 +44,7 @@ export default function PetShopPage(props) {
 			<header className={classes.header}>
 				<h1>Pet Shop</h1>
 				<div className={classes.coins}>
-					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }} />
+					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em", color: "#FCD200"}} />
 					<p>{props.coins} Coins</p>
 				</div>
 			</header>

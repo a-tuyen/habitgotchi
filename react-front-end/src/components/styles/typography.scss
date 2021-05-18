@@ -25,11 +25,11 @@ h3 {
 }
 
 body, p {
-  @include typography-styles($body-font, 12, $normal)
+  @include typography-styles($body-font, 14, $bold)
 }
 
 a {
-  @include typography-styles($body-font, 12, $semibold);
+  @include typography-styles($body-font, 14, $semibold);
   text-decoration: none;
   color: $accent-color;
 }

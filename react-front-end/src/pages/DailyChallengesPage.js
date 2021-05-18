@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: "10px",
 	},
 	coins: {
-		backgroundColor: "#FCD200",
+		backgroundColor: "white",
 		padding: "0.5em",
 		borderRadius: "2rem",
 		display: "flex",
@@ -143,7 +143,7 @@ export default function DailyChallengesPage(props) {
 			<header className={classes.header}>
 				<h1>Daily Goals</h1>
 				<div className={classes.coins}>
-					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em" }} />
+					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em", color: "#FCD200" }} />
 					<p>{state.balanceCoins} Coins</p>
 				</div>
 			</header>
