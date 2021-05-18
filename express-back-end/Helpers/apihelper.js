@@ -4,22 +4,22 @@ let activeMinvalue = 12;
 
 function getCaloriesValue() {
 	setInterval(() => {
-		Caloriesvalue = Caloriesvalue + 100;
+		Caloriesvalue = Caloriesvalue + 8;
 		if (Caloriesvalue == 2000) {
 			Caloriesvalue = 10;
 		}
-	}, 30000);
+	}, 15000);
 
 	return Caloriesvalue;
 }
 
 function getstepsValue() {
 	setInterval(() => {
-		StepsValue = StepsValue + 100;
+		StepsValue = StepsValue + 52;
 		if (StepsValue == 10000) {
 			StepsValue = 100;
 		}
-	}, 30000);
+	}, 15000);
 	return StepsValue;
 }
 
@@ -29,7 +29,7 @@ function getactivemin() {
 		if (activeMinvalue == 92) {
 			activeMinvalue = 92;
 		}
-	}, 30000);
+	}, 15000);
 	return activeMinvalue;
 }
 module.exports = { getstepsValue, getCaloriesValue, getactivemin };

@@ -41,7 +41,18 @@ export default function MyPetInventoryListItem(props) {
 				<h3>{props.name}</h3>
 				<p>{props.description}</p>
 			</div>
-			{props.Active && (
+			<Button
+				className={classes.button}
+				variant="contained"
+				Disabled={props.Active ? true : false}
+				color="primary"
+				onClick={() => {
+					selectdigitalpet(props.id);
+				}}
+			>
+				{props.Active ? "Current Pet" : "Select"}
+			</Button>
+			{/* {props.Active && (
 				<Button
 					className={classes.button}
 					variant="contained"
@@ -64,7 +75,7 @@ export default function MyPetInventoryListItem(props) {
 				>
 					Select
 				</Button>
-			)}
+			)} */}
 		</Card>
 	);
 }
