@@ -1,27 +1,19 @@
-import React, { Fragment } from "react";
-// import { makeStyles } from '@material-ui/core/styles';
-import Grid from "@material-ui/core/Grid";
+import React from "react";
 import Petshoplist from "../components/Petshoplist";
 import Nav from "../components/Nav";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import MonetizationOnRoundedIcon from "@material-ui/icons/MonetizationOnRounded";
-import ScrollTop from "react-scrolltop-button";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		marginLeft: "2.5vw",
 		marginRight: "2.5vw",
 	},
-  // content: {
-  //   display: "flex",
-  //   flexDirection: "column",
-  //   alignItems: "center",
-  // },
-  header: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
+	header: {
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
+	},
 	coins: {
 		backgroundColor: "white",
 		padding: "0.5em",
@@ -31,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
 		minWidth: "90px",
 		maxHeight: "30px",
-		// backgroundImage: `url("https://via.placeholder.com/500")`
 	},
 }));
 
@@ -44,7 +35,9 @@ export default function PetShopPage(props) {
 			<header className={classes.header}>
 				<h1>Pet Shop</h1>
 				<div className={classes.coins}>
-					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em", color: "#FCD200"}} />
+					<MonetizationOnRoundedIcon
+						style={{ paddingRight: "0.25em", color: "#FCD200" }}
+					/>
 					<p>{props.coins} Coins</p>
 				</div>
 			</header>

@@ -1,4 +1,4 @@
-import { useState, useEffect, React } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 // custom Hook
@@ -80,7 +80,6 @@ export default function useApplicationData() {
 				ActivePet.pet_id = pet["pet_id"];
 			}
 		}
-		console.log(ActivePet);
 
 		axios.put(`/api/digitalpet1`, { CurrentPet_id, id }).then(() =>
 			setState((prev) => ({
@@ -92,7 +91,6 @@ export default function useApplicationData() {
 	}
 
 	function updateDailyChall(formData) {
-		console.log("STATE!!!", state);
 		const DailyChallenge = { ...state.DailyChallenges[0] };
 		DailyChallenge.step_goal = parseInt(formData.steps_goal);
 		DailyChallenge.water_goal = parseInt(formData.water_goal);
@@ -115,8 +113,6 @@ export default function useApplicationData() {
 			...prev,
 			acceptedchallenges: acceptchallenge,
 		}));
-
-		console.log("Afteraccepting", state);
 	}
 	function taskcompleted(coins) {
 		const DailyChallenge = { ...state.DailyChallenges[0] };
@@ -124,7 +120,7 @@ export default function useApplicationData() {
 
 		const DailyChallenges = [...state.DailyChallenges];
 		DailyChallenges[0] = DailyChallenge;
-		console.log(coins);
+
 		const balanceCoins = state.balanceCoins + coins;
 
 		axios.put(`/api/updateCoins`, { coins }).then((result) =>
@@ -141,7 +137,6 @@ export default function useApplicationData() {
 		UserChallenge.completed = true;
 		const UserChallenges = [...state.DailyChallenges];
 		UserChallenges[0] = UserChallenge;
-		console.log(coins);
 		const balanceCoins = state.balanceCoins + coins;
 		const acceptedchallenges = 0;
 

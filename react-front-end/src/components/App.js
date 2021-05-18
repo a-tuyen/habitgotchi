@@ -1,5 +1,5 @@
 // Libraries
-import React, { Component, Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Style sheet
 import "./styles/App.scss";
@@ -7,6 +7,7 @@ import "./styles/App.scss";
 import useApplicationData from "../hooks/useApplicationData";
 import BuyContext from "./BuyContext";
 import SelectContext from "./SelectContext";
+
 //Pages
 import DashboardPage from "../pages/DashboardPage";
 import InventoryPage from "../pages/InventoryPage";
@@ -24,6 +25,7 @@ import useStatData from "../hooks/useStatData";
 import ChallengeAlert from "./ChallengeAlert";
 import ScrollTop from "react-scrolltop-button";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+
 export default function App() {
 	const {
 		state,
@@ -59,10 +61,10 @@ export default function App() {
 					SetTrigger={SetTrigger}
 				/>
 				<Switch>
-					<Route exact path="/" component={LandingPage}>
+					<Route exact path="/">
 						<LandingPage />
 					</Route>
-					<Route exact path="/Dashboard" component={DashboardPage}>
+					<Route exact path="/Dashboard">
 						<DashboardPage
 							state={state}
 							Activepet={state.ActivePet}
@@ -70,28 +72,28 @@ export default function App() {
 							acceptChallenge={acceptChallenge}
 						/>
 					</Route>
-					<Route exact path="/mypetinventory" component={InventoryPage}>
+					<Route exact path="/mypetinventory">
 						<SelectContext.Provider value={selectdigitalpet}>
 							<InventoryPage myPetInventory={state.MyPetInventory} />
 						</SelectContext.Provider>
 					</Route>
 
-					<Route exact path="/questionsform" component={QuestionsForm}>
+					<Route exact path="/questionsform">
 						<QuestionsContext.Provider value={updateDailyChall}>
 							<QuestionsForm />
 						</QuestionsContext.Provider>
 					</Route>
-					<Route exact path="/questionactive" component={QuestionActiveMin}>
+					<Route exact path="/questionactive">
 						<QuestionActiveMin />
 					</Route>
 
-					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
+					<Route exact path="/dailychallenges">
 						<ChallengeContext.Provider value={challengeContext}>
 							<DailyChallengesPage />
 						</ChallengeContext.Provider>
 					</Route>
 
-					<Route exact path="/petshop" component={PetShopPage}>
+					<Route exact path="/petshop">
 						<BuyContext.Provider value={buydigitalpet}>
 							<PetShopPage
 								PetInventory={state.PetShop}

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 	card: {
 		marginTop: "2vh",
 		padding: "1.5em",
-    borderRadius: "2em"
+		borderRadius: "2em",
 	},
 	button: {
 		backgroundColor: "#3f51b5",
@@ -69,71 +69,72 @@ export default function DailyChallengesPage(props) {
 		}
 	};
 
-	const getChallenges = (data) => {
-		if (data.length) {
-			return data.map((item) => {
-				return (
-					<form method="POST" action="/">
-						<input
-							checked={status.steps >= item.step_goal ? "checked" : ""}
-							type="checkbox"
-							id="step_goal"
-							name="step_goal"
-						></input>
-						<label for="step_goal">Do {item.step_goal} Steps</label>
-						<br></br>
-						<input
-							checked={status.water >= item.water_goal ? "checked" : ""}
-							type="checkbox"
-							id="water_goal"
-							name="water_goal"
-						></input>
-						<label for="water_goal">
-							Drink {item.water_goal} cups of water
-						</label>
-						<br></br>
-						<input
-							checked={
-								status.active_min >= item.active_min_goal ? "checked" : ""
-							}
-							type="checkbox"
-							id="active_min_goal"
-							name="active_min_goal"
-						></input>
-						<label for="active_min_goal">
-							Complete {item.active_min_goal} Active Minutes
-						</label>
-						<br></br>
-            &nbsp;
-						<p>Complete all three goals to earn {item.coins} coins!</p>
-						{areAllChecked()}
-					</form>
-				);
-			});
+	const getChallenges = (item) => {
+		if (item.length) {
+			// return data.map((item) => {
+			return (
+				<form method="POST" action="/">
+					<input
+						checked={status.steps >= item[0].step_goal ? "checked" : ""}
+						type="checkbox"
+						id="step_goal"
+						name="step_goal"
+						readOnly
+					></input>
+					<label htmlFor="step_goal">Do {item[0].step_goal} Steps</label>
+					<br></br>
+					<input
+						checked={status.water >= item[0].water_goal ? "checked" : ""}
+						type="checkbox"
+						id="water_goal"
+						name="water_goal"
+						readOnly
+					></input>
+					<label htmlFor="water_goal">
+						Drink {item[0].water_goal} cups of water
+					</label>
+					<br></br>
+					<input
+						checked={
+							status.active_min >= item[0].active_min_goal ? "checked" : ""
+						}
+						type="checkbox"
+						id="active_min_goal"
+						name="active_min_goal"
+						readOnly
+					></input>
+					<label htmlFor="active_min_goal">
+						Complete {item[0].active_min_goal} Active Minutes
+					</label>
+					<br></br>
+					&nbsp;
+					<p>Complete all three goals to earn {item[0].coins} coins!</p>
+					{areAllChecked()}
+				</form>
+			);
+			// });
 		}
 	};
 
-	const getUserChallenges = (data) => {
-		if (data.length) {
-			return data.map((item) => {
-				return (
-					<p>
-						{item.description}
-						<br></br>
-						Complete to earn {item.coins} coins!
-						<br></br>
-						<Button
-							variant="contained"
-							className={classes.button}
-							onClick={() => {
-								bonustaskcompleted(item.coins);
-							}}
-						>
-							I did it!
-						</Button>
-					</p>
-				);
-			});
+	const getUserChallenges = (item) => {
+		if (item.length) {
+			return (
+				<p>
+					{item[0].description}
+					<br></br>
+					Complete to earn {item[0].coins} coins!
+					<br></br>
+					<Button
+						variant="contained"
+						className={classes.button}
+						onClick={() => {
+							bonustaskcompleted(item[0].coins);
+						}}
+					>
+						I did it!
+					</Button>
+				</p>
+			);
 		}
 	};
 
@@ -143,7 +144,9 @@ export default function DailyChallengesPage(props) {
 			<header className={classes.header}>
 				<h1>Daily Goals</h1>
 				<div className={classes.coins}>
-					<MonetizationOnRoundedIcon style={{ paddingRight: "0.25em", color: "#FCD200" }} />
+					<MonetizationOnRoundedIcon
+						style={{ paddingRight: "0.25em", color: "#FCD200" }}
+					/>
 					<p>{state.balanceCoins} Coins</p>
 				</div>
 			</header>

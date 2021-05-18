@@ -3,21 +3,18 @@ import { Grid } from "@material-ui/core";
 import Nav from "../components/Nav";
 import DigitalPet from "../components/DigitalPet";
 import Status from "../components/status";
-import ChallengeAlert from "../components/ChallengeAlert";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		marginLeft: "1rem",
 		marginRight: "1rem",
-		// border: "2px solid red"
 	},
 }));
 
 export default function DashboardPage(props) {
 	const classes = useStyles();
 
-	console.log("DASHPROPS", props);
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>

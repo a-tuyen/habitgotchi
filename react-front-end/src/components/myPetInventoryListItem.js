@@ -1,16 +1,13 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
-import Typography from "@material-ui/core/Typography";
-import { CardMedia, GridListTileBar } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { useContext } from "react";
 import SelectContext from "./SelectContext";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		marginBottom: "2vh",
-		padding: "5em",
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
@@ -24,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	img: {
 		height: "25vh",
-		// padding: "2em"
 	},
 	button: {
 		backgroundColor: "#3f51b5",
@@ -42,14 +38,13 @@ export default function MyPetInventoryListItem(props) {
 	return (
 		<Card className={classes.root}>
 			<div className={classes.petContent}>
-				<img src={props.img} className={classes.img} />
+				<img src={props.img} className={classes.img} alt="" />
 				<h3>{props.name}</h3>
 				<p>{props.description}</p>
 			</div>
 			<Button
 				className={classes.button}
 				variant="contained"
-				Disabled={props.Active ? true : false}
 				onClick={() => {
 					selectdigitalpet(props.id);
 				}}

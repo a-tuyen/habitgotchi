@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -9,38 +9,25 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { Link } from "react-router-dom";
 
 export default function ChallengeAlert(props) {
-	// const userChallenges = useContext(ChallengeContext);
 	const userChallenges = props.state;
-	console.log("UserChallenges", userChallenges);
-	const [open, setOpen] = React.useState(false);
-	console.log("USERCHALL", userChallenges);
-
-	// const handleClickOpen = () => {
-	// 	setOpen(true);
-	// };
-
 	const handleClose = () => {
 		props.SetTrigger(false);
-		setOpen(false);
 	};
 
 	const handleCloseAccept = () => {
 		props.SetTrigger(false);
 		props.acceptChallenge();
-		setOpen(false);
 	};
 
 	const getUserChallenges = (data) => {
 		if (data.UserChallenges.length) {
-			return data.UserChallenges.map((item) => {
-				return (
-					<p>
-						{item.description}
-						<br></br>
-						Complete to earn {item.coins} coins!
-					</p>
-				);
-			});
+			return (
+				<>
+					{data.UserChallenges[0].description}
+					<br></br>
+					Complete to earn {data.UserChallenges[0].coins} coins!
+				</>
+			);
 		}
 	};
 

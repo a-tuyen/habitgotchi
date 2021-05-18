@@ -29,6 +29,5 @@ export default function useStatData() {
 
 		return fetchData();
 	}, []);
-	console.log("status!", status);
 	return { status };
 }

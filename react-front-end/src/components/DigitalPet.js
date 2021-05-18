@@ -6,7 +6,11 @@ import "./styles/Digitalpet.scss";
 export default function DigitalPet(props) {
 	return (
 		<Card className="pet">
-			<img src={props.Activepet.img} className="digipet-img"></img>
+			<img
+				src={props.Activepet.img}
+				className="digipet-img"
+				alt="digital-pet"
+			></img>
 			<h1>{props.Activepet.name}</h1>
 		</Card>
 	);
