@@ -46,7 +46,12 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 				>
 					Back
 				</Button>
-				<Button color="primary" variant="contained" onClick={() => validate()}>
+				<Button
+				 className={classes.button}
+				 color="primary"
+				 variant="contained"
+				 onClick={() => validate()}
+				 >
 					Next
 				</Button>
 			</div>

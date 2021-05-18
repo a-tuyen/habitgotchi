@@ -17,7 +17,10 @@ export default function QuestionIntensity({
 	dailyChallengesState,
 }) {
 	const { intensity } = formData;
+	console.log("formData:", formData);
+
 	const classes = useStyles();
+
 	const updateDailyChall = useContext(QuestionsContext);
 
 	return (
@@ -50,7 +53,7 @@ export default function QuestionIntensity({
 
 			<div className={classes.buttonContainer}>
 				<Button
-					className={classes.button}
+					className={classes.backButton}
 					color="secondary"
 					variant="contained"
 					onClick={() => navigation.previous()}

@@ -15,13 +15,24 @@ const useStyles = makeStyles((theme) => ({
     // marginRight: "0rem"
   },
 
-  button: {
+  backButton: {
     marginRight: "1rem",
-    marginLeft: "3.5vw"
+    marginLeft: "3.5vw",
+    borderRadius: "2rem",
+    color: "white"
+  },
+
+  button: {
+    marginLeft: "3.5vw",
+    borderRadius: "2rem",
+    color: "white"
   },
 
   submitButton: {
-    marginRight: "3.5vw"
+    marginRight: "3.5vw",
+    marginLeft:  "3.5vw",
+    borderRadius: "2rem",
+    color: "white"
   },
 
   question: {

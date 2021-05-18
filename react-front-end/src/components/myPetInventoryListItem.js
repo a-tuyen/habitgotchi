@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 		height: "25vh",
 	},
 	button: {
-		backgroundColor: "#3f51b5",
 		fontFamily: "Quicksand",
 		color: "white",
 		borderRadius: "1.5rem",
@@ -42,15 +41,32 @@ export default function MyPetInventoryListItem(props) {
 				<h3>{props.name}</h3>
 				<p>{props.description}</p>
 			</div>
-			<Button
-				className={classes.button}
-				variant="contained"
-				onClick={() => {
-					selectdigitalpet(props.id);
-				}}
-			>
-				{props.Active ? "Current Pet" : "Select"}
-			</Button>
+			{props.Active && (
+				<Button
+					className={classes.button}
+					variant="contained"
+					color="secondary"
+					Disabled="true"
+					onClick={() => {
+						selectdigitalpet(props.id);
+					}}
+				>
+					Current Pet
+				</Button>
+			)}
+			{!props.Active && (
+				<Button
+					className={classes.button}
+					variant="contained"
+					color="primary"
+					Disabled="false"
+					onClick={() => {
+						selectdigitalpet(props.id);
+					}}
+				>
+					Select
+				</Button>
+			)}
 		</Card>
 	);
 }

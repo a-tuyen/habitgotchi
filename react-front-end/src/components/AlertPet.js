@@ -5,11 +5,26 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { makeStyles } from "@material-ui/core/styles";
+
+// const useStyles = makeStyles((theme) => ({
+// 	title: {
+// 		fontFamily: 'Quicksand',
+// 		fontSize: "100",
+// 		fontWeight: "700",
+// 		border: "1px solid red"
+// 	}
+
+
+// }));
+
 
 export default function Alert(props) {
 	const handleClose = () => {
 		props.setTrigger(false);
 	};
+
+	// const classes = useStyles();
 
 	return (
 		<div>
