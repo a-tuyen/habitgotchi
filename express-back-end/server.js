@@ -19,6 +19,7 @@ App.get("/api/digitalpet", (req, res) => {
 // Route for Status data
 App.get("/api/statdata", (req, res) => {
 	const result = db.getdailyStatus();
+	console.log(result);
 	res.json({ result });
 });
 
