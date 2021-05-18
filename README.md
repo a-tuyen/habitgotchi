@@ -1,46 +1,69 @@
-# React + Express No-Fluff Boilerplate
+## HabitGotchi
+Need help following your health and fitness goals? Well, Habitgotchi is here! Collect new digital friends by completing your daily goals!
 
-A boilerplate project for anyone interested in making a project that uses React and Express.
+## Features
+* Set your goal for daily steps, water intake and active minutes
+* Earn coins by completing your daily goals or incoming bonus challenges (based on your selection of fitness intensity)
+* Use your hard-earned coins to buy new digital pets at the Pet Shop
+* View your current stats on the dashboard (and also see your lovable pet)
 
-This repository is a bootleg of @NimaBoscarino's [React Rails Boilerplate](https://github.com/NimaBoscarino/react-rails-boilerplate). It uses the same React app, but replaces the Rails server with an Express server.
+## App Preview
+(screenshots here)
+Homepage
+PetShop
+Challenge
+Questionnaire
 
-Note! This boilerplate has _no fluff_! That means that there's nothing set up for you to do authentication stuff, there's no Redux stuff, and there's no React Router stuff. On the Express end, there is no session storage or database connection.
 
-The main important bit is that the React project has `proxy` set to `localhost:8080` in the `package.json` file, and that the Express app listens to port 8080 in `server.js`. Take a look!
+## Tech Stack
+* Front-end: React, Axios, SASS,  Material UI
+* Back-end: Express, NodeJS, Elephant SQL (PostgreSQL cloud database hosting service)
 
-You can (and perhaps should) rename the directories `express-back-end` and `react-front-end` if you want-- The name doesn't matter.
+## Setup
 
-## Running the projects
+1. Open two terminal window/tabs 
+2. In one terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:3000` in your browser.
+3. In the other terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn start` to launch the server.
+4. To set up the database, create an `.env` file in the `express-back-end` folder by copying the `.env.example` file. Put in the URL from ElephantSQL. 
+5. Congratulations, you've set up HabitGotchi! 
 
-You need **TWO** terminal windows/tabs for this (or some other plan for running two Node processes).
+## Dependencies
+React Front-end:
+* Axios
+* ClassNames
+* Material UI (Core, icons, styles)
+* Node-Sass
+* Prop-types
+* React
+* React-dom
+* React-icons
+* React-hooks-helper
+* React-router-dom
+* React-scripts
+* React-scrolltop-button
+* React-style-components
 
-In one terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:3000` in your browser.
+Express Back-end:
+* Body-Parser
+* Chalk
+* Dotenv
+* Express 
+* Nodemon
+* Pg
 
-In the other terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn start` to launch the server.
+## Contributors
+* [Amanda Tuyen](https://github.com/a-tuyen)
+* [Divya Jagadish](https://github.com/DivyaJagadish)
+* [Karina Song](https://github.com/Syransong)
 
-In the browser, you can click on the button and see the data get loaded.
+## Credits
 
-If this doesn't work, please message me!
+This project used a React and Express boilerplate created by @NimaBoscarino ([React Rails Boilerplate](https://github.com/NimaBoscarino/react-rails-boilerplate))
 
-## Next steps
 
-From here, you can start working on your project!
 
-As soon as the dependencies are installed, your Express server can serve JSON and static assets (like images) in response to API calls from the React app. You can get started on developing your React app, routing plan, etc. right away! Any request that isn't handled by React is passed on to the Express server. That means that you can call a route like `/api/users` from React using `fetch`, `axios`, or something else, and Express will receive it as though they originated from the same app. For routing, best practice is to namespace all of your data routes to `/api`, so that they don't clash with other routing schemes, like React Router.
 
-At some point, you'll likely want to install and configure a database driver for Postgres or MongoDB-- Refer to past projects for hints on how to do this.
 
-And don't forget to update the README!
 
-## Example Projects
 
-You might want to look at examples of projects that have used this boilerplate for hints on how to extend it. Here are a few:
 
-* [Later Cart](https://github.com/bonitac/later-cart)
-* [Buddi.io](https://github.com/Danny-Tran/buddi.io)
-
-If you'd like your project added to the list, please shoot me a message.
-
-## Contact
-
-Please contact me on Slack (@garrettgsb) or Nima at `nima@lighthouselabs.com` if you have any questions, requests, or feedback, or post an issue to this repo. If you are using the boilerplate, I'd love to hear from you as well!
