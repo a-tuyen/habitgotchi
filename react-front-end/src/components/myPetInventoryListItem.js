@@ -46,7 +46,6 @@ export default function MyPetInventoryListItem(props) {
 					className={classes.button}
 					variant="contained"
 					color="secondary"
-					Disabled="true"
 					onClick={() => {
 						selectdigitalpet(props.id);
 					}}
@@ -59,7 +58,6 @@ export default function MyPetInventoryListItem(props) {
 					className={classes.button}
 					variant="contained"
 					color="primary"
-					Disabled="false"
 					onClick={() => {
 						selectdigitalpet(props.id);
 					}}

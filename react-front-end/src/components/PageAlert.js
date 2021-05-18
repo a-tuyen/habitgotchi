@@ -5,10 +5,6 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { makeStyles } from "@material-ui/core/styles";
-import useStyles from "./styles/QuestionsFormUseStyles";
-
-
 
 export default function PageAlert(props) {
 	const [open, setOpen] = useState(true);
@@ -23,7 +19,6 @@ export default function PageAlert(props) {
 		}
 	};
 
-	const classes = useStyles();
 	return (
 		<div>
 			<Dialog
@@ -41,11 +36,20 @@ export default function PageAlert(props) {
 				<DialogActions
 					id="buttons-container"
 					style={{ justifyContent: "space-between" }}
+				>
+					<Button
+						onClick={handleClose}
+						className="cancel-button"
+						color="secondary"
 					>
-					<Button onClick={handleClose} className="cancel-button" color="secondary">
 						Close
 					</Button>
-					<Button onClick={handleAcceptClose} className="accept-button" color="primary" autoFocus>
+					<Button
+						onClick={handleAcceptClose}
+						className="accept-button"
+						color="primary"
+						autoFocus
+					>
 						{props.buttonMessage}
 					</Button>
 				</DialogActions>
