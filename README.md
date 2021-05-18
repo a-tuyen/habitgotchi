@@ -2,20 +2,21 @@
 Need help following your health and fitness goals? Well, Habitgotchi is here! Collect new digital friends by completing your daily goals!
 
 ## Features
-* Earn coins with each daily goal or bonus challenge you complete
+* Set your goal for daily steps, water intake and active minutes
+* Earn coins by completing your daily goals or incoming bonus challenges (based on your selection of fitness intensity)
 * Use your hard-earned coins to buy new digital pets at the Pet Shop
 * View your current stats on the dashboard (and also see your lovable pet)
 
 ## App Preview
 (screenshots here)
+Homepage
+PetShop
+Challenge
+Questionnaire
 
-## Contributors
-* [Amanda Tuyen](https://github.com/a-tuyen)
-* [Divya Jagadish](https://github.com/DivyaJagadish)
-* [Karina Song](https://github.com/Syransong)
 
-## Project Stack
-* Front-end: JavaScript, React, Axios, HTML, SASS,  Material UI
+## Tech Stack
+* Front-end: React, Axios, SASS,  Material UI
 * Back-end: Express, NodeJS, Elephant SQL (PostgreSQL cloud database hosting service)
 
 ## Setup
@@ -23,7 +24,8 @@ Need help following your health and fitness goals? Well, Habitgotchi is here! Co
 1. Open two terminal window/tabs 
 2. In one terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:3000` in your browser.
 3. In the other terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn start` to launch the server.
-4. Congratulations, you've set up HabitGotchi! 
+4. To set up the database, create an `.env` file in the `express-back-end` folder by copying the `.env.example` file. Put in the URL from ElephantSQL. 
+5. Congratulations, you've set up HabitGotchi! 
 
 ## Dependencies
 React Front-end:
@@ -34,9 +36,12 @@ React Front-end:
 * Prop-types
 * React
 * React-dom
+* React-icons
+* React-hooks-helper
 * React-router-dom
 * React-scripts
 * React-scrolltop-button
+* React-style-components
 
 Express Back-end:
 * Body-Parser
@@ -45,7 +50,11 @@ Express Back-end:
 * Express 
 * Nodemon
 * Pg
-* Pg-native
+
+## Contributors
+* [Amanda Tuyen](https://github.com/a-tuyen)
+* [Divya Jagadish](https://github.com/DivyaJagadish)
+* [Karina Song](https://github.com/Syransong)
 
 ## Credits
 
