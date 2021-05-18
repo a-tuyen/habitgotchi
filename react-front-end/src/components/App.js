@@ -3,6 +3,8 @@ import React, { Component, Fragment, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Style sheet
 import "./styles/App.scss";
+
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 // Helpers
 import useApplicationData from "../hooks/useApplicationData";
 import BuyContext from "./BuyContext";
@@ -22,6 +24,24 @@ import QuestionActiveMin from "../pages/QuestionActiveMin";
 import ChallengeContext from "./ChallengeContext";
 import useStatData from "../hooks/useStatData";
 import ChallengeAlert from "./ChallengeAlert";
+
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: "#8E44AD",
+		},
+    secondary: {
+			main: "#FFB48F",
+		}
+	},
+	// radio: {
+  //   '&$checked': {
+  //     color: '#4B8DF8'
+  //   }
+  // }
+
+	// }
+});
 
 export default function App() {
 	const {
@@ -77,7 +97,9 @@ export default function App() {
 
 					<Route exact path="/questionsform" component={QuestionsForm}>
 						<QuestionsContext.Provider value={updateDailyChall}>
+						<ThemeProvider theme={theme}>
 							<QuestionsForm />
+							</ThemeProvider>
 						</QuestionsContext.Provider>
 					</Route>
 					<Route exact path="/questionactive" component={QuestionActiveMin}>
@@ -86,7 +108,9 @@ export default function App() {
 
 					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
 						<ChallengeContext.Provider value={challengeContext}>
+						<ThemeProvider theme={theme}>
 							<DailyChallengesPage />
+							</ThemeProvider>
 						</ChallengeContext.Provider>
 					</Route>
 

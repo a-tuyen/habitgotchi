@@ -8,6 +8,9 @@
   // background: rgba(128, 128, 128, 0.7) !important;
   // background-color: blueviolet!important;
   // background: url(../../rainbow-bg.png);
+  // background-color: $primary-color !important;
+  background-color: #6495ED !important;
+
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
@@ -40,5 +43,6 @@
     color: white;
     font-size: 24;
     font-weight: $bold;
+
   }
 }

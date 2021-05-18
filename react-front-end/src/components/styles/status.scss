@@ -3,14 +3,16 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 7rem;
+	height: 6rem;
+	width: 6rem;
 	// background: rgba(255, 255, 255, 0.7) !important;
-	background-color: white;
+	background-color: 253, 235, 208 !important;
+	// background-color: white;
 	// background-color: rgb(245, 239, 236) !important;
 	// width: 7rem;
 	// margin: 50px;
 	padding: 2rem;
-	border-radius: 2rem !important;
+	border-radius: 10rem !important;
 	// opacity: 50%;
 	// border: 2px solid red;
 }
@@ -19,7 +21,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	text-aligno: center;
+	text-align: center;
+	padding: 0;
 	// brder: 2px solid red;
 
 }

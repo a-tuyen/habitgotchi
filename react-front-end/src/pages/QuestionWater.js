@@ -38,21 +38,21 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 		}
 	}
 
-	const ColorButton = withStyles((theme) => ({
-		root: {
-			color: theme.palette.getContrastText(purple[500]),
-			backgroundColor: purple[500],
-			'&:hover': {
-				backgroundColor: teal[900],
-			},
-		},
-	}))(Button);
+	// const ColorButton = withStyles((theme) => ({
+	// 	root: {
+	// 		color: theme.palette.getContrastText(purple[500]),
+	// 		backgroundColor: purple[500],
+	// 		'&:hover': {
+	// 			backgroundColor: teal[900],
+	// 		},
+	// 	},
+	// }))(Button);
 
-	const theme = createMuiTheme({
-		palette: {
-			primary: teal,
-		},
-	});
+	// const theme = createMuiTheme({
+	// 	palette: {
+	// 		primary: teal,
+	// 	},
+	// });
 
 	const classes = useStyles();
 
@@ -75,15 +75,14 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 				helperText={!goalerror ? "" : "Please enter only numbers"}
 			/>
 			<div className={classes.buttonContainer}>
-				<ColorButton 
+				<Button 
 					className={classes.backButton}
 					variant="contained"
-					color="primary" 
+					color="secondary" 
 					onClick={() => navigation.previous()}
 				>
 					Back
-				</ColorButton>
-				{/* <ThemeProvider theme={theme}> */}
+				</Button>
 				<Button
 				className={classes.backButton}
 				variant="contained"
@@ -92,7 +91,6 @@ export default function QuestionWater({ formData, setForm, navigation }) {
 				>
 					Next
 				</Button>
-				{/* </ThemeProvider> */}
 			</div>
 		</Container>
 	);

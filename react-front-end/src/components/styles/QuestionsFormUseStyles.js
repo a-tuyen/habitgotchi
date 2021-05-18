@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   textField: {
-    backgroundColor: "#ffeee4",
+    backgroundColor: "white",
     borderRadius: "0.2rem",
     border: "#ffeee4",
     

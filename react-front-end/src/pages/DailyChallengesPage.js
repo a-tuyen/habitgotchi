@@ -78,6 +78,7 @@ export default function DailyChallengesPage(props) {
 							type="checkbox"
 							id="step_goal"
 							name="step_goal"
+							color= "primary"
 						></input>
 						<label for="step_goal">Do {item.step_goal} Steps</label>
 						<br></br>

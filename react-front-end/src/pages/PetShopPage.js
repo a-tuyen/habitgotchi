@@ -3,8 +3,9 @@ import React, { Fragment } from "react";
 import Grid from "@material-ui/core/Grid";
 import Petshoplist from "../components/Petshoplist";
 import Nav from "../components/Nav";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import MonetizationOnRoundedIcon from "@material-ui/icons/MonetizationOnRounded";
+
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -22,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   coins: {
-    backgroundColor: "#DEF2F1",
+    backgroundColor: "white",
+    color: "black",
 		padding: "0.5em",
 		borderRadius: "2rem",
 		display: "flex",
@@ -30,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
     minWidth: "90px",
     maxHeight: "30px",
+    shadows: [""]
+
     // backgroundImage: `url("https://via.placeholder.com/500")` 
   }
 }));

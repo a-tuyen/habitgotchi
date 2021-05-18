@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
 import BuyContext from "./BuyContext.js";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import MonetizationOnRoundedIcon from "@material-ui/icons/MonetizationOnRounded";
 import AlertPet from "../components/AlertPet";
 
@@ -20,22 +20,26 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: "2rem",
 		// maxHeight: "25vh",
 		// Width: "80vw"
-		backgroundColor: "#ffeee4"
+		backgroundColor: "white"
 	},
 	img: {
 		height: "20vh",
 		// padding: "2em",
 	},
 	button: {
-		backgroundColor: "#557C83",
+		backgroundColor: "#7B68EE",
 		fontFamily: "Quicksand",
 		color: "white",
 		marginLeft: "50px",
-		padding: "0.75em",
+		paddingTop: "1em",
+		paddingBottom: "1em",
+		paddingRight: "2rem",
+		paddingLeft: "2rem",
 		borderRadius: "1.5rem",
 	},
 	price: {
-		backgroundColor: "#DEF2F1",
+		backgroundColor: "#3CB371",
+		color: "white",
 		paddingRight: "1em",
 		paddingLeft: "1em",
 		borderRadius: "1.5rem",

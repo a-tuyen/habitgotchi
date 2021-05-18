@@ -7,10 +7,15 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 //Stylesheet
 import "./styles/Nav.scss";
 // import DashboardPage from "../pages/DashboardPage";
+
+const theme = createMuiTheme({
+  shadows: ["none"]
+});
 
 export default function Nav() {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,6 +29,7 @@ export default function Nav() {
 	};
 
 	return (
+		<ThemeProvider theme={theme}>
 		<AppBar position="fixed" className="nav-bar">
 			<Toolbar className="nav-bar--container">
 				<span className="app-name">
@@ -55,6 +61,7 @@ export default function Nav() {
 
 				<Menu
 					id="simple-menu"
+					style={{color: "#8E44AD"}}
 					anchorEl={anchorEl}
 					keepMounted
 					open={Boolean(anchorEl)}
@@ -93,5 +100,6 @@ export default function Nav() {
 				</Menu>
 			</Toolbar>
 		</AppBar>
+		</ThemeProvider>
 	);
 }
