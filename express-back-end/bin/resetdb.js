@@ -7,9 +7,8 @@ const pg = require("pg");
 // PG connection setup
 
 var conString = process.env.POSTGRES_URL;
-//Can be found in the Details page
 var client = new pg.Client(conString);
-// Loads the schema files from db/schema
+
 const runSchemaFiles = function () {
 	console.log(chalk.cyan(`-> Loading Schema Files ...`));
 	const schemaFilenames = fs.readdirSync("./db/migrations");

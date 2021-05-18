@@ -2,7 +2,6 @@ import React from "react";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import PetsIcon from "@material-ui/icons/Pets";
-// import useApplicationData from "../hooks/useApplicationData";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
@@ -33,7 +32,7 @@ export default function Nav() {
 							style={{
 								color: "white",
 								fontSize: "30px",
-                fontWeight: "700",
+								fontWeight: "700",
 								fontFamily: "Quicksand",
 							}}
 						>

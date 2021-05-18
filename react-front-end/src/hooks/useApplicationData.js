@@ -92,11 +92,8 @@ export default function useApplicationData() {
 	}
 
 	function updateDailyChall(formData) {
-		// console.log("STATE:", state.DailyChallenges);
-		// console.log("FORM:",formData);
 		console.log("STATE!!!", state);
 		const DailyChallenge = { ...state.DailyChallenges[0] };
-		// console.log("STATEDAILY:", DailyChallenges);
 		DailyChallenge.step_goal = parseInt(formData.steps_goal);
 		DailyChallenge.water_goal = parseInt(formData.water_goal);
 		DailyChallenge.active_min_goal = parseInt(formData.active_min_goal);
@@ -130,15 +127,12 @@ export default function useApplicationData() {
 		console.log(coins);
 		const balanceCoins = state.balanceCoins + coins;
 
-		axios.put(`/api/updateCoins`, { coins }).then(
-			(result) =>
-				setState((prev) => ({
-					...prev,
-					DailyChallenges,
-					balanceCoins,
-				}))
-
-			// console.log("Result from server",result)
+		axios.put(`/api/updateCoins`, { coins }).then((result) =>
+			setState((prev) => ({
+				...prev,
+				DailyChallenges,
+				balanceCoins,
+			}))
 		);
 	}
 

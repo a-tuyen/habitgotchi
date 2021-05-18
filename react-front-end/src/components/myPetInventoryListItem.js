@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: "Quicksand",
 		color: "white",
 		borderRadius: "1.5rem",
-    marginTop: "20px"
+		marginTop: "20px",
 	},
 }));
 

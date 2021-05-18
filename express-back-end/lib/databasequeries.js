@@ -1,7 +1,8 @@
 //PG connection
-
 const pg = require("pg");
 const dbParams = require("./db.js");
+
+// API helper function
 const {
 	getCaloriesValue,
 	getstepsValue,
@@ -13,6 +14,8 @@ db.connect(function (err) {
 		return console.error("could not connect to postgres", err);
 	}
 });
+
+//Function to query database for getting details about Active Pet
 const getActivePet = function () {
 	return db
 		.query(
@@ -28,6 +31,7 @@ const getActivePet = function () {
 };
 exports.getActivePet = getActivePet;
 
+// Function which  queries the status data
 const getdailyStatus = function () {
 	const calorie = getCaloriesValue();
 	const step = getstepsValue();
@@ -43,6 +47,7 @@ const getdailyStatus = function () {
 };
 exports.getdailyStatus = getdailyStatus;
 
+// Function which query database to load PetsHOP
 const getPetInventory = function () {
 	return db
 		.query(
@@ -58,6 +63,7 @@ const getPetInventory = function () {
 };
 exports.getPetInventory = getPetInventory;
 
+// Function to get all data of Pet Shop.
 const getAllfrompetShop = function () {
 	return db
 		.query(`SELECT * FROM pet_shop ORDER BY id `)
@@ -70,6 +76,7 @@ const getAllfrompetShop = function () {
 };
 exports.getAllfrompetShop = getAllfrompetShop;
 
+//Function to get all daily Challenges
 const getDailyChallenges = function () {
 	return db
 		.query(
@@ -86,6 +93,7 @@ const getDailyChallenges = function () {
 
 exports.getDailyChallenges = getDailyChallenges;
 
+// Function which loads userChallenges
 const getUserChallenges = function () {
 	return db
 		.query(
@@ -101,6 +109,7 @@ const getUserChallenges = function () {
 };
 exports.getUserChallenges = getUserChallenges;
 
+// Function to get the balanceCoins of all coins
 const getbalanceCoins = function () {
 	return db
 		.query(`SELECT SUM(transaction) FROM COINS WHERE user_id = $1`, [1])
@@ -113,6 +122,7 @@ const getbalanceCoins = function () {
 };
 exports.getbalanceCoins = getbalanceCoins;
 
+//Function to Query to update the status the pet shop
 const updatePetShop = function (id) {
 	return db
 		.query(`UPDATE pet_shop SET purchased = true WHERE id = $1 RETURNING *;`, [
@@ -127,6 +137,7 @@ const updatePetShop = function (id) {
 };
 exports.updatePetShop = updatePetShop;
 
+// Function to Query to insert new purchased pet to my_pets table
 const insertnewPet = function (id) {
 	return db
 		.query(
@@ -143,6 +154,7 @@ VALUES ($1, $2, $3) RETURNING *; `,
 };
 exports.insertnewPet = insertnewPet;
 
+// Function to insert new transactions into coins table
 const insertnewTransaction = function insertnewTransaction(coins) {
 	return db
 		.query(
@@ -158,6 +170,7 @@ const insertnewTransaction = function insertnewTransaction(coins) {
 };
 exports.insertnewTransaction = insertnewTransaction;
 
+// Function to update the pet as Current Pet
 const updateisActive = function (pet_id) {
 	db.query(
 		`UPDATE my_pets SET isActive = NOT isActive WHERE pet_id = $1 RETURNING * ;`,
@@ -172,6 +185,7 @@ const updateisActive = function (pet_id) {
 };
 exports.updateisActive = updateisActive;
 
+// Function to get the value of all DailyChallenges
 const updateDailyChallenges = function (formData) {
 	return db
 		.query(
@@ -185,9 +199,9 @@ const updateDailyChallenges = function (formData) {
 			console.log(err);
 		});
 };
-
 exports.updateDailyChallenges = updateDailyChallenges;
 
+// Query to update the intensity of the workout intensity
 const updateUserIntensity = function (data) {
 	return db
 		.query(`UPDATE users SET intensity = $1 WHERE id = $2;`, [`${data}`, 1])
