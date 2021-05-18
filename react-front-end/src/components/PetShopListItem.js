@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
+    color: "white"
 	},
 	footer: {
 		display: "flex",
