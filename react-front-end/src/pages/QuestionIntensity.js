@@ -20,7 +20,6 @@ import QuestionsContext from "../components/QuestionsContext";
 import useStyles from "../components/styles/QuestionsFormUseStyles"
 
 
-
 export default function QuestionIntensity({ formData, setForm, navigation, dailyChallengesState }) {
 
 const { intensity } = formData;
@@ -45,7 +44,7 @@ return (
 
     <div className={classes.buttonContainer}>
       <Button 
-        className={classes.button}
+        className={classes.backButton}
         color="secondary"
         variant="contained"
         onClick={() => navigation.previous()}

@@ -61,7 +61,7 @@ export default function ChallengeAlert(props) {
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={handleClose} color="primary">
+					<Button onClick={handleClose} color="secondary">
 						Maybe Later
 					</Button>
 

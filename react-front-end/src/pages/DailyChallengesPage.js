@@ -60,7 +60,7 @@ export default function DailyChallengesPage(props) {
 					<PageAlert
 						title="Daily Goals Complete!"
 						message={`Congratulations, you have earned ${state.DailyChallenges[0].coins} coins!`}
-						buttonMessage="Accept!"
+						buttonMessage="Collect Coins"
 						function={taskcompleted}
 						coins={state.DailyChallenges[0].coins}
 					/>

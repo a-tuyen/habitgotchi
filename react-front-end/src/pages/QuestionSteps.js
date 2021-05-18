@@ -45,7 +45,7 @@ export default function QuestionSteps({ formData, setForm, navigation }) {
 				helperText={!goalerror ? "" : "Please enter only numbers"}
 			/>
 			<div className={classes.buttonContainer}>
-			<Button
+			<Button className={classes.button}
 				variant="contained"
 				color="primary"
 				onClick={validate}

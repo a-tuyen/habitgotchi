@@ -24,6 +24,29 @@ import useStatData from "../hooks/useStatData";
 import ChallengeAlert from "./ChallengeAlert";
 import ScrollTop from "react-scrolltop-button";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+
+
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+	// palette: {
+	// 	primary: {
+	// 		main: "#3f51b5",
+	// 	},
+  //   third: {
+	// 		main: "#20B2AA",
+	// 	}
+	// },
+	typography: {
+		fontFamily: [
+			"Quicksand",
+			"Montserrat",
+		].join(","),
+
+	},
+	h2: "Quicksand",
+
+});
 export default function App() {
 	const {
 		state,
@@ -52,12 +75,14 @@ export default function App() {
 	return (
 		<Fragment>
 			<Router>
+				<ThemeProvider theme={theme}>
 				<ChallengeAlert
 					state={state}
 					acceptChallenge={acceptChallenge}
 					trigger={trigger}
 					SetTrigger={SetTrigger}
 				/>
+				</ThemeProvider>
 				<Switch>
 					<Route exact path="/" component={LandingPage}>
 						<LandingPage />
@@ -72,13 +97,17 @@ export default function App() {
 					</Route>
 					<Route exact path="/mypetinventory" component={InventoryPage}>
 						<SelectContext.Provider value={selectdigitalpet}>
+						<ThemeProvider theme={theme}>
 							<InventoryPage myPetInventory={state.MyPetInventory} />
+							</ThemeProvider>
 						</SelectContext.Provider>
 					</Route>
 
 					<Route exact path="/questionsform" component={QuestionsForm}>
 						<QuestionsContext.Provider value={updateDailyChall}>
+						<ThemeProvider theme={theme}>
 							<QuestionsForm />
+							</ThemeProvider>
 						</QuestionsContext.Provider>
 					</Route>
 					<Route exact path="/questionactive" component={QuestionActiveMin}>
@@ -87,16 +116,20 @@ export default function App() {
 
 					<Route exact path="/dailychallenges" component={DailyChallengesPage}>
 						<ChallengeContext.Provider value={challengeContext}>
+						<ThemeProvider theme={theme}>
 							<DailyChallengesPage />
+							</ThemeProvider>
 						</ChallengeContext.Provider>
 					</Route>
 
 					<Route exact path="/petshop" component={PetShopPage}>
 						<BuyContext.Provider value={buydigitalpet}>
+						<ThemeProvider theme={theme}>
 							<PetShopPage
 								PetInventory={state.PetShop}
 								coins={state.balanceCoins}
 							></PetShopPage>
+							</ThemeProvider>
 						</BuyContext.Provider>
 					</Route>
 				</Switch>
@@ -108,7 +141,7 @@ export default function App() {
 				style={{ backgroundColor: "#3f51b5", color: "white", border: "none" }}
 				// className="scroll-your-role"
 				speed={1000}
-				target={75}
+				target={0}
 				icon={<KeyboardArrowUpIcon />}
 			/>
 		</Fragment>
