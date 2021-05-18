@@ -47,8 +47,12 @@ export default function ChallengeAlert(props) {
 						{getUserChallenges(userChallenges)}
 					</DialogContentText>
 				</DialogContent>
-				<DialogActions>
-					<Button onClick={handleClose} color="secondary">
+				<DialogActions
+					style={{ justifyContent: "space-between" }}
+					>
+					<Button
+					onClick={handleClose}
+					color="secondary">
 						Maybe Later
 					</Button>
 

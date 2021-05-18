@@ -22,7 +22,7 @@ Questionnaire
 ## Setup
 
 1. Open two terminal window/tabs 
-2. In one terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:3000` in your browser.
+2. In one terminal, `cd` into `react-front-end`. Run `npm install` or `yarn add` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:3000` in your browser.
 3. In the other terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn start` to launch the server.
 4. To set up the database, create an `.env` file in the `express-back-end` folder by copying the `.env.example` file. Put in the URL from ElephantSQL. 
 5. Congratulations, you've set up HabitGotchi! 

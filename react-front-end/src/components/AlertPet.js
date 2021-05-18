@@ -41,7 +41,10 @@ export default function Alert(props) {
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={handleClose} color="primary" autoFocus>
+					<Button
+					onClick={handleClose}
+					color="primary"
+					autoFocus>
 						{props.buttonMessage}
 					</Button>
 				</DialogActions>

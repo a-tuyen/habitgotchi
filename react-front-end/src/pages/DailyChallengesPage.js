@@ -81,7 +81,12 @@ export default function DailyChallengesPage(props) {
 						name="step_goal"
 						readOnly
 					></input>
-					<label htmlFor="step_goal">Do {item[0].step_goal} Steps</label>
+					<label 
+					style={{ paddingLeft: "0.75em"}}
+					htmlFor="step_goal"
+					>
+						Do {item[0].step_goal} Steps
+					</label>
 					<br></br>
 					<input
 						checked={status.water >= item[0].water_goal ? "checked" : ""}
@@ -90,7 +95,10 @@ export default function DailyChallengesPage(props) {
 						name="water_goal"
 						readOnly
 					></input>
-					<label htmlFor="water_goal">
+					<label
+					style={{ paddingLeft: "0.75em"}}
+					htmlFor="water_goal"
+					>
 						Drink {item[0].water_goal} cups of water
 					</label>
 					<br></br>
@@ -103,7 +111,10 @@ export default function DailyChallengesPage(props) {
 						name="active_min_goal"
 						readOnly
 					></input>
-					<label htmlFor="active_min_goal">
+					<label
+					style={{ paddingLeft: "0.75em"}}
+					htmlFor="active_min_goal"
+					>
 						Complete {item[0].active_min_goal} Active Minutes
 					</label>
 					<br></br>

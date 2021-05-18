@@ -31,8 +31,10 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 const theme = createMuiTheme({
 	typography: {
 		fontFamily: ["Quicksand", "Montserrat"].join(","),
+		fontWeightRegular: 600,
+		fontWeightBold: 700
 	},
-	h2: "Quicksand",
+	
 });
 export default function App() {
 	const {
