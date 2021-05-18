@@ -8,19 +8,19 @@ import useStyles from "../components/styles/QuestionsFormUseStyles";
 
 export default function QuestionSteps({ formData, setForm, navigation }) {
 	const { steps_goal } = formData;
-	const [goalerror, SetError] = useState(0);
+	const [goalerror, SetError] = useState(false);
 	function validate() {
 		if (parseInt(steps_goal)) {
 			navigation.next();
 		} else {
-			SetError(1);
+			SetError(true);
 		}
 	}
 
 	const classes = useStyles();
 
 	return (
-		<Container maxWidth="s">
+		<Container maxWidth="sm">
 			<Nav />
 			<h3 className={classes.question}>What is your step goal for each day?</h3>
 			<TextField

@@ -7,19 +7,19 @@ import useStyles from "../components/styles/QuestionsFormUseStyles";
 
 export default function QuestionActiveMin({ formData, setForm, navigation }) {
 	const { active_min_goal } = formData;
-	const [goalerror, SetError] = useState(0);
+	const [goalerror, SetError] = useState(false);
 	function validate() {
 		if (parseInt(active_min_goal)) {
 			navigation.next();
 		} else {
-			SetError(1);
+			SetError(true);
 		}
 	}
 
 	const classes = useStyles();
 
 	return (
-		<Container maxWidth="s">
+		<Container maxWidth="sm">
 			<Nav />
 			<h3 className={classes.question}>
 				How many Active Minutes are you aiming to complete each day?

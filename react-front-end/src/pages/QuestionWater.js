@@ -7,19 +7,19 @@ import useStyles from "../components/styles/QuestionsFormUseStyles";
 
 export default function QuestionWater({ formData, setForm, navigation }) {
 	const { water_goal } = formData;
-	const [goalerror, SetError] = useState(0);
+	const [goalerror, SetError] = useState(false);
 	function validate() {
 		if (parseInt(water_goal)) {
 			navigation.next();
 		} else {
-			SetError(1);
+			SetError(true);
 		}
 	}
 
 	const classes = useStyles();
 
 	return (
-		<Container maxWidth="s">
+		<Container maxWidth="sm">
 			<Nav />
 			<h3 className={classes.question}>
 				How many cups of water are you aiming to drink a day?
