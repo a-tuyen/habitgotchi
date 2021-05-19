@@ -8,12 +8,10 @@ Need help following your health and fitness goals? Well, Habitgotchi is here! Co
 * View your current stats on the dashboard (and also see your lovable pet)
 
 ## App Preview
-(screenshots here)
-Homepage
-PetShop
-Challenge
-Questionnaire
 
+!["View of the Habitgotchi App Dashboard](https://github.com/a-tuyen/habitgotchi/blob/master/docs/HabitGotchi-HomeMockup.png?raw=true)
+
+!["View of the Daily Goals Page, Pet Shop and Questionnaire"](https://github.com/a-tuyen/habitgotchi/blob/master/docs/HabitGotchi-AppPreview.png?raw=true)
 
 ## Tech Stack
 * Front-end: React, Axios, SASS,  Material UI
