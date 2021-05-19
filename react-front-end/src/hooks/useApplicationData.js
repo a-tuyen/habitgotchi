@@ -43,7 +43,7 @@ export default function useApplicationData() {
 	}, []);
 
 	function buydigitalpet(itemcoins, id) {
-		if (itemcoins < parseInt(state.balanceCoins)) {
+		if (itemcoins <= parseInt(state.balanceCoins)) {
 			const balanceCoins = state.balanceCoins - itemcoins;
 			const PetShop = [...state.PetShop];
 			const Pet = { ...state.PetShop[id - 1], purchased: true };
