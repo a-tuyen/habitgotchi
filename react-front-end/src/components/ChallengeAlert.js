@@ -38,6 +38,7 @@ export default function ChallengeAlert(props) {
 				onClose={handleClose}
 				aria-labelledby="alert-dialog-title"
 				aria-describedby="alert-dialog-description"
+				disableBackdropClick="true"
 			>
 				<DialogTitle id="alert-dialog-title">
 					{"Incoming Challenge!"}

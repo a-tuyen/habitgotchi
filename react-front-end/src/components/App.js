@@ -58,7 +58,7 @@ export default function App() {
 	useEffect(() => {
 		setTimeout(() => {
 			SetTrigger(true);
-		}, 150000);
+		}, 145000);
 	}, []);
 
 	return (
