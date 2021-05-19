@@ -49,6 +49,7 @@ export default function QuestionIntensity({
 						onChange={setForm}
 					/>
 				</RadioGroup>
+				<h3>Your chosen intensity will be used select your bonus challenges</h3>
 			</FormControl>
 
 			<div className={classes.buttonContainer}>

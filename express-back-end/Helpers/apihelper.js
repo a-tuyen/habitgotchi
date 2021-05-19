@@ -8,14 +8,14 @@ function getCaloriesValue() {
 		if (Caloriesvalue == 2000) {
 			Caloriesvalue = 10;
 		}
-	}, 15000);
+	}, 30000);
 
 	return Caloriesvalue;
 }
 
 function getstepsValue() {
 	setInterval(() => {
-		StepsValue = StepsValue + 52;
+		StepsValue = StepsValue + 500;
 		if (StepsValue == 10000) {
 			StepsValue = 100;
 		}
@@ -25,11 +25,11 @@ function getstepsValue() {
 
 function getactivemin() {
 	setInterval(() => {
-		activeMinvalue = activeMinvalue + 1;
+		activeMinvalue = activeMinvalue + 7;
 		if (activeMinvalue == 92) {
 			activeMinvalue = 92;
 		}
-	}, 15000);
+	}, 30000);
 	return activeMinvalue;
 }
 module.exports = { getstepsValue, getCaloriesValue, getactivemin };

@@ -24,7 +24,7 @@ export default function useStatData() {
 						active_min: result.data.result.active_min,
 					}))
 				);
-			}, 20000);
+			}, 70000);
 		}
 
 		return fetchData();

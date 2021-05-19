@@ -34,15 +34,15 @@ exports.getActivePet = getActivePet;
 // Function which  queries the status data
 const getdailyStatus = function () {
 	const calorie = getCaloriesValue();
-	const step = getstepsValue();
-	const activemin = getactivemin();
+	// const step = getstepsValue();
+	// const activemin = getactivemin();
 	return {
 		calories: calorie,
 		sleep: 7,
-		steps: step,
+		steps: 10027,
 		water: 10,
 		heart_rate: 73,
-		active_min: activemin,
+		active_min: 31,
 	};
 };
 exports.getdailyStatus = getdailyStatus;
