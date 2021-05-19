@@ -15,9 +15,5 @@ export default function MyPetlist(props) {
 		/>
 	));
 
-	return (
-		<div>
-			{List}
-		</div>
-	);
+	return <div>{List}</div>;
 }

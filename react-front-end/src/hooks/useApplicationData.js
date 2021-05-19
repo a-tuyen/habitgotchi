@@ -49,6 +49,7 @@ export default function useApplicationData() {
 			const Pet = { ...state.PetShop[id - 1], purchased: true };
 			PetShop[id - 1] = Pet;
 			const MyPetInventory = [...state.MyPetInventory];
+			Pet["pet_id"] = id;
 			MyPetInventory.push(Pet);
 			axios.put(`/api/updateShop`, { itemcoins, Pet, id }).then(() =>
 				setState((prev) => ({

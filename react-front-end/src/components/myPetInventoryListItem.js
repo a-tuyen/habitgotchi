@@ -44,7 +44,6 @@ export default function MyPetInventoryListItem(props) {
 			<Button
 				className={classes.button}
 				variant="contained"
-				Disabled={props.Active ? true : false}
 				color="primary"
 				onClick={() => {
 					selectdigitalpet(props.id);
