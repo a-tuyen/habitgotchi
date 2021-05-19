@@ -50,6 +50,7 @@ export default function LandingPage(props) {
 									color: "white",
 									fontSize: "30px",
 									fontFamily: "Quicksand",
+									fontWeight: 700
 								}}
 							>
 								{" "}
