@@ -56,7 +56,7 @@ Express Back-end:
 
 ## Credits
 
-This project used a React and Express boilerplate created by @NimaBoscarino ([React Rails Boilerplate](https://github.com/NimaBoscarino/react-rails-boilerplate))
+This project used a [React and Express Boilerplate](https://github.com/garrettgsb/react-express-boilerplate) created by Garrett Brick.
 
 
 
