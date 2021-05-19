@@ -14,10 +14,8 @@ export default function QuestionIntensity({
 	formData,
 	setForm,
 	navigation,
-	dailyChallengesState,
 }) {
 	const { intensity } = formData;
-	console.log("formData:", formData);
 
 	const classes = useStyles();
 
