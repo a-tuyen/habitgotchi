@@ -5,9 +5,7 @@
 	justify-content: center;
 	flex-grow: 1;
 	height: 72px;
-  // background-color: $primary-color !important;
   background-color: #416ec2 !important;
-
   width: 100% !important;
 }
 
@@ -15,25 +13,21 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-  // border: black solid 5px;
 
   .app-name {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     align-content: center;
-    // border: red solid 5px;
   }
   
   .app-logo {
     margin-top: 30px;
     margin-right: 0.25rem ;
-    // border: blue solid 1px;
   }
 }
 p {
-  // font-family: $heading-font;
-  // color: white;
+
   font-size: 24;
   font-weight: $bold;
   margin: 0;

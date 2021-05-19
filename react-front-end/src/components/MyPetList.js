@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/mypetlist.scss";
+
 import MyPetInventoryListItem from "./myPetInventoryListItem";
 
 // Petlist Component which lists Pets

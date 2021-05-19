@@ -1,6 +1,5 @@
 import React from "react";
 
-import "./styles/mypetlist.scss";
 
 import PetShopListItem from "./PetShopListItem";
 
