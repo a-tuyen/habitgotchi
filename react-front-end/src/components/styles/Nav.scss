@@ -5,8 +5,7 @@
 	justify-content: center;
 	flex-grow: 1;
 	height: 72px;
-  background-color: #416ec2 !important;
-  width: 100% !important;
+  width: 100%;
 }
 
 .nav-bar--container {
@@ -26,8 +25,8 @@
     margin-right: 0.25rem ;
   }
 }
-p {
 
+p {
   font-size: 24;
   font-weight: $bold;
   margin: 0;

@@ -9,7 +9,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 //Stylesheet
 import "./styles/Nav.scss";
-// import DashboardPage from "../pages/DashboardPage";
 
 export default function Nav() {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,7 +23,9 @@ export default function Nav() {
 
 	return (
 		<AppBar position="fixed" className="nav-bar">
-			<Toolbar className="nav-bar--container">
+			<Toolbar 
+				style={{backgroundColor: "#416ec2"}}
+				className="nav-bar--container">
 				<span className="app-name">
 					<h3>
 						<Link
@@ -43,7 +44,6 @@ export default function Nav() {
 							HabitGotchi
 						</Link>
 					</h3>
-					{/* <Typography variant="h3">HabitGotchi</Typography> */}
 				</span>
 				<Button
 					aria-controls="simple-menu"

@@ -41,7 +41,9 @@ export default function LandingPage(props) {
 	return (
 		<>
 			<AppBar position="fixed" className="nav-bar">
-				<Toolbar className="nav-bar--container">
+				<Toolbar
+					style={{backgroundColor: "#416ec2"}}
+					className="nav-bar--container">
 					<span className="app-name">
 						<h3>
 							<Link
@@ -50,6 +52,7 @@ export default function LandingPage(props) {
 									color: "white",
 									fontSize: "30px",
 									fontFamily: "Quicksand",
+									fontWeight: "700",
 								}}
 							>
 								{" "}
