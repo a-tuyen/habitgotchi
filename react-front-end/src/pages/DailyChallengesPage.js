@@ -71,7 +71,6 @@ export default function DailyChallengesPage(props) {
 
 	const getChallenges = (item) => {
 		if (item.length) {
-			// return data.map((item) => {
 			return (
 				<form method="POST" action="/">
 					<input
@@ -123,7 +122,6 @@ export default function DailyChallengesPage(props) {
 					{areAllChecked()}
 				</form>
 			);
-			// });
 		}
 	};
 

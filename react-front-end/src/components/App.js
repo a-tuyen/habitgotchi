@@ -128,7 +128,6 @@ export default function App() {
 				distance={100}
 				breakpoint={768}
 				style={{ backgroundColor: "#3f51b5", color: "white", border: "none" }}
-				// className="scroll-your-role"
 				speed={1000}
 				target={0}
 				icon={<KeyboardArrowUpIcon />}

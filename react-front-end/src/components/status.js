@@ -1,10 +1,33 @@
 import React from "react";
 import { Fragment } from "react";
 import Card from "@material-ui/core/Card";
+import { makeStyles } from "@material-ui/core/styles";
 
-import "./styles/status.scss";
+const useStyles = makeStyles((theme) => ({
+statCard: {
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	flexDirection: "column",
+	height: "7rem",
+	padding: "2rem",
+	borderRadius: "2rem",
+},
+
+statCardText: {
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	textAlign: "center",
+
+}
+
+}));
 
 export default function Status(props) {
+
+	const classes = useStyles();
+
 	const string =
 		" " +
 		(props.walk ||
@@ -15,7 +38,7 @@ export default function Status(props) {
 			props.active_min);
 	return (
 		<Fragment>
-			<Card className="stat-card">
+			<Card className={classes.statCard}>
 				{props.water && (
 					<img
 						src="https://img.icons8.com/cotton/50/000000/water-glass.png"
@@ -52,7 +75,7 @@ export default function Status(props) {
 						alt=""
 					/>
 				)}
-				<h3 className="stat-card-text">
+				<h3 className={classes.statCardText}>
 					{props.value}
 					{string}
 				</h3>

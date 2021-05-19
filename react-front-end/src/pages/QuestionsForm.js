@@ -27,8 +27,8 @@ export default function QuestionsForm() {
 		initialStep: 0,
 	});
 
-	const dailyChallengesState = useContext(ChallengeContext);
-	const props = { formData, setForm, navigation, dailyChallengesState };
+
+	const props = { formData, setForm, navigation};
 
 	switch (step.id) {
 		case "steps_goal":

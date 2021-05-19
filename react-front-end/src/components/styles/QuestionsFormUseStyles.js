@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1rem",
     display: "flex",
     justifyContent: "flex-end",
-    // marginRight: "0rem"
   },
 
   backButton: {
