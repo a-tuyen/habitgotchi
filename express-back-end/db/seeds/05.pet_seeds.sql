@@ -20,4 +20,4 @@ VALUES (TRUE, 1, 1);
 INSERT INTO my_pets (isActive, pet_id, user_id)
 VALUES (FALSE, 2, 1);
 INSERT INTO my_pets (isActive, pet_id, user_id)
-VALUES(false, 3, 1);
+VALUES(FALSE, 3, 1);
