@@ -9,7 +9,6 @@ function getCaloriesValue() {
 			Caloriesvalue = 10;
 		}
 	}, 30000);
-
 	return Caloriesvalue;
 }
 
